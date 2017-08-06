@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ProductFlatFile="http://www.example.org/ProductFlatFile" xmlns:dataformat="http://ns.tibco.com/bw/palette/dataformat" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_y6STsXr7EeebHIpTqP10Ig" name="showcase_basic.module.FlatFileDataFormatResource" type="dataformat:DataFormat">
+  <imports xmi:id="_4q61kHr7EeebHIpTqP10Ig" importType="http://www.w3.org/2001/XMLSchema" location="../../../Schemas/Product.xsd" namespace="http://www.example.org/Product"/>
+  <imports xmi:id="_fhlHsHr9EeebHIpTqP10Ig" importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.example.org/ProductFlatFile"/>
+  <jndi:configuration xsi:type="dataformat:DataFormat" xmi:id="_y6STsnr7EeebHIpTqP10Ig" formatType="Delimiter separated" colSeparator="," colSeparatorParseRule="Treat all characters as entered as a single column separator string" lineSeparator="New Line" fillCharacter="Space" schemaElementQName="ProductFlatFile:Product" fieldOffsetsStr="productId(0,0)&#xA;name(0,0)&#xA;description(0,0)&#xA;brand(0,0)&#xA;manufacturer(0,0)">
+    <fieldOffsets xmi:id="_4svagHr7EeebHIpTqP10Ig" name="productId"/>
+    <fieldOffsets xmi:id="_4svagXr7EeebHIpTqP10Ig" name="name"/>
+    <fieldOffsets xmi:id="_4svagnr7EeebHIpTqP10Ig" name="description"/>
+    <fieldOffsets xmi:id="_4svag3r7EeebHIpTqP10Ig" name="brand"/>
+    <fieldOffsets xmi:id="_4svahHr7EeebHIpTqP10Ig" name="manufacturer"/>
+  </jndi:configuration>
+</jndi:namedResource>

@@ -17,7 +17,8 @@
     xmlns:sca-bpel="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"
     xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
     xmlns:tibprop="http://ns.tibco.com/bw/property"
-    xmlns:tns="http://xmlns.example.com/Product/parameters" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    xmlns:tns="http://xmlns.example.com/Product/parameters"
+    xmlns:tns0="http://www.example.org/Product" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <tibex:Types>
         <xs:schema attributeFormDefault="unqualified"
             elementFormDefault="qualified"
@@ -422,7 +423,7 @@
             <wsdl:portType name="product"
                 tibex:bw.rest.apipath="/product/{productId}"
                 tibex:bw.rest.basepath="Product"
-                tibex:bw.rest.resource="Service Descriptors/showcase_basic.module.Product_Resource_Rest-Product.json"
+                tibex:bw.rest.resource="Service Descriptors/showcase_basic.module.services.Product_Resource_Rest-Product.json"
                 tibex:bw.rest.resource.source="generated" tibex:source="bw.rest.service">
                 <wsdl:documentation>Product Service</wsdl:documentation>
                 <wsdl:operation name="get">
@@ -1284,9 +1285,10 @@
                 points="[0, 25, -177, -177]$[0, 202, -177, 0]$[153, 202, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
     </notation:Diagram>
-    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.example.org/Product"/>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://tns.tibco.com/bw/REST"/>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://xmlns.example.com/Product/parameters"/>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema"
+        location="../../../../Schemas/Product.xsd" namespace="http://www.example.org/Product"/>
     <bpws:partnerLinks>
         <bpws:partnerLink myRole="use" name="product"
             partnerLinkType="ns:partnerLinkType" sca-bpel:ignore="false" sca-bpel:service="product"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:extns="http://www.example.org/Product" xmlns:tns="http://schema.tibco.com/schema/product" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://schema.tibco.com/schema/product">
-    <import namespace="http://www.example.org/Product"/>
+    <import namespace="http://www.example.org/Product" schemaLocation="Product.xsd"/>
     <element name="getProductRequest">
     <complexType>
       <sequence>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/ProductFlatFile"
+	xmlns:tns="http://www.example.org/ProductFlatFile" elementFormDefault="qualified">
+	<element name="Product">
+		<complexType>
+			<sequence>
+			<element name="productId" type="string"/>
+			<element name="name" type="string"/>
+			<element name="description" type="string"/>
+			<element name="brand" type="string"/>
+			<element name="manufacturer" type="string"/>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

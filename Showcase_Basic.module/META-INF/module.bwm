@@ -99,4 +99,7 @@
   <sca:component xmi:id="_NLe7IHryEeebHIpTqP10Ig" name="ComponentXML_2_XML_Map" compositeext:version="1.0.0.qualifier">
     <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_NLe7IXryEeebHIpTqP10Ig" processName="showcase_basic.module.mapping.XML_2_XML_Map"/>
   </sca:component>
+  <sca:component xmi:id="_LYoLgHr0EeebHIpTqP10Ig" name="ComponentXML_2_Flat" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_LYoLgXr0EeebHIpTqP10Ig" processName="showcase_basic.module.mapping.XML_2_Flat"/>
+  </sca:component>
 </sca:composite>
