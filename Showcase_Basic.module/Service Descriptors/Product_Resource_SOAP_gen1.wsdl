@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:ns="http://service.tibco.com/product/wsdl/1502044858829" xmlns:ns0="http://www.example.org/Product" xmlns:ns01="http://schema.tibco.com/schema/product" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Product_Resource_SOAP" targetNamespace="http://service.tibco.com/product/wsdl/1502044858829">
+  <wsdl:types>
+    <xsd:schema xmlns:tns="http://www.example.org/Product" elementFormDefault="qualified" targetNamespace="http://www.example.org/Product">
+      <xsd:complexType name="ProductType">
+        <xsd:sequence>
+          <xsd:element name="productId" type="xsd:string"/>
+          <xsd:element name="name" type="xsd:string"/>
+          <xsd:element name="description" type="xsd:string"/>
+          <xsd:element name="brand" type="xsd:string"/>
+          <xsd:element name="manufacturer" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProductsType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="Product" type="tns:ProductType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Product" type="tns:ProductType"/>
+      <xsd:element name="Products" type="tns:ProductsType"/>
+    </xsd:schema>
+    <xsd:schema xmlns:extns="http://www.example.org/Product" xmlns:tns="http://schema.tibco.com/schema/product" elementFormDefault="unqualified" targetNamespace="http://schema.tibco.com/schema/product">
+      <xsd:import namespace="http://www.example.org/Product"/>
+      <xsd:element name="getProductRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="pId" type="xsd:integer"/>
+            <xsd:element name="type" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getProductResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Product" type="extns:ProductType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getProductFault">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="fault" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getProductRequest">
+    <wsdl:part element="ns01:getProductRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getProductResponse">
+    <wsdl:part element="ns01:getProductResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getProductFault">
+    <wsdl:part element="ns01:getProductFault" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="Product_Resource_SOAP">
+    <wsdl:operation name="getProduct">
+      <wsdl:input message="ns:getProductRequest" name="getProductInput"/>
+      <wsdl:output message="ns:getProductResponse" name="getProductOutput"/>
+      <wsdl:fault message="ns:getProductFault" name="Fault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SOAPServiceBinding" type="ns:Product_Resource_SOAP">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getProduct">
+      <soap:operation soapAction="getProduct" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Fault">
+        <soap:fault name="Fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Product_Resource_SOAP">
+    <wsdl:port binding="ns:SOAPServiceBinding" name="Product_Resource_SOAPSOAP">
+      <soap:address location="http://localhost:8675/SOAPServiceBinding/product_Resource_SOAP/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
