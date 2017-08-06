@@ -1,0 +1,65 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "Product Service",
+    "description" : "Product Service"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/product/{productId}" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "get-product",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "productId",
+          "in" : "path",
+          "description" : "",
+          "type" : "string",
+          "required" : true
+        }, {
+          "name" : "type",
+          "in" : "query",
+          "description" : "",
+          "type" : "string",
+          "required" : false
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a Product to be returned",
+            "schema" : {
+              "$ref" : "#/definitions/Product"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Product" : {
+      "type" : "object",
+      "required" : [ "productId", "name", "description", "brand", "manufacturer" ],
+      "properties" : {
+        "productId" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "brand" : {
+          "type" : "string"
+        },
+        "manufacturer" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

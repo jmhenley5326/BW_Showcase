@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:extns="http://www.example.org/Product" xmlns:tns="http://schema.tibco.com/schema/product" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://schema.tibco.com/schema/product">
+    <import namespace="http://www.example.org/Product"/>
+    <element name="getProductRequest">
+    <complexType>
+      <sequence>
+        <element name="pId" type="integer"/>
+                <element name="type" type="string"/>
+            </sequence>
+    </complexType>
+  </element>
+  <element name="getProductResponse">
+    <complexType>
+      <sequence>
+                <element name="Product" type="extns:ProductType"/>
+            </sequence>
+    </complexType>
+  </element>
+  <element name="getProductFault">
+    <complexType>
+      <sequence>
+        <element name="fault" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>

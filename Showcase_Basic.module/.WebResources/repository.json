@@ -1,0 +1,11 @@
+{
+    "records": [{
+        "name": "Cloud",
+        "items": [],
+        "url": "https://integration.cloud.tibco.com:443"
+    }],
+    "resources": [{
+        "location": "Service Descriptors/showcase_basic.module.services.Product_Resource_Rest-Product.json",
+        "type": "generated"
+    }]
+}

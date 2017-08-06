@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:source="bw.rest" xmlns:tns="http://xmlns.example.com/Product/parameters" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://xmlns.example.com/Product/parameters">
+  <xs:element name="productGetParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" name="productId" type="xs:string"/>
+                <xs:element maxOccurs="1" minOccurs="0" name="type" type="xs:string"/>
+            </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="productPutParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" name="productId" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="productPostParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" name="productId" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="productDeleteParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" name="productId" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="productPatchParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" name="productId" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+    <xs:element name="product-productIdGetParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" name="productId" type="xs:string"/>
+        <xs:element maxOccurs="1" minOccurs="0" name="type" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+    <xs:element name="product-productIdPutParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" name="productId" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+    <xs:element name="product-productIdPostParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" name="productId" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+    <xs:element name="product-productIdDeleteParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" name="productId" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+    <xs:element name="product-productIdPatchParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" name="productId" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:axis2="http://xsd.tns.tibco.com/bw/models/binding/soap/axis2" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:product="http://schema.tibco.com/schema/product" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmlns:wsdl_1502044858829="http://service.tibco.com/product/wsdl/1502044858829" xmi:id="_eJ8osHmEEeeQ5oGtG-Q9SA" targetNamespace="http://tns.tibco.com/bw/composite/Showcase_Basic.module" name="Showcase_Basic.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_raf78HmIEeekMKxtneY8vg" name="product" promote="ComponentProduct/product">
+    <sca:interface.wsdl xmi:id="_ralbgHmIEeekMKxtneY8vg" interface="http://xmlns.example.com/20170804214919PLT#wsdl.interface(product)" scaext:wsdlLocation="../Processes/showcase_basic/module/Product.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_rat-YHmIEeekMKxtneY8vg" name="RestService" path="/product/{productId}?type={type}" docBasePath="http://localhost:7777/Showcase_Basic.module" docResourcePath="Product" basePath="/" connector="showcase_basic.module.Product" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/showcase_basic.module.Product-Product.json">
+      <operation xmi:id="_raxowHmIEeekMKxtneY8vg" operationName="get" nickname="get-product" httpMethod="GET" responseStyle="element" requestStyle="element">
+        <parameters xmi:id="_WQ-28Hq5EeeTwNfnrC3G1g">
+          <parameterMapping xmi:id="_WQ-28Xq5EeeTwNfnrC3G1g" parameterName="type" parameterType="Query" dataType="string"/>
+        </parameters>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_ZxrWgHq5EeeTwNfnrC3G1g">
+        <parameterMapping xmi:id="_ZxrWgXq5EeeTwNfnrC3G1g" parameterName="productId" parameterType="Path" dataType="string" required="true"/>
+      </parameters>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_raxowXmIEeekMKxtneY8vg" bindingName="RestService"/>
+  </sca:service>
+  <sca:service xmi:id="__m6XIHrWEeebHIpTqP10Ig" name="Product_Resource_SOAP" promote="ComponentProduct_Resource_SOAP/Product_Resource_SOAP">
+    <sca:interface.wsdl xmi:id="__nAdwHrWEeebHIpTqP10Ig" interface="http://service.tibco.com/product/wsdl/1502044858829#wsdl.interface(Product_Resource_SOAP)" scaext:wsdlLocation="../Service%20Descriptors/Product_Resource_SOAP.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_guK2cHrYEeebHIpTqP10Ig" name="SOAPServiceBinding" targetNamespace="http://www.tibco.com/051c8b9eef8647998046badd14639b73/SOAPServiceBinding" portTypeQName="wsdl_1502044858829:Product_Resource_SOAP" transportBindingType="HTTP" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/Showcase_Basic.module/Service%20Descriptors/Product_Resource_SOAP.wsdl">
+      <bindingType xmi:id="_guXqwHrYEeebHIpTqP10Ig"/>
+      <inboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_kbCw0HrYEeebHIpTqP10Ig" endpointURI="/SOAPServiceBinding/product_Resource_SOAP/" httpConnector="showcase_basic.module.HTTPConnectorResource"/>
+      <operationConfiguration xmi:id="_gubVIHrYEeebHIpTqP10Ig" operationName="getProduct" action="getProduct" actionNeeded="true">
+        <bindingType xmi:id="_gubVIXrYEeebHIpTqP10Ig"/>
+        <messageConfiguration xmi:id="_gubVInrYEeebHIpTqP10Ig" messageQName="wsdl_1502044858829:getProductRequest" wsdlLocation="platform:/resource/Showcase_Basic.module/Service%20Descriptors/Product_Resource_SOAP.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gubVI3rYEeebHIpTqP10Ig" partName="parameters" partElementName="product:getProductRequest"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gubVJHrYEeebHIpTqP10Ig" messageQName="wsdl_1502044858829:getProductResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/Showcase_Basic.module/Service%20Descriptors/Product_Resource_SOAP.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gubVJXrYEeebHIpTqP10Ig" partName="parameters" partElementName="product:getProductResponse"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_gubVJnrYEeebHIpTqP10Ig" messageQName="wsdl_1502044858829:getProductFault" messageDirection="FAULT" action="Fault" wsdlLocation="platform:/resource/Showcase_Basic.module/Service%20Descriptors/Product_Resource_SOAP.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_gubVJ3rYEeebHIpTqP10Ig" partName="parameters" partElementName="product:getProductFault"/>
+        </messageConfiguration>
+        <context xmi:id="_gub8MHrYEeebHIpTqP10Ig">
+          <inputMapping xmi:id="_gucjQHrYEeebHIpTqP10Ig"/>
+          <outputMapping xmi:id="_gucjQXrYEeebHIpTqP10Ig" direction="OUTPUT"/>
+          <faultMappings xmi:id="_gucjQnrYEeebHIpTqP10Ig" direction="FAULT" faultName="Fault"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_gucjQ3rYEeebHIpTqP10Ig" bindingName="SOAPServiceBinding"/>
+  </sca:service>
+  <sca:property xmi:id="_esSgwHmEEeeQ5oGtG-Q9SA" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_esackHmEEeeQ5oGtG-Q9SA" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_esdf4HmEEeeQ5oGtG-Q9SA" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_esf8IHmEEeeQ5oGtG-Q9SA" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_esi_cHmEEeeQ5oGtG-Q9SA" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_eslbsHmEEeeQ5oGtG-Q9SA" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_esn38HmEEeeQ5oGtG-Q9SA" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_esqUMHmEEeeQ5oGtG-Q9SA" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_estXgHmEEeeQ5oGtG-Q9SA" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:component xmi:id="_raYAIHmIEeekMKxtneY8vg" name="ComponentProduct" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_raYAIXmIEeekMKxtneY8vg" processName="showcase_basic.module.services.Product_Resource_Rest"/>
+    <sca:service xmi:id="_racRkHmIEeekMKxtneY8vg" name="product">
+      <sca:interface.wsdl xmi:id="_radfsHmIEeekMKxtneY8vg" interface="http://xmlns.example.com/20170804214919PLT#wsdl.interface(product)" scaext:wsdlLocation="../Processes/showcase_basic/module/Product.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_xHuJsHrWEeebHIpTqP10Ig" name="ComponentProduct_Resource_SOAP" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_xHuJsXrWEeebHIpTqP10Ig" processName="showcase_basic.module.services.Product_Resource_SOAP"/>
+    <sca:service xmi:id="__m2swHrWEeebHIpTqP10Ig" name="Product_Resource_SOAP">
+      <sca:interface.wsdl xmi:id="__m3T0HrWEeebHIpTqP10Ig" interface="http://service.tibco.com/product/wsdl/1502044858829#wsdl.interface(Product_Resource_SOAP)" scaext:wsdlLocation="../Service%20Descriptors/Product_Resource_SOAP.wsdl"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_cVO4kHreEeebHIpTqP10Ig" name="ComponentInvoke_Product_Resource_Rest" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_cVO4kXreEeebHIpTqP10Ig" processName="showcase_basic.module.consumers.Invoke_Product_Resource_Rest"/>
+  </sca:component>
+</sca:composite>

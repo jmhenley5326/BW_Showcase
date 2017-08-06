@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="/T1502048217506Converted/JsonSchema" xmlns:tns="/T1502048217506Converted/JsonSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Product" type="tns:Product"/>
+    <xs:complexType name="Product">
+        <xs:sequence>
+            <xs:element name="productId" type="xs:string"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="brand" type="xs:string"/>
+            <xs:element name="manufacturer" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
