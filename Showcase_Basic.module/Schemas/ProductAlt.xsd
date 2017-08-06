@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/ProductAlt"
+	xmlns:tns="http://www.example.org/ProductAlt" elementFormDefault="qualified">
+	<complexType name="ProductAltType">
+		<sequence>
+			<element name="id" type="int"/>
+			<element name="name" type="string"/>
+			<element name="metaData" type="tns:ProductMetaDataType"/>
+		</sequence>
+	</complexType>
+	<complexType name="ProductMetaDataType">
+		<sequence>
+			<element name="description" type="string" />
+			<element name="brand" type="string" />
+			<element name="manufacturer" type="string" />
+		</sequence>
+	</complexType>
+	<element name="ProductAlt" type="tns:ProductAltType"/>
+</schema>

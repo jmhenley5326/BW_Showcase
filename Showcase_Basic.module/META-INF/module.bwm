@@ -96,4 +96,7 @@
       <sca:interface.wsdl xmi:id="_mMjBUXrxEeebHIpTqP10Ig" interface="http://service.tibco.com/product/wsdl/1502044858829#wsdl.interface(Product_Resource_SOAP)" scaext:wsdlLocation="../Service%20Descriptors/Product_Resource_SOAP_gen1.wsdl"/>
     </sca:reference>
   </sca:component>
+  <sca:component xmi:id="_NLe7IHryEeebHIpTqP10Ig" name="ComponentXML_2_XML_Map" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_NLe7IXryEeebHIpTqP10Ig" processName="showcase_basic.module.mapping.XML_2_XML_Map"/>
+  </sca:component>
 </sca:composite>
