@@ -41,6 +41,20 @@
     </scaext:binding>
     <scact:bindingAdjunct xmi:id="_gucjQ3rYEeebHIpTqP10Ig" bindingName="SOAPServiceBinding"/>
   </sca:service>
+  <sca:service xmi:id="_IWnMwHuIEeeh-IyihRbMKA" name="choreography_showcase" promote="ComponentChoreography_Showcase/choreography_showcase">
+    <sca:interface.wsdl xmi:id="_IWtTYHuIEeeh-IyihRbMKA" interface="http://xmlns.example.com/20170807105026PLT#wsdl.interface(choreography_showcase)" scaext:wsdlLocation="../Processes/showcase_basic/module/choreography/Choreography_Showcase.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_IWzaAHuIEeeh-IyihRbMKA" name="RestService1" path="/choreography_showcase?email={email}" docBasePath="http://localhost:7777/Showcase_Basic.module" docResourcePath="Choreography_Showcase" basePath="/" connector="showcase_basic.module.HTTPConnectorResource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/showcase_basic.module.choreography.Choreography_Showcase-Choreography_Showcase.json">
+      <operation xmi:id="_IW0BEHuIEeeh-IyihRbMKA" operationName="get" nickname="get-choreography_showcase" httpMethod="GET" responseStyle="element">
+        <parameters xmi:id="_LknwIHukEeemkLhH-nd-iQ">
+          <parameterMapping xmi:id="_LknwIXukEeemkLhH-nd-iQ" parameterName="email" parameterType="Query"/>
+        </parameters>
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_LknwInukEeemkLhH-nd-iQ"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_IW0BEXuIEeeh-IyihRbMKA" bindingName="RestService1"/>
+  </sca:service>
   <sca:reference xmi:id="_mMjBUnrxEeebHIpTqP10Ig" multiplicity="0..1" name="Product_Resource_SOAP" wiredByImpl="false" promote="ComponentInvoke_Product_Resource_SOAP/Product_Resource_SOAP">
     <sca:interface.wsdl xmi:id="_mMjBU3rxEeebHIpTqP10Ig" interface="http://service.tibco.com/product/wsdl/1502044858829#wsdl.interface(Product_Resource_SOAP)" scaext:wsdlLocation="../Service%20Descriptors/Product_Resource_SOAP_gen1.wsdl"/>
     <scaext:binding xsi:type="axis2:SOAPReferenceBinding" xmi:id="_nrqqsHrxEeebHIpTqP10Ig" name="SOAPReferenceBinding" portTypeQName="wsdl_1502044858829:Product_Resource_SOAP" transportBindingType="HTTP" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/Showcase_Basic.module/Service%20Descriptors/Product_Resource_SOAP_gen1.wsdl" serviceQName="wsdl_1502044858829:Product_Resource_SOAP" portName="Product_Resource_SOAPSOAP" serviceBindingQName="wsdl_1502044858829:SOAPServiceBinding" locationURI="http://localhost:8675/SOAPServiceBinding/product_Resource_SOAP/" wsdlLocation="platform:/resource/Showcase_Basic.module/Service%20Descriptors/Product_Resource_SOAP_gen1.wsdl">
@@ -101,5 +115,38 @@
   </sca:component>
   <sca:component xmi:id="_LYoLgHr0EeebHIpTqP10Ig" name="ComponentXML_2_Flat" compositeext:version="1.0.0.qualifier">
     <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_LYoLgXr0EeebHIpTqP10Ig" processName="showcase_basic.module.mapping.XML_2_Flat"/>
+  </sca:component>
+  <sca:component xmi:id="_MkNAQHsUEeebHIpTqP10Ig" name="ComponentSend_JMS_Message" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_MkNAQXsUEeebHIpTqP10Ig" processName="showcase_basic.module.msg.producers.Send_JMS_Queue_Message"/>
+  </sca:component>
+  <sca:component xmi:id="_jspWUHtzEeeh-IyihRbMKA" name="ComponentReceive_JMS_Message" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_jspWUXtzEeeh-IyihRbMKA" processName="showcase_basic.module.msg.consumers.Receive_JMS_Queue_Message"/>
+  </sca:component>
+  <sca:component xmi:id="_yGFPIHt1Eeeh-IyihRbMKA" name="ComponentSend_JMS_Topic_Message" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_yGFPIXt1Eeeh-IyihRbMKA" processName="showcase_basic.module.msg.producers.Send_JMS_Topic_Message"/>
+  </sca:component>
+  <sca:component xmi:id="_OQCjcHt2Eeeh-IyihRbMKA" name="ComponentReceive_JMS_Topic_Message" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_OQCjcXt2Eeeh-IyihRbMKA" processName="showcase_basic.module.msg.consumers.Receive_JMS_Topic_Message"/>
+  </sca:component>
+  <sca:component xmi:id="_11RoQHt2Eeeh-IyihRbMKA" name="ComponentWrite_File" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_11RoQXt2Eeeh-IyihRbMKA" processName="showcase_basic.module.files.Write_File"/>
+  </sca:component>
+  <sca:component xmi:id="_FwEUMHt7Eeeh-IyihRbMKA" name="ComponentPoll_File" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_FwEUMXt7Eeeh-IyihRbMKA" processName="showcase_basic.module.files.Poll_File"/>
+  </sca:component>
+  <sca:component xmi:id="_IWhGIHuIEeeh-IyihRbMKA" name="ComponentChoreography_Showcase" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_IWhGIXuIEeeh-IyihRbMKA" processName="showcase_basic.module.choreography.Choreography_Showcase"/>
+    <sca:service xmi:id="_IWjiYHuIEeeh-IyihRbMKA" name="choreography_showcase">
+      <sca:interface.wsdl xmi:id="_IWkJcHuIEeeh-IyihRbMKA" interface="http://xmlns.example.com/20170807105026PLT#wsdl.interface(choreography_showcase)" scaext:wsdlLocation="../Processes/showcase_basic/module/choreography/Choreography_Showcase.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_DAspQHuOEeeh-IyihRbMKA" name="ComponentWait_ForFile_ParseProducts" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_DAspQXuOEeeh-IyihRbMKA" processName="showcase_basic.module.choreography.Wait_ForFile_ParseProducts"/>
+  </sca:component>
+  <sca:component xmi:id="_SowpoHuWEeeh-IyihRbMKA" name="ComponentReceive_Products_SendEmails" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_SowpoXuWEeeh-IyihRbMKA" processName="showcase_basic.module.choreography.Receive_Products_SendEmails"/>
+  </sca:component>
+  <sca:component xmi:id="_BxcJYHulEeemkLhH-nd-iQ" name="ComponentException_Handling" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_BxcJYXulEeemkLhH-nd-iQ" processName="showcase_basic.module.exception.Exception_Handling"/>
   </sca:component>
 </sca:composite>

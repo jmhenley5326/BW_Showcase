@@ -4,8 +4,14 @@
         "items": [],
         "url": "https://integration.cloud.tibco.com:443"
     }],
-    "resources": [{
-        "location": "Service Descriptors/showcase_basic.module.services.Product_Resource_Rest-Product.json",
-        "type": "generated"
-    }]
+    "resources": [
+        {
+            "location": "Service Descriptors/showcase_basic.module.services.Product_Resource_Rest-Product.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/showcase_basic.module.choreography.Choreography_Showcase-Choreography_Showcase.json",
+            "type": "generated"
+        }
+    ]
 }

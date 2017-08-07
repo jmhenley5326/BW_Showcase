@@ -3,6 +3,6 @@
   <jndi:reference xmi:id="_0uXUAHmIEeekMKxtneY8vg" key="subjectJndiName" type="subject:SubjectConfiguration" value=""/>
   <jndi:configuration xsi:type="jdbc:JdbcDataSource" xmi:id="_0uXUAXmIEeekMKxtneY8vg" username="bwce" password="#!x9Mn5VxDUN9IhmOSd3Kd32Inx2SdhV63pQuqlhNPpv8=">
     <connectionConfig xsi:type="jdbc:NonXaConnection" xmi:id="_0uYiIHmIEeekMKxtneY8vg" jdbcDriver="com.mysql.jdbc.Driver" dbURL="jdbc:mysql://localhost:3306/bwce_schema"/>
-    <connectionProperties xmi:id="_QajoYHq0EeeTwNfnrC3G1g" key="jarFile" value="mysql"/>
+    <connectionProperties xmi:id="_4dGi8HtyEeeh-IyihRbMKA" key="jarFile" value="mysql"/>
   </jndi:configuration>
 </jndi:namedResource>
