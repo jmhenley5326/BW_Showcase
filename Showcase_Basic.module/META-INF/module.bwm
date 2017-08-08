@@ -7,6 +7,7 @@
         <parameters xmi:id="_WQ-28Hq5EeeTwNfnrC3G1g">
           <parameterMapping xmi:id="_WQ-28Xq5EeeTwNfnrC3G1g" parameterName="type" parameterType="Query" dataType="string"/>
         </parameters>
+        <responseStatus xmi:id="_995JwHxpEee__MaWNJp7IA" statusCode="400" reasonPhrase="Bad Request" dataType="string"/>
         <clientFormat>json</clientFormat>
         <clientRequestFormat>json</clientRequestFormat>
       </operation>
