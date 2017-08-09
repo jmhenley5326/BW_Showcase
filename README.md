@@ -26,6 +26,8 @@ Examples of writing files and listening for file events such as create, modify a
 Very basic illustration of catching and handling exceptions within a process
 ### showcase_basic.module.choreography
 A series of processes that combine many of the basic examples and combines them into a business choreography. This also shows how to encapsulate a set of activities into a subprocess for reuse.
+### showcase_basic.module.sandbox
+Use this module to create Processes live and show how they are built
 
 ### Database Configuration
 Configure MySQL as follows:
