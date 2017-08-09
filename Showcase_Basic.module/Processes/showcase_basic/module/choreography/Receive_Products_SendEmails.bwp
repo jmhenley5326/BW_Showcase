@@ -817,8 +817,8 @@
                                     <layoutConstraint
                                     height="40"
                                     width="40"
-                                    x="-26"
-                                    xsi:type="notation:Bounds" y="48"/>
+                                    x="-54"
+                                    xsi:type="notation:Bounds" y="49"/>
                                     </children>
 
                                     <styles xsi:type="notation:DrawerStyle"/>
@@ -843,7 +843,7 @@
 
                                     <layoutConstraint
                                     height="168"
-                                    width="115" xsi:type="notation:Bounds"/>
+                                    width="92" xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
@@ -884,6 +884,48 @@
                                     x="252"
                                     xsi:type="notation:Bounds" y="95"/>
                                     </children>
+                                    <children
+                                    description="Receive each message and process it accordingly"
+                                    fillColor="13369343"
+                                    fontHeight="12"
+                                    fontName=".SF NS Text"
+                                    lineColor="6737151"
+                                    lineWidth="1"
+                                    transparency="0" type="Note" xsi:type="notation:Shape">
+                                    <children type="DiagramName" xsi:type="notation:BasicDecorationNode">
+                                    <element xsi:nil="true"/>
+                                    </children>
+                                    <children type="Description" xsi:type="notation:BasicDecorationNode">
+                                    <element xsi:nil="true"/>
+                                    </children>
+                                    <styles xsi:type="notation:TextStyle"/>
+                                    <styles xsi:type="notation:LineTypeStyle"/>
+                                    <element xsi:nil="true"/>
+                                    <layoutConstraint
+                                    width="174" x="57"
+                                    xsi:type="notation:Bounds" y="51"/>
+                                    </children>
+                                    <children
+                                    description="Here an email is sent for each message"
+                                    fillColor="13369343"
+                                    fontHeight="12"
+                                    fontName=".SF NS Text"
+                                    lineColor="6737151"
+                                    lineWidth="1"
+                                    transparency="0" type="Note" xsi:type="notation:Shape">
+                                    <children type="DiagramName" xsi:type="notation:BasicDecorationNode">
+                                    <element xsi:nil="true"/>
+                                    </children>
+                                    <children type="Description" xsi:type="notation:BasicDecorationNode">
+                                    <element xsi:nil="true"/>
+                                    </children>
+                                    <styles xsi:type="notation:TextStyle"/>
+                                    <styles xsi:type="notation:LineTypeStyle"/>
+                                    <element xsi:nil="true"/>
+                                    <layoutConstraint
+                                    width="183" x="496"
+                                    xsi:type="notation:Bounds" y="51"/>
+                                    </children>
                                     <styles xsi:type="notation:DrawerStyle"/>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
@@ -896,8 +938,8 @@
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity"/>
-                                    <layoutConstraint height="470"
-                                    width="549" xsi:type="notation:Bounds"/>
+                                    <layoutConstraint height="529"
+                                    width="700" xsi:type="notation:Bounds"/>
                                 </children>
                                 <styles xsi:type="notation:SortingStyle"/>
                                 <styles xsi:type="notation:FilteringStyle"/>
@@ -906,7 +948,7 @@
                             <styles xsi:type="bwnotation:BackgroundStyle"/>
                             <styles xsi:type="bwnotation:ResizingStyle"/>
                             <element href="//0/@process/@activity"/>
-                            <layoutConstraint height="470" width="552" xsi:type="notation:Bounds"/>
+                            <layoutConstraint height="529" width="703" xsi:type="notation:Bounds"/>
                         </children>
                         <styles xsi:type="notation:SortingStyle"/>
                         <styles xsi:type="notation:FilteringStyle"/>
@@ -916,7 +958,7 @@
                     <styles xsi:type="bwnotation:BackgroundStyle"/>
                     <styles xsi:type="bwnotation:ResizingStyle"/>
                     <element href="//0/@process/@activity"/>
-                    <layoutConstraint height="494" width="552" x="1"
+                    <layoutConstraint height="553" width="703" x="1"
                         xsi:type="notation:Bounds" y="1"/>
                 </children>
                 <styles xsi:type="notation:SortingStyle"/>
@@ -925,7 +967,7 @@
             </children>
             <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
             <element href="//0/@process"/>
-            <layoutConstraint height="546" width="894" xsi:type="notation:Bounds"/>
+            <layoutConstraint height="605" width="1045" xsi:type="notation:Bounds"/>
         </children>
         <styles xsi:type="notation:DiagramStyle"/>
         <element href="//0"/>
@@ -972,6 +1014,24 @@
             <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
             <element href="//0/@process/@activity/@activity/@activities.2/@activity/@links/@children.1"/>
             <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges lineColor="0" lineWidth="1"
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
+            type="NoteAttachment" xsi:type="notation:Connector">
+            <styles xsi:type="notation:ArrowStyle"/>
+            <styles xsi:type="notation:LineTypeStyle"/>
+            <element xsi:nil="true"/>
+            <bendpoints points="[0, 0, -57, -175]$[49, 151, -8, -24]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges lineColor="0" lineWidth="1"
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2"
+            type="NoteAttachment" xsi:type="notation:Connector">
+            <styles xsi:type="notation:ArrowStyle"/>
+            <styles xsi:type="notation:LineTypeStyle"/>
+            <element xsi:nil="true"/>
+            <bendpoints points="[0, 0, -352, -282]$[263, 210, -89, -72]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
     </notation:Diagram>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema"
@@ -1080,14 +1140,14 @@
                                 <bpws:links/>
                                 <bpws:extensionActivity>
                                     <tibex:activityExtension
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; xmlns:tns1=&quot;http://www.example.org/Product&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FaultDetails&quot;/>&lt;xsl:param name=&quot;JMSReceiveMessage&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Failed to Send Email: &amp;quot;, &amp;quot;&amp;#xD;&amp;#xA;&amp;quot;,tib:render-xml($FaultDetails/Data, true(),true()),&amp;quot;&amp;#xD;&amp;#xA;&amp;quot;,tib:render-xml($JMSReceiveMessage/Body/tns1:Product, true(),true()))&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tns1=&quot;http://www.example.org/Product&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FaultDetails&quot;/>&lt;xsl:param name=&quot;JMSReceiveMessage&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Failed to Send Email: &amp;quot;, &amp;quot;&amp;#xD;&amp;#xA;&amp;quot;,tib:render-xml($FaultDetails, true(),true()),&amp;quot;&amp;#xD;&amp;#xA;&amp;quot;,tib:render-xml($JMSReceiveMessage/Body/tns1:Product, true(),true()))&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="Log-input"
                                     name="Log"
                                     tibex:xpdlId="1a43e3ba-4065-4b1d-a160-1c6df1aa5f4e" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                                     <tibex:inputBindings>
                                     <tibex:inputBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; xmlns:tns1=&quot;http://www.example.org/Product&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FaultDetails&quot;/>&lt;xsl:param name=&quot;JMSReceiveMessage&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Failed to Send Email: &amp;quot;, &amp;quot;&amp;#xD;&amp;#xA;&amp;quot;,tib:render-xml($FaultDetails/Data, true(),true()),&amp;quot;&amp;#xD;&amp;#xA;&amp;quot;,tib:render-xml($JMSReceiveMessage/Body/tns1:Product, true(),true()))&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tns1=&quot;http://www.example.org/Product&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FaultDetails&quot;/>&lt;xsl:param name=&quot;JMSReceiveMessage&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Failed to Send Email: &amp;quot;, &amp;quot;&amp;#xD;&amp;#xA;&amp;quot;,tib:render-xml($FaultDetails, true(),true()),&amp;quot;&amp;#xD;&amp;#xA;&amp;quot;,tib:render-xml($JMSReceiveMessage/Body/tns1:Product, true(),true()))&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                     </tibex:inputBindings>
                                     <tibex:config>
                                     <bwext:BWActivity
@@ -1131,7 +1191,7 @@
                     </bpws:empty>
                     <bpws:extensionActivity>
                         <tibex:activityExtension
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/activity/sendmail/xsd/input+7f30e715-8875-41c0-80d6-70ccdd17e955+input&quot; xmlns:tns1=&quot;http://www.example.org/Product&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;JMSReceiveMessage&quot;/>&#xa;    &lt;xsl:param name=&quot;GetEmailAddresses&quot;/>&#xa;    &lt;xsl:template name=&quot;SendMail-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:mailActivityInput>&#xa;            &lt;from>&#xa;                &lt;xsl:value-of select=&quot;&amp;quot;jhenley@tibco.com&amp;quot;&quot;/>&#xa;            &lt;/from>&#xa;            &lt;to>&#xa;                &lt;xsl:value-of select=&quot;$GetEmailAddresses&quot;/>&#xa;            &lt;/to>&#xa;            &lt;bodyElement>&#xa;                &lt;bodyText>&#xa;                    &lt;xsl:value-of select=&quot;tib:render-xml($JMSReceiveMessage/Body/tns1:Product, true(), true())&quot;/>&#xa;                &lt;/bodyText>&#xa;            &lt;/bodyElement>&#xa;        &lt;/tns:mailActivityInput>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>"
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/activity/sendmail/xsd/input+7f30e715-8875-41c0-80d6-70ccdd17e955+input&quot; xmlns:tns1=&quot;http://www.example.org/Product&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;JMSReceiveMessage&quot;/>&lt;xsl:param name=&quot;GetEmailAddresses&quot;/>&lt;xsl:template name=&quot;SendMail-input&quot; match=&quot;/&quot;>&lt;tns:mailActivityInput>&lt;from>&lt;xsl:value-of select=&quot;&amp;quot;jhenley@tibco.com&amp;quot;&quot;/>&lt;/from>&lt;to>&lt;xsl:value-of select=&quot;$GetEmailAddresses&quot;/>&lt;/to>&lt;subject>&lt;xsl:value-of select=&quot;&amp;quot;TIBCO BusinessWorks Demo - Auto-generated Email&amp;quot;&quot;/>&lt;/subject>&lt;bodyElement>&lt;bodyText>&lt;xsl:value-of select=&quot;tib:render-xml($JMSReceiveMessage/Body/tns1:Product, true(), true())&quot;/>&lt;/bodyText>&lt;/bodyElement>&lt;/tns:mailActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                             expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                             inputVariable="SendMail-input"
                             name="SendMail"
@@ -1144,7 +1204,7 @@
                             </bpws:sources>
                             <tibex:inputBindings>
                                 <tibex:inputBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/activity/sendmail/xsd/input+7f30e715-8875-41c0-80d6-70ccdd17e955+input&quot; xmlns:tns1=&quot;http://www.example.org/Product&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;JMSReceiveMessage&quot;/>&#xa;    &lt;xsl:param name=&quot;GetEmailAddresses&quot;/>&#xa;    &lt;xsl:template name=&quot;SendMail-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:mailActivityInput>&#xa;            &lt;from>&#xa;                &lt;xsl:value-of select=&quot;&amp;quot;jhenley@tibco.com&amp;quot;&quot;/>&#xa;            &lt;/from>&#xa;            &lt;to>&#xa;                &lt;xsl:value-of select=&quot;$GetEmailAddresses&quot;/>&#xa;            &lt;/to>&#xa;            &lt;bodyElement>&#xa;                &lt;bodyText>&#xa;                    &lt;xsl:value-of select=&quot;tib:render-xml($JMSReceiveMessage/Body/tns1:Product, true(), true())&quot;/>&#xa;                &lt;/bodyText>&#xa;            &lt;/bodyElement>&#xa;        &lt;/tns:mailActivityInput>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/activity/sendmail/xsd/input+7f30e715-8875-41c0-80d6-70ccdd17e955+input&quot; xmlns:tns1=&quot;http://www.example.org/Product&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;JMSReceiveMessage&quot;/>&lt;xsl:param name=&quot;GetEmailAddresses&quot;/>&lt;xsl:template name=&quot;SendMail-input&quot; match=&quot;/&quot;>&lt;tns:mailActivityInput>&lt;from>&lt;xsl:value-of select=&quot;&amp;quot;jhenley@tibco.com&amp;quot;&quot;/>&lt;/from>&lt;to>&lt;xsl:value-of select=&quot;$GetEmailAddresses&quot;/>&lt;/to>&lt;subject>&lt;xsl:value-of select=&quot;&amp;quot;TIBCO BusinessWorks Demo - Auto-generated Email&amp;quot;&quot;/>&lt;/subject>&lt;bodyElement>&lt;bodyText>&lt;xsl:value-of select=&quot;tib:render-xml($JMSReceiveMessage/Body/tns1:Product, true(), true())&quot;/>&lt;/bodyText>&lt;/bodyElement>&lt;/tns:mailActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                             </tibex:inputBindings>
                             <tibex:config>
                                 <bwext:BWActivity

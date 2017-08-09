@@ -699,10 +699,14 @@
                                     fontName=".SF NS Text"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <styles xsi:type="bwnotation:BackgroundStyle"/>
-                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <styles
+                                    restoreHeight="178"
+                                    restoreWidth="198" xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.1/@faultHandlers/@catchAll"/>
 
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    <layoutConstraint
+                                    height="178"
+                                    width="198" xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
@@ -715,7 +719,9 @@
                                     <element href="//0/@process/@activity/@activity/@activities.1/@faultHandlers"/>
                                     <layoutConstraint
                                     height="200"
-                                    width="173" xsi:type="notation:Bounds"/>
+                                    width="208"
+                                    x="21"
+                                    xsi:type="notation:Bounds" y="158"/>
                                     </children>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
@@ -731,6 +737,48 @@
                                     x="126"
                                     xsi:type="notation:Bounds" y="14"/>
                                     </children>
+                                    <children
+                                    description="The Scope group can be used to encapsulate a set of activities and catch exceptions. This is similar to a try/catch block in standard coding proactices."
+                                    fillColor="13369343"
+                                    fontHeight="12"
+                                    fontName=".SF NS Text"
+                                    lineColor="6737151"
+                                    lineWidth="1"
+                                    transparency="0" type="Note" xsi:type="notation:Shape">
+                                    <children type="DiagramName" xsi:type="notation:BasicDecorationNode">
+                                    <element xsi:nil="true"/>
+                                    </children>
+                                    <children type="Description" xsi:type="notation:BasicDecorationNode">
+                                    <element xsi:nil="true"/>
+                                    </children>
+                                    <styles xsi:type="notation:TextStyle"/>
+                                    <styles xsi:type="notation:LineTypeStyle"/>
+                                    <element xsi:nil="true"/>
+                                    <layoutConstraint
+                                    width="239" x="494"
+                                    xsi:type="notation:Bounds" y="14"/>
+                                    </children>
+                                    <children
+                                    description="The catch block can either catch All Exceptions or specific exceptions encapsualted within the group. Compensating actions can be taking or exceptions logged and rethrown as shown here."
+                                    fillColor="13369343"
+                                    fontHeight="12"
+                                    fontName=".SF NS Text"
+                                    lineColor="6737151"
+                                    lineWidth="1"
+                                    transparency="0" type="Note" xsi:type="notation:Shape">
+                                    <children type="DiagramName" xsi:type="notation:BasicDecorationNode">
+                                    <element xsi:nil="true"/>
+                                    </children>
+                                    <children type="Description" xsi:type="notation:BasicDecorationNode">
+                                    <element xsi:nil="true"/>
+                                    </children>
+                                    <styles xsi:type="notation:TextStyle"/>
+                                    <styles xsi:type="notation:LineTypeStyle"/>
+                                    <element xsi:nil="true"/>
+                                    <layoutConstraint
+                                    width="222" x="415"
+                                    xsi:type="notation:Bounds" y="259"/>
+                                    </children>
                                     <styles xsi:type="notation:DrawerStyle"/>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
@@ -744,7 +792,7 @@
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity"/>
                                     <layoutConstraint height="499"
-                                    width="626" xsi:type="notation:Bounds"/>
+                                    width="743" xsi:type="notation:Bounds"/>
                                 </children>
                                 <styles xsi:type="notation:SortingStyle"/>
                                 <styles xsi:type="notation:FilteringStyle"/>
@@ -753,7 +801,7 @@
                             <styles xsi:type="bwnotation:BackgroundStyle"/>
                             <styles xsi:type="bwnotation:ResizingStyle"/>
                             <element href="//0/@process/@activity"/>
-                            <layoutConstraint height="499" width="629" xsi:type="notation:Bounds"/>
+                            <layoutConstraint height="499" width="746" xsi:type="notation:Bounds"/>
                         </children>
                         <children type="4022">
                             <children type="3022">
@@ -814,8 +862,33 @@
                                     <layoutConstraint
                                     height="40"
                                     width="40"
-                                    x="180"
-                                    xsi:type="notation:Bounds" y="50"/>
+                                    x="98"
+                                    xsi:type="notation:Bounds" y="38"/>
+                                    </children>
+                                    <children
+                                    description="The entire process can have its own catch block to capture all exceptions that may occur. This allows the process to control its exit points and throw specifc business exceptions or take a compensating action"
+                                    fillColor="13369343"
+                                    fontHeight="12"
+                                    fontName=".SF NS Text"
+                                    lineColor="6737151"
+                                    lineWidth="1"
+                                    transparency="0"
+                                    type="Note" xsi:type="notation:Shape">
+                                    <children
+                                    type="DiagramName" xsi:type="notation:BasicDecorationNode">
+                                    <element xsi:nil="true"/>
+                                    </children>
+                                    <children
+                                    type="Description" xsi:type="notation:BasicDecorationNode">
+                                    <element xsi:nil="true"/>
+                                    </children>
+                                    <styles xsi:type="notation:TextStyle"/>
+                                    <styles xsi:type="notation:LineTypeStyle"/>
+                                    <element xsi:nil="true"/>
+                                    <layoutConstraint
+                                    width="363"
+                                    x="266"
+                                    xsi:type="notation:Bounds" y="27"/>
                                     </children>
                                     <styles xsi:type="notation:DrawerStyle"/>
                                     <styles xsi:type="notation:SortingStyle"/>
@@ -831,7 +904,7 @@
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity"/>
                                     <layoutConstraint
-                                    height="168" width="528" xsi:type="notation:Bounds"/>
+                                    height="168" width="645" xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
@@ -860,7 +933,7 @@
                     <styles xsi:type="bwnotation:BackgroundStyle"/>
                     <styles xsi:type="bwnotation:ResizingStyle"/>
                     <element href="//0/@process/@activity"/>
-                    <layoutConstraint height="700" width="629" x="1"
+                    <layoutConstraint height="700" width="746" x="1"
                         xsi:type="notation:Bounds" y="1"/>
                 </children>
                 <styles xsi:type="notation:SortingStyle"/>
@@ -869,7 +942,7 @@
             </children>
             <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
             <element href="//0/@process"/>
-            <layoutConstraint height="752" width="971" xsi:type="notation:Bounds"/>
+            <layoutConstraint height="752" width="1088" xsi:type="notation:Bounds"/>
         </children>
         <styles xsi:type="notation:DiagramStyle"/>
         <element href="//0"/>
@@ -905,6 +978,25 @@
             <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
             <element href="//0/@process/@activity/@activity/@activities.1/@activity/@links/@children.1"/>
             <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges lineColor="0" lineWidth="1"
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
+            type="NoteAttachment" xsi:type="notation:Connector">
+            <styles xsi:type="notation:ArrowStyle"/>
+            <styles xsi:type="notation:LineTypeStyle"/>
+            <element xsi:nil="true"/>
+            <bendpoints
+                points="[0, 0, -253, -198]$[137, 107, -116, -91]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges lineColor="0" lineWidth="1"
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1/@children.0/@children.3/@children.0/@children.0/@children.1/@children.0/@children.0/@children.0"
+            type="NoteAttachment" xsi:type="notation:Connector">
+            <styles xsi:type="notation:ArrowStyle"/>
+            <styles xsi:type="notation:LineTypeStyle"/>
+            <element xsi:nil="true"/>
+            <bendpoints points="[0, 0, -60, -78]$[41, 54, -19, -24]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
     </notation:Diagram>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema"

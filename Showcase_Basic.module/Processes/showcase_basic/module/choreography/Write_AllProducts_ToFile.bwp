@@ -767,6 +767,48 @@
                                     <layoutConstraint x="158"
                                     xsi:type="notation:Bounds" y="234"/>
                                     </children>
+                                    <children
+                                    description="Simple 3 step process to Query a database, render the data to a flat file format and write the data to a file."
+                                    fillColor="13369343"
+                                    fontHeight="12"
+                                    fontName=".SF NS Text"
+                                    lineColor="6737151"
+                                    lineWidth="1"
+                                    transparency="0" type="Note" xsi:type="notation:Shape">
+                                    <children type="DiagramName" xsi:type="notation:BasicDecorationNode">
+                                    <element xsi:nil="true"/>
+                                    </children>
+                                    <children type="Description" xsi:type="notation:BasicDecorationNode">
+                                    <element xsi:nil="true"/>
+                                    </children>
+                                    <styles xsi:type="notation:TextStyle"/>
+                                    <styles xsi:type="notation:LineTypeStyle"/>
+                                    <element xsi:nil="true"/>
+                                    <layoutConstraint
+                                    width="189" x="163"
+                                    xsi:type="notation:Bounds" y="38"/>
+                                    </children>
+                                    <children
+                                    description="Multiple paths can be followed as well. Here the data is logged to the console at the same time it is written to the file."
+                                    fillColor="13369343"
+                                    fontHeight="12"
+                                    fontName=".SF NS Text"
+                                    lineColor="6737151"
+                                    lineWidth="1"
+                                    transparency="0" type="Note" xsi:type="notation:Shape">
+                                    <children type="DiagramName" xsi:type="notation:BasicDecorationNode">
+                                    <element xsi:nil="true"/>
+                                    </children>
+                                    <children type="Description" xsi:type="notation:BasicDecorationNode">
+                                    <element xsi:nil="true"/>
+                                    </children>
+                                    <styles xsi:type="notation:TextStyle"/>
+                                    <styles xsi:type="notation:LineTypeStyle"/>
+                                    <element xsi:nil="true"/>
+                                    <layoutConstraint
+                                    width="239" x="311"
+                                    xsi:type="notation:Bounds" y="227"/>
+                                    </children>
                                     <styles xsi:type="notation:DrawerStyle"/>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
@@ -780,7 +822,7 @@
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity"/>
                                     <layoutConstraint height="384"
-                                    width="515" xsi:type="notation:Bounds"/>
+                                    width="560" xsi:type="notation:Bounds"/>
                                 </children>
                                 <styles xsi:type="notation:SortingStyle"/>
                                 <styles xsi:type="notation:FilteringStyle"/>
@@ -789,8 +831,7 @@
                             <styles xsi:type="bwnotation:BackgroundStyle"/>
                             <styles xsi:type="bwnotation:ResizingStyle"/>
                             <element href="//0/@process/@activity"/>
-                            <layoutConstraint height="365" width="444"
-                                x="30" xsi:type="notation:Bounds" y="20"/>
+                            <layoutConstraint height="384" width="563" xsi:type="notation:Bounds"/>
                         </children>
                         <styles xsi:type="notation:SortingStyle"/>
                         <styles xsi:type="notation:FilteringStyle"/>
@@ -800,7 +841,8 @@
                     <styles xsi:type="bwnotation:BackgroundStyle"/>
                     <styles xsi:type="bwnotation:ResizingStyle"/>
                     <element href="//0/@process/@activity"/>
-                    <layoutConstraint height="409" width="519" xsi:type="notation:Bounds"/>
+                    <layoutConstraint height="408" width="563" x="1"
+                        xsi:type="notation:Bounds" y="1"/>
                 </children>
                 <styles xsi:type="notation:SortingStyle"/>
                 <styles xsi:type="notation:FilteringStyle"/>
@@ -808,7 +850,7 @@
             </children>
             <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
             <element href="//0/@process"/>
-            <layoutConstraint height="460" width="860" xsi:type="notation:Bounds"/>
+            <layoutConstraint height="460" width="905" xsi:type="notation:Bounds"/>
         </children>
         <styles xsi:type="notation:DiagramStyle"/>
         <element href="//0"/>
@@ -866,6 +908,42 @@
             <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
             <element href="//0/@process/@activity/@activity/@links/@children.4"/>
             <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges lineColor="0" lineWidth="1"
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.6"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2"
+            type="NoteAttachment" xsi:type="notation:Connector">
+            <styles xsi:type="notation:ArrowStyle"/>
+            <styles xsi:type="notation:LineTypeStyle"/>
+            <element xsi:nil="true"/>
+            <bendpoints points="[0, 0, -139, -172]$[119, 148, -20, -24]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges lineColor="0" lineWidth="1"
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.6"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
+            type="NoteAttachment" xsi:type="notation:Connector">
+            <styles xsi:type="notation:ArrowStyle"/>
+            <styles xsi:type="notation:LineTypeStyle"/>
+            <element xsi:nil="true"/>
+            <bendpoints points="[0, 0, -219, -172]$[195, 153, -24, -19]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges lineColor="0" lineWidth="1"
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.6"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4"
+            type="NoteAttachment" xsi:type="notation:Connector">
+            <styles xsi:type="notation:ArrowStyle"/>
+            <styles xsi:type="notation:LineTypeStyle"/>
+            <element xsi:nil="true"/>
+            <bendpoints points="[0, 0, -309, -172]$[285, 158, -24, -14]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges lineColor="0" lineWidth="1"
+            source="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.7"
+            target="//@children.0/@children.3/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.5"
+            type="NoteAttachment" xsi:type="notation:Connector">
+            <styles xsi:type="notation:ArrowStyle"/>
+            <styles xsi:type="notation:LineTypeStyle"/>
+            <element xsi:nil="true"/>
+            <bendpoints points="[0, 0, -219, -258]$[198, 234, -21, -24]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
     </notation:Diagram>
     <bpws:variables>

@@ -1063,9 +1063,9 @@
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.2"/>
                                     <layoutConstraint
-                                    height="320"
-                                    width="420"
-                                    x="30"
+                                    height="164"
+                                    width="242"
+                                    x="15"
                                     xsi:type="notation:Bounds" y="20"/>
                                     </children>
                                     <children type="4002">
@@ -1146,6 +1146,116 @@
                                     <element href="//0/@process/@activity/@activity/@activities.2/@activity/@activities.1/@activity/@activity/@activities.1"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
+                                    <children type="4022">
+                                    <children type="3022">
+                                    <children type="4029">
+                                    <children type="3031">
+
+                                    <children type="4033">
+
+                                    <styles
+                                    fontName=".SF NS Text"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.2/@faultHandlers/@catchAll"/>
+
+                                    <layoutConstraint
+                                    height="34"
+                                    width="34"
+                                    xsi:type="notation:Bounds" y="68"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <children type="3032">
+
+                                    <children type="4005">
+
+                                    <children type="3007">
+
+                                    <children
+                                    description="Capture and collect the data that fails to send so it can be retried or written to another file to be re-executed or reported"
+                                    fillColor="13369343"
+                                    fontHeight="12"
+                                    fontName=".SF NS Text"
+                                    lineColor="6737151"
+                                    lineWidth="1"
+                                    transparency="0"
+                                    type="Note" xsi:type="notation:Shape">
+
+                                    <children
+                                    type="DiagramName" xsi:type="notation:BasicDecorationNode">
+
+                                    <element xsi:nil="true"/>
+                                    </children>
+
+                                    <children
+                                    type="Description" xsi:type="notation:BasicDecorationNode">
+
+                                    <element xsi:nil="true"/>
+                                    </children>
+
+                                    <styles xsi:type="notation:TextStyle"/>
+
+                                    <styles xsi:type="notation:LineTypeStyle"/>
+
+                                    <element xsi:nil="true"/>
+
+                                    <layoutConstraint
+                                    width="135"
+                                    x="22"
+                                    xsi:type="notation:Bounds" y="23"/>
+                                    </children>
+
+                                    <styles xsi:type="notation:DrawerStyle"/>
+
+                                    <styles xsi:type="notation:SortingStyle"/>
+
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+
+                                    <styles
+                                    fontName=".SF NS Text"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.2/@faultHandlers/@catchAll/@activity/@activity"/>
+
+                                    <layoutConstraint
+                                    height="168"
+                                    width="200" xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles
+                                    fontName=".SF NS Text"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.2/@faultHandlers/@catchAll"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    </children>
+                                    <styles
+                                    fontName=".SF NS Text"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.2/@faultHandlers"/>
+                                    <layoutConstraint
+                                    height="200"
+                                    width="187" xsi:type="notation:Bounds"/>
+                                    </children>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
                                     </children>
@@ -1156,7 +1266,7 @@
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.2"/>
                                     <layoutConstraint
-                                    height="220" width="282"
+                                    height="420" width="321"
                                     x="246"
                                     xsi:type="notation:Bounds" y="61"/>
                                     </children>
@@ -1196,6 +1306,69 @@
                                     <layoutConstraint x="564"
                                     xsi:type="notation:Bounds" y="136"/>
                                     </children>
+                                    <children
+                                    description="Wait for the file to be written from the DB query and parse the data back to XML"
+                                    fillColor="13369343"
+                                    fontHeight="12"
+                                    fontName=".SF NS Text"
+                                    lineColor="6737151"
+                                    lineWidth="1"
+                                    transparency="0" type="Note" xsi:type="notation:Shape">
+                                    <children type="DiagramName" xsi:type="notation:BasicDecorationNode">
+                                    <element xsi:nil="true"/>
+                                    </children>
+                                    <children type="Description" xsi:type="notation:BasicDecorationNode">
+                                    <element xsi:nil="true"/>
+                                    </children>
+                                    <styles xsi:type="notation:TextStyle"/>
+                                    <styles xsi:type="notation:LineTypeStyle"/>
+                                    <element xsi:nil="true"/>
+                                    <layoutConstraint
+                                    width="172" x="76"
+                                    xsi:type="notation:Bounds" y="39"/>
+                                    </children>
+                                    <children
+                                    description="Iterate over the rows of data and send each as a message on the bus"
+                                    fillColor="13369343"
+                                    fontHeight="12"
+                                    fontName=".SF NS Text"
+                                    lineColor="6737151"
+                                    lineWidth="1"
+                                    transparency="0" type="Note" xsi:type="notation:Shape">
+                                    <children type="DiagramName" xsi:type="notation:BasicDecorationNode">
+                                    <element xsi:nil="true"/>
+                                    </children>
+                                    <children type="Description" xsi:type="notation:BasicDecorationNode">
+                                    <element xsi:nil="true"/>
+                                    </children>
+                                    <styles xsi:type="notation:TextStyle"/>
+                                    <styles xsi:type="notation:LineTypeStyle"/>
+                                    <element xsi:nil="true"/>
+                                    <layoutConstraint
+                                    width="136" x="83"
+                                    xsi:type="notation:Bounds" y="238"/>
+                                    </children>
+                                    <children
+                                    description="Once all the data has been sent successfully, remove the file"
+                                    fillColor="13369343"
+                                    fontHeight="12"
+                                    fontName=".SF NS Text"
+                                    lineColor="6737151"
+                                    lineWidth="1"
+                                    transparency="0" type="Note" xsi:type="notation:Shape">
+                                    <children type="DiagramName" xsi:type="notation:BasicDecorationNode">
+                                    <element xsi:nil="true"/>
+                                    </children>
+                                    <children type="Description" xsi:type="notation:BasicDecorationNode">
+                                    <element xsi:nil="true"/>
+                                    </children>
+                                    <styles xsi:type="notation:TextStyle"/>
+                                    <styles xsi:type="notation:LineTypeStyle"/>
+                                    <element xsi:nil="true"/>
+                                    <layoutConstraint
+                                    width="148" x="575"
+                                    xsi:type="notation:Bounds" y="16"/>
+                                    </children>
                                     <styles xsi:type="notation:DrawerStyle"/>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
@@ -1208,8 +1381,8 @@
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity"/>
-                                    <layoutConstraint height="391"
-                                    width="699" xsi:type="notation:Bounds"/>
+                                    <layoutConstraint height="491"
+                                    width="737" xsi:type="notation:Bounds"/>
                                 </children>
                                 <styles xsi:type="notation:SortingStyle"/>
                                 <styles xsi:type="notation:FilteringStyle"/>
@@ -1218,7 +1391,7 @@
                             <styles xsi:type="bwnotation:BackgroundStyle"/>
                             <styles xsi:type="bwnotation:ResizingStyle"/>
                             <element href="//0/@process/@activity"/>
-                            <layoutConstraint height="379" width="702" xsi:type="notation:Bounds"/>
+                            <layoutConstraint height="491" width="740" xsi:type="notation:Bounds"/>
                         </children>
                         <children type="4022">
                             <children type="3022">
@@ -1239,6 +1412,7 @@
                                     <children type="3032">
                                     <children type="4005">
                                     <children type="3007">
+                                    <eAnnotations source="Pixel"/>
                                     <children type="4002 bw.generalactivities.log">
                                     <children type="4017">
                                     <styles
@@ -1279,8 +1453,33 @@
                                     <layoutConstraint
                                     height="40"
                                     width="40"
-                                    x="158"
-                                    xsi:type="notation:Bounds" y="54"/>
+                                    x="114"
+                                    xsi:type="notation:Bounds" y="55"/>
+                                    </children>
+                                    <children
+                                    description="Handle exceptions for the whole process and take appropriate actions."
+                                    fillColor="13369343"
+                                    fontHeight="12"
+                                    fontName=".SF NS Text"
+                                    lineColor="6737151"
+                                    lineWidth="1"
+                                    transparency="0"
+                                    type="Note" xsi:type="notation:Shape">
+                                    <children
+                                    type="DiagramName" xsi:type="notation:BasicDecorationNode">
+                                    <element xsi:nil="true"/>
+                                    </children>
+                                    <children
+                                    type="Description" xsi:type="notation:BasicDecorationNode">
+                                    <element xsi:nil="true"/>
+                                    </children>
+                                    <styles xsi:type="notation:TextStyle"/>
+                                    <styles xsi:type="notation:LineTypeStyle"/>
+                                    <element xsi:nil="true"/>
+                                    <layoutConstraint
+                                    width="135"
+                                    x="302"
+                                    xsi:type="notation:Bounds" y="21"/>
                                     </children>
                                     <styles xsi:type="notation:DrawerStyle"/>
                                     <styles xsi:type="notation:SortingStyle"/>
@@ -1296,7 +1495,7 @@
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@faultHandlers/@catchAll/@activity/@activity"/>
                                     <layoutConstraint
-                                    height="168" width="601" xsi:type="notation:Bounds"/>
+                                    height="168" width="639" xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
@@ -1325,7 +1524,7 @@
                     <styles xsi:type="bwnotation:BackgroundStyle"/>
                     <styles xsi:type="bwnotation:ResizingStyle"/>
                     <element href="//0/@process/@activity"/>
-                    <layoutConstraint height="615" width="702" x="1"
+                    <layoutConstraint height="692" width="740" x="1"
                         xsi:type="notation:Bounds" y="1"/>
                 </children>
                 <styles xsi:type="notation:SortingStyle"/>
@@ -1334,7 +1533,7 @@
             </children>
             <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
             <element href="//0/@process"/>
-            <layoutConstraint height="574" width="1044" xsi:type="notation:Bounds"/>
+            <layoutConstraint height="744" width="1082" xsi:type="notation:Bounds"/>
         </children>
         <styles xsi:type="notation:DiagramStyle"/>
         <element href="//0"/>
@@ -1392,6 +1591,45 @@
             <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
             <element href="//0/@process/@activity/@activity/@links/@children.2"/>
             <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges lineColor="0" lineWidth="1"
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
+            type="NoteAttachment" xsi:type="notation:Connector">
+            <styles xsi:type="notation:ArrowStyle"/>
+            <styles xsi:type="notation:LineTypeStyle"/>
+            <element xsi:nil="true"/>
+            <bendpoints points="[0, 0, -76, -163]$[65, 139, -11, -24]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges lineColor="0" lineWidth="1"
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.4"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
+            type="NoteAttachment" xsi:type="notation:Connector">
+            <styles xsi:type="notation:ArrowStyle"/>
+            <styles xsi:type="notation:LineTypeStyle"/>
+            <element xsi:nil="true"/>
+            <bendpoints points="[0, -1, 35, -34]$[-30, 28, 5, -5]" xsi:type="notation:RelativeBendpoints"/>
+            <sourceAnchor id="(0.7441860465116279,1.0)" xsi:type="notation:IdentityAnchor"/>
+            <targetAnchor id="(0.5609756097560976,0.12)" xsi:type="notation:IdentityAnchor"/>
+        </edges>
+        <edges lineColor="0" lineWidth="1"
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.5"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2"
+            type="NoteAttachment" xsi:type="notation:Connector">
+            <styles xsi:type="notation:ArrowStyle"/>
+            <styles xsi:type="notation:LineTypeStyle"/>
+            <element xsi:nil="true"/>
+            <bendpoints
+                points="[0, 0, -380, -164]$[257, 110, -123, -54]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
+        <edges lineColor="0" lineWidth="1"
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.6"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
+            type="NoteAttachment" xsi:type="notation:Connector">
+            <styles xsi:type="notation:ArrowStyle"/>
+            <styles xsi:type="notation:LineTypeStyle"/>
+            <element xsi:nil="true"/>
+            <bendpoints points="[0, 0, -625, -160]$[601, 154, -24, -6]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
     </notation:Diagram>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.example.org/ProductFlatFile"/>
@@ -1551,13 +1789,30 @@
                     </tibex:config>
                 </tibex:activityExtension>
             </bpws:extensionActivity>
-            <bpws:scope name="Iterate" tibex:group="iterate" tibex:xpdlId="4a2c19df-4bdd-4703-bbfd-0ecb8779476a">
+            <bpws:scope name="Iterate" tibex:group="iterate"
+                tibex:indexToGlobal="false" tibex:xpdlId="4a2c19df-4bdd-4703-bbfd-0ecb8779476a">
                 <bpws:targets>
                     <bpws:target linkName="ParseDataToIterate"/>
                 </bpws:targets>
                 <bpws:sources>
                     <bpws:source linkName="IterateToRemoveFile"/>
                 </bpws:sources>
+                <bpws:variables>
+                    <bpws:variable name="FaultName1"
+                        sca-bpel:internal="true" type="xsd:string"/>
+                    <bpws:variable element="ns:FaultDetail"
+                        name="FaultDetails1" sca-bpel:internal="true"/>
+                </bpws:variables>
+                <bpws:faultHandlers>
+                    <bpws:catchAll tibex:faultDetailsVar="FaultDetails1"
+                        tibex:faultNameVar="FaultName1" tibex:xpdlId="747dc981-e14c-4cb9-a7b8-82dd34b6ea2f">
+                        <bpws:scope name="scope2">
+                            <bpws:flow name="flow3">
+                                <bpws:links/>
+                            </bpws:flow>
+                        </bpws:scope>
+                    </bpws:catchAll>
+                </bpws:faultHandlers>
                 <bpws:sequence name="sequence" tibex:group="iterate">
                     <bpws:empty name="GroupInit" tibex:group="groupInit"/>
                     <bpws:forEach counterName="index" name="iterate"

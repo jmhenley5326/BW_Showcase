@@ -230,6 +230,63 @@
                 <element href="//0/@process"/>
             </children>
             <children type="3002">
+                <children type="4008">
+                    <children type="40012"/>
+                    <children type="3008">
+                        <children type="4004">
+                            <children type="40041"/>
+                            <children type="4017">
+                                <styles fontName=".SF NS Text"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                <layoutConstraint xsi:type="notation:Bounds"/>
+                            </children>
+                            <children type="4017">
+                                <styles fontName=".SF NS Text"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                <layoutConstraint xsi:type="notation:Bounds"/>
+                            </children>
+                            <children type="4017">
+                                <styles fontName=".SF NS Text"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                <layoutConstraint xsi:type="notation:Bounds"/>
+                            </children>
+                            <children type="4017">
+                                <styles fontName=".SF NS Text"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                <layoutConstraint xsi:type="notation:Bounds"/>
+                            </children>
+                            <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                            <element href="platform:/resource/Showcase_Basic.module/Service%20Descriptors/Product_Resource_SOAP_gen1.wsdl#//@ePortTypes.0/@eOperations.0"/>
+                            <layoutConstraint xsi:type="notation:Bounds"/>
+                        </children>
+                        <styles xsi:type="notation:DrawerStyle"/>
+                        <styles xsi:type="notation:SortingStyle"/>
+                        <styles xsi:type="notation:FilteringStyle"/>
+                        <styles xsi:type="bwnotation:BackgroundStyle"/>
+                        <styles xsi:type="bwnotation:ResizingStyle"/>
+                    </children>
+                    <children type="4017">
+                        <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                        <layoutConstraint xsi:type="notation:Bounds"/>
+                    </children>
+                    <children type="4017">
+                        <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                        <layoutConstraint xsi:type="notation:Bounds"/>
+                    </children>
+                    <children type="4017">
+                        <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                        <layoutConstraint xsi:type="notation:Bounds"/>
+                    </children>
+                    <children type="4017">
+                        <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                        <layoutConstraint xsi:type="notation:Bounds"/>
+                    </children>
+                    <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                    <element href="//0/@process/@partnerLinks/@children.0"/>
+                    <layoutConstraint xsi:type="notation:Bounds"/>
+                </children>
                 <styles xsi:type="notation:SortingStyle"/>
                 <styles xsi:type="notation:FilteringStyle"/>
             </children>
@@ -279,8 +336,8 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0"/>
                                     <layoutConstraint
                                     height="40" width="40"
-                                    x="10"
-                                    xsi:type="notation:Bounds" y="138"/>
+                                    x="27"
+                                    xsi:type="notation:Bounds" y="148"/>
                                     </children>
                                     <children type="4002">
                                     <children type="4017">
@@ -315,8 +372,8 @@
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.1"/>
-                                    <layoutConstraint x="184"
-                                    xsi:type="notation:Bounds" y="138"/>
+                                    <layoutConstraint x="189"
+                                    xsi:type="notation:Bounds" y="148"/>
                                     </children>
                                     <children type="4002">
                                     <children type="4017">
@@ -351,8 +408,29 @@
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.2"/>
-                                    <layoutConstraint x="372"
-                                    xsi:type="notation:Bounds" y="138"/>
+                                    <layoutConstraint x="387"
+                                    xsi:type="notation:Bounds" y="148"/>
+                                    </children>
+                                    <children
+                                    description="SOAP/WSDL based calls are made by importing the WSDL and creating a reference in the Process. The operations are then called using the Invoke activity. The operation can be drug from the Reference (the purple chevron) to the canvas."
+                                    fillColor="13369343"
+                                    fontHeight="12"
+                                    fontName=".SF NS Text"
+                                    lineColor="6737151"
+                                    lineWidth="1"
+                                    transparency="0" type="Note" xsi:type="notation:Shape">
+                                    <children type="DiagramName" xsi:type="notation:BasicDecorationNode">
+                                    <element xsi:nil="true"/>
+                                    </children>
+                                    <children type="Description" xsi:type="notation:BasicDecorationNode">
+                                    <element xsi:nil="true"/>
+                                    </children>
+                                    <styles xsi:type="notation:TextStyle"/>
+                                    <styles xsi:type="notation:LineTypeStyle"/>
+                                    <element xsi:nil="true"/>
+                                    <layoutConstraint
+                                    width="393" x="64"
+                                    xsi:type="notation:Bounds" y="49"/>
                                     </children>
                                     <styles xsi:type="notation:DrawerStyle"/>
                                     <styles xsi:type="notation:SortingStyle"/>
@@ -366,8 +444,8 @@
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity"/>
-                                    <layoutConstraint height="384"
-                                    width="515" xsi:type="notation:Bounds"/>
+                                    <layoutConstraint height="385"
+                                    width="653" xsi:type="notation:Bounds"/>
                                 </children>
                                 <styles xsi:type="notation:SortingStyle"/>
                                 <styles xsi:type="notation:FilteringStyle"/>
@@ -376,8 +454,7 @@
                             <styles xsi:type="bwnotation:BackgroundStyle"/>
                             <styles xsi:type="bwnotation:ResizingStyle"/>
                             <element href="//0/@process/@activity"/>
-                            <layoutConstraint height="365" width="444"
-                                x="30" xsi:type="notation:Bounds" y="20"/>
+                            <layoutConstraint height="385" width="1284" xsi:type="notation:Bounds"/>
                         </children>
                         <styles xsi:type="notation:SortingStyle"/>
                         <styles xsi:type="notation:FilteringStyle"/>
@@ -387,7 +464,8 @@
                     <styles xsi:type="bwnotation:BackgroundStyle"/>
                     <styles xsi:type="bwnotation:ResizingStyle"/>
                     <element href="//0/@process/@activity"/>
-                    <layoutConstraint height="409" width="519" xsi:type="notation:Bounds"/>
+                    <layoutConstraint height="409" width="1284" x="1"
+                        xsi:type="notation:Bounds" y="1"/>
                 </children>
                 <styles xsi:type="notation:SortingStyle"/>
                 <styles xsi:type="notation:FilteringStyle"/>
@@ -395,7 +473,7 @@
             </children>
             <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
             <element href="//0/@process"/>
-            <layoutConstraint height="460" width="860" xsi:type="notation:Bounds"/>
+            <layoutConstraint height="461" width="998" xsi:type="notation:Bounds"/>
         </children>
         <styles xsi:type="notation:DiagramStyle"/>
         <element href="//0"/>
@@ -408,7 +486,9 @@
             <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
             <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
             <element href="//0/@process/@activity/@activity/@links/@children.0"/>
-            <bendpoints points="[25, 0, -149, 0]$[150, 0, -24, 0]" xsi:type="notation:RelativeBendpoints"/>
+            <bendpoints points="[25, -25, -124, 24]$[138, -25, -11, 24]" xsi:type="notation:RelativeBendpoints"/>
+            <sourceAnchor id="(0.4959349593495935,1.0)" xsi:type="notation:IdentityAnchor"/>
+            <targetAnchor id="(0.24390243902439024,0.0)" xsi:type="notation:IdentityAnchor"/>
         </edges>
         <edges
             source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
@@ -419,7 +499,31 @@
             <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
             <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
             <element href="//0/@process/@activity/@activity/@links/@children.1"/>
-            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+            <bendpoints points="[25, -25, -173, 24]$[174, -25, -24, 24]" xsi:type="notation:RelativeBendpoints"/>
+            <sourceAnchor id="(0.4959349593495935,1.0)" xsi:type="notation:IdentityAnchor"/>
+            <targetAnchor id="(0.4959349593495935,0.0)" xsi:type="notation:IdentityAnchor"/>
+        </edges>
+        <edges lineColor="0" lineWidth="1"
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
+            type="NoteAttachment" xsi:type="notation:Connector">
+            <styles xsi:type="notation:ArrowStyle"/>
+            <styles xsi:type="notation:LineTypeStyle"/>
+            <element xsi:nil="true"/>
+            <bendpoints points="[0, 0, 0, -79]$[0, 79, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+            <sourceAnchor id="(0.455470737913486,0.9642857142857143)" xsi:type="notation:IdentityAnchor"/>
+            <targetAnchor id="(0.4959349593495935,0.0)" xsi:type="notation:IdentityAnchor"/>
+        </edges>
+        <edges lineColor="0" lineWidth="1"
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
+            target="//@children.0/@children.2/@children.0/@children.1/@children.0"
+            type="NoteAttachment" xsi:type="notation:Connector">
+            <styles xsi:type="notation:ArrowStyle"/>
+            <styles xsi:type="notation:LineTypeStyle"/>
+            <element xsi:nil="true"/>
+            <bendpoints points="[41, -9, -218, 43]$[247, -53, -12, -1]" xsi:type="notation:RelativeBendpoints"/>
+            <sourceAnchor id="(0.9949109414758269,0.44642857142857145)" xsi:type="notation:IdentityAnchor"/>
+            <targetAnchor id="(0.08,0.4)" xsi:type="notation:IdentityAnchor"/>
         </edges>
     </notation:Diagram>
     <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" namespace="http://service.tibco.com/product/wsdl/1502044858829"/>
