@@ -9,6 +9,7 @@
         </parameters>
         <responseStatus xmi:id="_995JwHxpEee__MaWNJp7IA" statusCode="400" reasonPhrase="Bad Request" dataType="string"/>
         <clientFormat>json</clientFormat>
+        <clientFormat>xml</clientFormat>
         <clientRequestFormat>json</clientRequestFormat>
       </operation>
       <parameters xmi:id="_ZxrWgHq5EeeTwNfnrC3G1g">

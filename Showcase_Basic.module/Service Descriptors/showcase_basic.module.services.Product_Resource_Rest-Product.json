@@ -14,7 +14,7 @@
         "description" : "",
         "operationId" : "get-product",
         "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
+        "produces" : [ "application/json", "application/xml" ],
         "parameters" : [ {
           "name" : "productId",
           "in" : "path",
