@@ -9,7 +9,12 @@
   </identitySet>
   <jndi:reference xmi:id="_cpBNoHuWEeeh-IyihRbMKA" key="identityJNDIName" type="subject:SubjectConfiguration" value=""/>
   <jndi:configuration xsi:type="smtp:SmtpConfiguration" xmi:id="_cpBNoXuWEeeh-IyihRbMKA">
-    <tcpDetails xmi:id="_cpDC0HuWEeeh-IyihRbMKA" host="smtp.gmail.com" port="587" connectionTimeout="60000"/>
-    <userCredentials xmi:id="_cpDC0XuWEeeh-IyihRbMKA" username="jhenley@tibco.com" password="#!xEhy1wVCbX4gP3FteVRqd9e0FzyUC1sCp6pKi6JSZFI="/>
+    <tcpDetails xmi:id="_cpDC0HuWEeeh-IyihRbMKA" port="587" connectionTimeout="60000">
+      <substitutionBindings xmi:id="_x9lbcH3bEee9opCbUPgGzQ" template="host" propName="/SMTP/host"/>
+    </tcpDetails>
+    <userCredentials xmi:id="_cpDC0XuWEeeh-IyihRbMKA">
+      <substitutionBindings xmi:id="_0xFd0H3bEee9opCbUPgGzQ" template="username" propName="/SMTP/username"/>
+      <substitutionBindings xmi:id="_1qUL4H3bEee9opCbUPgGzQ" template="password" propName="/SMTP/password"/>
+    </userCredentials>
   </jndi:configuration>
 </jndi:namedResource>

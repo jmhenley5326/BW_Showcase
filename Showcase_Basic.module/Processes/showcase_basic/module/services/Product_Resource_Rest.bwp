@@ -1872,7 +1872,7 @@
                                     name="config" xsi:type="activityconfig:EMFProperty">
                                     <type href="http://ns.tibco.com/bw/palette/jdbc#//JDBCCallProcedureActivity"/>
                                     <value
-                                    catalogOrPackage=""
+                                    catalogOrPackage="bw_showcase"
                                     procedureOrFunctionName="GetProduct"
                                     resultSetuseSchemas="true"
                                     schema=""
@@ -1974,7 +1974,7 @@
                                     <type href="http://ns.tibco.com/bw/palette/jdbc#//JDBCQueryActivity"/>
                                     <value maxRows="100"
                                     sharedResourceProperty="jdbcProperty"
-                                    sqlStatement="SELECT *&#xa;  FROM `bwce_schema`.`product`&#xa;  WHERE `productId` = ?&#xa;"
+                                    sqlStatement="SELECT `productId`, `name`, `description`, `brand`, `manufacturer`&#xa;  FROM `bw_showcase`.`product`&#xa;  WHERE `productId` = ?&#xa;"
                                     timeout="10" xsi:type="jdbcPalette:JDBCQueryActivity">
 
                                     <PreparedParameters
