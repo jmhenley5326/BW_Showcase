@@ -1,9 +1,9 @@
 # BusinessWorks Showcase
-These projects contain various BusinessWorks examples showcasing functionality within the BusinessWorks 6 environment.
+These projects contain various BusinessWorks examples showcasing functionality within the BusinessWorks 6 environment. There are many more examples available in the BusinessWorks 6 installation. These are intended to be more verbose and demo oriented.
 
 # Projects
 ## Showcase_Basic
-This project contains basic functionality that comes out of the box with BusinessWorks. Each example contains Notes and comments on what is happening. These are intended to show very simple reference implementation of various pieces of functionality that can then be used to create more complex business processes
+This project contains basic functionality that comes out of the box with BusinessWorks. Each example contains Notes and comments on what is happening. These are intended to show very simple reference implementations of various pieces of functionality that can then be used to create more complex business processes. For more information please look at the samples provided with the BW6 installation.
 
 ### Project Pre-Reqs
 * BusinessWorks 6.4
