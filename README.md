@@ -9,6 +9,7 @@ This project contains basic functionality that comes out of the box with Busines
 * BusinessWorks 6.4
 * MySQL configured as described below (Other databases can be used. It is left to the user to adjust the JDBC Shared Resource and ensure all the required objects are available)
 * SMTP Account- The SMTP Shared Resource must be configured for an account the user has access to
+* EMS Instance- Currently configured for local instance but can be changed as needed
 
 ### showcase_basic.module.services
 A simple Rest and SOAP implementation
