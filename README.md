@@ -36,3 +36,6 @@ Configure MySQL as follows:
 * Create the schema provided in the "db_schemas" folder at the root of this repository for this project
 * Ensure the bw_showcase user has appropriate permissions for this new schema
 * Test the JDBC Shared Resource and make adjustments to the JDBC URL and security credentials as required
+
+## Showcase_Patterns
+This project contains sample implementation integration patterns
