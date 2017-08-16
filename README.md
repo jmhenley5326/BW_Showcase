@@ -38,4 +38,5 @@ Configure MySQL as follows:
 * Test the JDBC Shared Resource and make adjustments to the JDBC URL and security credentials as required
 
 ## Showcase_Patterns
+WORK-IN-PROGRESS
 This project contains sample implementation integration patterns
