@@ -2,7 +2,7 @@
 <repository xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xmlns = "http://www.tibco.com/xmlns/repo/types/2002">
 	<globalVariables>
 		<globalVariable>
-			<name>//Showcase_Basic.module//BW.DEPLOYMENTUNIT.TYPE</name>
+			<name>//Showcase_Social.module//BW.DEPLOYMENTUNIT.TYPE</name>
 			<value></value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -10,7 +10,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>//Showcase_Basic.module//BW.APPNODE.NAME</name>
+			<name>//Showcase_Social.module//BW.APPNODE.NAME</name>
 			<value></value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -18,7 +18,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>//Showcase_Basic.module//BW.DEPLOYMENTUNIT.NAME</name>
+			<name>//Showcase_Social.module//BW.DEPLOYMENTUNIT.NAME</name>
 			<value></value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -26,7 +26,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>//Showcase_Basic.module//BW.HOST.NAME</name>
+			<name>//Showcase_Social.module//BW.HOST.NAME</name>
 			<value>localhost</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -34,7 +34,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>//Showcase_Basic.module//BW.DOMAIN.NAME</name>
+			<name>//Showcase_Social.module//BW.DOMAIN.NAME</name>
 			<value></value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -42,7 +42,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>//Showcase_Basic.module//BW.DEPLOYMENTUNIT.VERSION</name>
+			<name>//Showcase_Social.module//BW.DEPLOYMENTUNIT.VERSION</name>
 			<value></value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -50,7 +50,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>//Showcase_Basic.module//BW.APPSPACE.NAME</name>
+			<name>//Showcase_Social.module//BW.APPSPACE.NAME</name>
 			<value></value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -58,7 +58,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>//Showcase_Basic.module//BW.MODULE.VERSION</name>
+			<name>//Showcase_Social.module//BW.MODULE.VERSION</name>
 			<value></value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -66,7 +66,7 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>//Showcase_Basic.module//BW.MODULE.NAME</name>
+			<name>//Showcase_Social.module//BW.MODULE.NAME</name>
 			<value></value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
@@ -74,35 +74,35 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>//Showcase_Basic.module///JDBC/password</name>
-			<value>#!MeXuR+D4mNMDJnuxTDTBWn35ZZ8XkrQ8fJkayHuEQGc=</value>
+			<name>//Showcase_Social.module///TwitterOauth/consumerSecret</name>
+			<value>#!MlCpj/bT00Ro27sdEsdEHg==</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>
-			<isOverride>true</isOverride>
+			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>//Showcase_Basic.module///JDBC/username</name>
-			<value>bw_showcase</value>
+			<name>//Showcase_Social.module///TwitterOauth/consumerKey</name>
+			<value>#!g2wnEKGS+13qEZBlmkl/IQ==</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
-			<type>String</type>
-			<isOverride>true</isOverride>
+			<type>Password</type>
+			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>//Showcase_Basic.module///JDBC/url</name>
-			<value>jdbc:mysql://localhost:3306/bw_showcase</value>
+			<name>//Showcase_Social.module///TwitterOauth/accessTokenSecret</name>
+			<value>#!epE0TI51aeHedGa2G19fMA==</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
-			<type>String</type>
-			<isOverride>true</isOverride>
+			<type>Password</type>
+			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>//Showcase_Basic.module///File/productFile</name>
-			<value>/Users/jasonhenley/tmp/products.csv</value>
+			<name>//Showcase_Social.module///TwitterOauth/accessToken</name>
+			<value>#!IqbzWDV538ZX6rAlVQ6xAQ==</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
-			<type>String</type>
+			<type>Password</type>
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
@@ -187,11 +187,11 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Shared///SMTP/password</name>
-			<value>#!gVFcSInF63btqQoftzOZHg==</value>
+			<value>#!Om74LONzMvyskLj4OHHpnA==</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>
-			<isOverride>true</isOverride>
+			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Shared///SMTP/host</name>
@@ -199,7 +199,7 @@
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<isOverride>true</isOverride>
+			<isOverride>false</isOverride>
 		</globalVariable>
 	</globalVariables>
 </repository>

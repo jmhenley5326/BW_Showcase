@@ -74,35 +74,35 @@
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/JDBC/username</name>
-			<value>bw_showcase</value>
-			<deploymentSettable>false</deploymentSettable>
-			<serviceSettable>false</serviceSettable>
-			<type>String</type>
-			<isOverride>false</isOverride>
-		</globalVariable>
-		<globalVariable>
-			<name>/JDBC/password</name>
-			<value>#!YJlF+65RHOsgafSlPRwYurXUmn+vPK3oah5dTB70o6k=</value>
+			<name>/TwitterOauth/consumerKey</name>
+			<value>#!g2wnEKGS+13qEZBlmkl/IQ==</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/JDBC/url</name>
-			<value>jdbc:mysql://localhost:3306/bw_showcase</value>
+			<name>/TwitterOauth/consumerSecret</name>
+			<value>#!MlCpj/bT00Ro27sdEsdEHg==</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
-			<type>String</type>
+			<type>Password</type>
 			<isOverride>false</isOverride>
 		</globalVariable>
 		<globalVariable>
-			<name>/File/productFile</name>
-			<value>/Users/jasonhenley/tmp/products.csv</value>
+			<name>/TwitterOauth/accessToken</name>
+			<value>#!IqbzWDV538ZX6rAlVQ6xAQ==</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
-			<type>String</type>
+			<type>Password</type>
+			<isOverride>false</isOverride>
+		</globalVariable>
+		<globalVariable>
+			<name>/TwitterOauth/accessTokenSecret</name>
+			<value>#!epE0TI51aeHedGa2G19fMA==</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Password</type>
 			<isOverride>false</isOverride>
 		</globalVariable>
 	</globalVariables>

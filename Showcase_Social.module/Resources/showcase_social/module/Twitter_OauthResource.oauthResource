@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmlns:twitter="http://ns.tibco.com/bw/sharedresource/twitter" xmi:id="_yprcoIOSEeekF_tefc3xFw" name="showcase_social.module.Twitter_OauthResource" type="twitter:OAuth">
+  <jndi:configuration xsi:type="twitter:OAuth" xmi:id="_ypsqwIOSEeekF_tefc3xFw">
+    <substitutionBindings xmi:id="_C5MvQIRDEee_VpHxHyWFgQ" template="consumerKey" propName="/TwitterOauth/consumerKey"/>
+    <substitutionBindings xmi:id="_DKDOsIRDEee_VpHxHyWFgQ" template="consumerSecret" propName="/TwitterOauth/consumerSecret"/>
+    <substitutionBindings xmi:id="_DcWfoIRDEee_VpHxHyWFgQ" template="accessToken" propName="/TwitterOauth/accessToken"/>
+    <substitutionBindings xmi:id="_DxAhAIRDEee_VpHxHyWFgQ" template="accessTokenSecret" propName="/TwitterOauth/accessTokenSecret"/>
+  </jndi:configuration>
+</jndi:namedResource>

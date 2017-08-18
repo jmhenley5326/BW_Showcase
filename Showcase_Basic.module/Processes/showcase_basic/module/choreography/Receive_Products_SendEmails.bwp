@@ -1045,7 +1045,7 @@
             sca-bpel:privateProperty="true" sca-bpel:property="yes"
             sca-bpel:sharedResourceType="{http://xsd.tns.tibco.com/bw/models/sharedresource/jms}JMSConnectionFactory" type="xsd:string">
             <bpws:from>
-                <bpws:literal>showcase_basic.module.JMSConnectionResource</bpws:literal>
+                <bpws:literal>showcase_shared.module.JMSConnectionResource</bpws:literal>
             </bpws:from>
         </bpws:variable>
         <bpws:variable element="ns1:mailActivityInput"
@@ -1054,7 +1054,7 @@
             sca-bpel:privateProperty="true" sca-bpel:property="yes"
             sca-bpel:sharedResourceType="{http://xsd.tns.tibco.com/bw/models/sharedresource/smtp}SmtpConfiguration" type="xsd:string">
             <bpws:from>
-                <bpws:literal>showcase_basic.module.SMTPResource</bpws:literal>
+                <bpws:literal>showcase_shared.module.SMTPResource</bpws:literal>
             </bpws:from>
         </bpws:variable>
         <bpws:variable name="GetEmailAddresses" sca-bpel:internal="true" type="xsd:string"/>

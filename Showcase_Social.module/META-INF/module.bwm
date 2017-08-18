@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_WHsp4IOSEeekF_tefc3xFw" targetNamespace="http://tns.tibco.com/bw/composite/Showcase_Social.module" name="Showcase_Social.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:property xmi:id="_WrBZYIOSEeekF_tefc3xFw" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_WrJVMIOSEeekF_tefc3xFw" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_WrLxcIOSEeekF_tefc3xFw" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_WrPb0IOSEeekF_tefc3xFw" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_WrTGMIOSEeekF_tefc3xFw" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_WrVicIOSEeekF_tefc3xFw" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_WrX-sIOSEeekF_tefc3xFw" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_WrbCAIOSEeekF_tefc3xFw" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_WrdeQIOSEeekF_tefc3xFw" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_3ZTkgIRCEee_VpHxHyWFgQ" name="/TwitterOauth/consumerKey" type="property:password" scaext:simpleValue="#!g2wnEKGS+13qEZBlmkl/IQ==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_5A2KEIRCEee_VpHxHyWFgQ" name="/TwitterOauth/consumerSecret" type="property:password" scaext:simpleValue="#!MlCpj/bT00Ro27sdEsdEHg==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_5HZeAIRCEee_VpHxHyWFgQ" name="/TwitterOauth/accessToken" type="property:password" scaext:simpleValue="#!IqbzWDV538ZX6rAlVQ6xAQ==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_5LrhEIRCEee_VpHxHyWFgQ" name="/TwitterOauth/accessTokenSecret" type="property:password" scaext:simpleValue="#!epE0TI51aeHedGa2G19fMA==" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_qy2DQIOSEeekF_tefc3xFw" name="ComponentPost_Tweet" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_qy2DQYOSEeekF_tefc3xFw" processName="showcase_social.module.twitter.Post_Tweet"/>
+  </sca:component>
+  <sca:component xmi:id="_yIpZ4IOXEeekF_tefc3xFw" name="ComponentStream_Listener" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_yIpZ4YOXEeekF_tefc3xFw" processName="showcase_social.module.twitter.Stream_Listener"/>
+  </sca:component>
+</sca:composite>

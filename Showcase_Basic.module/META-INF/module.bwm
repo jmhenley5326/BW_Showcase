@@ -94,9 +94,6 @@
   <sca:property xmi:id="_lmv7QH3TEee9opCbUPgGzQ" name="/JDBC/username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_oq9TIH3TEee9opCbUPgGzQ" name="/JDBC/password" type="property:password" scaext:simpleValue="#!et4RVc6Dfbr2IUGb27GYzQ==" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_pre8AH3TEee9opCbUPgGzQ" name="/JDBC/url" type="XMLSchema:string" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_grhdwH3bEee9opCbUPgGzQ" name="/SMTP/host" type="XMLSchema:string" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_lZx8oH3bEee9opCbUPgGzQ" name="/SMTP/username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
-  <sca:property xmi:id="_lfXnQH3bEee9opCbUPgGzQ" name="/SMTP/password" type="property:password" scaext:simpleValue="#!44vOlq47QLgLZteQuryjMg==" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_1_308H93Eeek8KwxWhTtDg" name="/File/productFile" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:component xmi:id="_raYAIHmIEeekMKxtneY8vg" name="ComponentProduct" compositeext:version="1.0.0.qualifier">
     <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_raYAIXmIEeekMKxtneY8vg" processName="showcase_basic.module.services.Product_Resource_Rest"/>
