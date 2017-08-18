@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_0m-RsIRAEee_VpHxHyWFgQ" targetNamespace="http://tns.tibco.com/bw/composite/Showcase_Shared" name="Showcase_Shared" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:property xmi:id="_0pT0AIRAEee_VpHxHyWFgQ" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_0pW3UIRAEee_VpHxHyWFgQ" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_0pYFcIRAEee_VpHxHyWFgQ" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_0pZTkIRAEee_VpHxHyWFgQ" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_0pezIIRAEee_VpHxHyWFgQ" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_0pfaMIRAEee_VpHxHyWFgQ" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_0pgoUIRAEee_VpHxHyWFgQ" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_0ph2cIRAEee_VpHxHyWFgQ" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_0pidgIRAEee_VpHxHyWFgQ" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_pF2icIRBEee_VpHxHyWFgQ" name="/SMTP/host" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_rS0JQIRBEee_VpHxHyWFgQ" name="/SMTP/username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_rvBkIIRBEee_VpHxHyWFgQ" name="/SMTP/password" type="property:password" scaext:simpleValue="#!zswqPKWcUZIXTHjB2e41PQ==" publicAccess="true" scalable="true"/>
+</sca:composite>
