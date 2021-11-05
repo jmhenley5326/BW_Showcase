@@ -2,7 +2,7 @@
   "swagger" : "2.0",
   "info" : {
     "version" : "1.0",
-    "title" : "Kick off choreography showcase",
+    "title" : "Choreography_Showcase",
     "description" : "Kick off choreography showcase"
   },
   "host" : "localhost:8675",
@@ -11,6 +11,7 @@
   "paths" : {
     "/choreography_showcase" : {
       "get" : {
+        "summary" : "",
         "description" : "",
         "operationId" : "get-choreography_showcase",
         "consumes" : [ "application/json" ],

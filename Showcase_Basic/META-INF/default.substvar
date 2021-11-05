@@ -8,6 +8,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Basic.module//BW.APPNODE.NAME</name>
@@ -16,6 +17,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Basic.module//BW.DEPLOYMENTUNIT.NAME</name>
@@ -24,6 +26,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Basic.module//BW.HOST.NAME</name>
@@ -32,6 +35,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Basic.module//BW.DOMAIN.NAME</name>
@@ -40,6 +44,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Basic.module//BW.DEPLOYMENTUNIT.VERSION</name>
@@ -48,6 +53,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Basic.module//BW.APPSPACE.NAME</name>
@@ -56,6 +62,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Basic.module//BW.MODULE.VERSION</name>
@@ -64,6 +71,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Basic.module//BW.MODULE.NAME</name>
@@ -72,6 +80,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Basic.module///JDBC/password</name>
@@ -80,6 +89,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>
 			<isOverride>true</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Basic.module///JDBC/username</name>
@@ -88,6 +98,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>true</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Basic.module///JDBC/url</name>
@@ -96,6 +107,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>true</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Basic.module///File/productFile</name>
@@ -104,6 +116,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Shared//BW.DEPLOYMENTUNIT.TYPE</name>
@@ -112,6 +125,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Shared//BW.APPNODE.NAME</name>
@@ -120,6 +134,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Shared//BW.DEPLOYMENTUNIT.NAME</name>
@@ -128,6 +143,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Shared//BW.HOST.NAME</name>
@@ -136,6 +152,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Shared//BW.DOMAIN.NAME</name>
@@ -144,6 +161,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Shared//BW.DEPLOYMENTUNIT.VERSION</name>
@@ -152,6 +170,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Shared//BW.APPSPACE.NAME</name>
@@ -160,6 +179,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Shared//BW.MODULE.VERSION</name>
@@ -168,6 +188,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Shared//BW.MODULE.NAME</name>
@@ -176,6 +197,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Shared///SMTP/username</name>
@@ -184,6 +206,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>true</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Shared///SMTP/password</name>
@@ -192,6 +215,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>
 			<isOverride>true</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Shared///SMTP/host</name>
@@ -200,6 +224,25 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>true</isOverride>
+			<useLookupValue>false</useLookupValue>
+		</globalVariable>
+		<globalVariable>
+			<name>//Showcase_Shared//BW.CLOUD.PORT</name>
+			<value>8080</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Integer</type>
+			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
+		</globalVariable>
+		<globalVariable>
+			<name>//Showcase_Basic.module//BW.CLOUD.PORT</name>
+			<value>8080</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Integer</type>
+			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 	</globalVariables>
 </repository>

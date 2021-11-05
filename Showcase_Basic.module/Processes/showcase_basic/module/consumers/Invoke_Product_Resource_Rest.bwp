@@ -163,6 +163,17 @@
                 </complexContent>
             </complexType>
             <element name="ActivityTimedOutException" type="tns:ActivityTimedOutExceptionType"/>
+            <complexType name="DuplicateKeyExceptionType">
+                <complexContent>
+                    <extension base="tns:ActivityExceptionType">
+                        <sequence>
+                            <element name="duplicateKey" type="string"/>
+                            <element minOccurs="0" name="previousJobID" type="string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <element name="DuplicateKeyException" type="tns:DuplicateKeyExceptionType"/>
         </schema>
         <xs:schema attributeFormDefault="unqualified"
             elementFormDefault="qualified"
@@ -418,7 +429,7 @@
         createdOn="Sun Aug 06 14:35:46 CDT 2017" description=""
         extraErrorVars="false" modifiers="public"
         productVersion="6.4.0 V29 2017-05-09" scalable="true"
-        singleton="true" stateless="false" type="IT"/>
+        singleton="true" stateless="true" type="IT"/>
     <tibex:ProcessInterface context="" input="" output=""/>
     <tibex:ProcessTemplateConfigurations/>
     <notation:Diagram measurementUnit="Pixel" type="BWProcess"
@@ -997,6 +1008,7 @@
                                     parameterName="productId"
                                     parameterType="Path" required="true"/>
                                 </parameters>
+                                <advancedConfig blockingQueueSize="2147483647"/>
                             </scaext:binding>
                         </referenceBinding>
                     </bwbinding:BWBaseBinding>
@@ -1130,8 +1142,6 @@
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/restinvoke+73403abc-3ef0-4d65-889e-afbc51a4ceaf+RestInvokeInput&quot; version=&quot;2.0&quot;>&lt;xsl:template name=&quot;InvokeRESTAPI-input&quot; match=&quot;/&quot;>&lt;tns:RestActivityInput>&lt;tns:QueryParameters>&lt;type>&lt;xsl:value-of select=&quot;&amp;quot;query&amp;quot;&quot;/>&lt;/type>&lt;/tns:QueryParameters>&lt;tns:PathParameters>&lt;productId>&lt;xsl:value-of select=&quot;&amp;quot;2&amp;quot;&quot;/>&lt;/productId>&lt;/tns:PathParameters>&lt;/tns:RestActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     governedObjectTypes="BWHttpReference"
                     inputVariable="InvokeRESTAPI-input"
                     name="InvokeRESTAPI" outputVariable="InvokeRESTAPI"
@@ -1167,11 +1177,8 @@
                 </tibex:activityExtension>
             </bpws:extensionActivity>
             <bpws:extensionActivity>
-                <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;activity.jsonParser.input+d4d37339-c401-4410-8839-327ca8d84e7a+ActivityInputType&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;InvokeRESTAPI&quot;/>&lt;xsl:template name=&quot;ParseJSON-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInputClass>&lt;jsonString>&lt;xsl:value-of select=&quot;$InvokeRESTAPI/MessageBody/asciiContent&quot;/>&lt;/jsonString>&lt;/tns:ActivityInputClass>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                    inputVariable="ParseJSON-input" name="ParseJSON"
-                    outputVariable="ParseJSON"
+                <tibex:activityExtension inputVariable="ParseJSON-input"
+                    name="ParseJSON" outputVariable="ParseJSON"
                     tibex:xpdlId="d4d37339-c401-4410-8839-327ca8d84e7a" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="Log2ToParseJSON"/>
@@ -1203,10 +1210,8 @@
                 </tibex:activityExtension>
             </bpws:extensionActivity>
             <bpws:extensionActivity>
-                <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;ParseJSON&quot;/>&lt;xsl:template name=&quot;Log1-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Rest Invoke call XML Parsed: &amp;quot;, tib:render-xml($ParseJSON, true(),true()))&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                    inputVariable="Log1-input" name="Log1"
+                <tibex:activityExtension inputVariable="Log1-input"
+                    name="Log1"
                     tibex:xpdlId="09f022f0-d799-4572-9574-814f7ded4d77" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="ParseJSONToLog1"/>
@@ -1234,10 +1239,8 @@
                 </tibex:activityExtension>
             </bpws:extensionActivity>
             <bpws:extensionActivity>
-                <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;InvokeRESTAPI&quot;/>&lt;xsl:template name=&quot;Log2-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Rest Invoke call JSON Response: &amp;quot;, &amp;quot;&amp;#xA;&amp;quot;, $InvokeRESTAPI/MessageBody/asciiContent)&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                    inputVariable="Log2-input" name="Log2"
+                <tibex:activityExtension inputVariable="Log2-input"
+                    name="Log2"
                     tibex:xpdlId="149d0e9a-185e-4233-b2ff-9c6bdf1c9a4b" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="InvokeRESTAPIToParseJSON"/>

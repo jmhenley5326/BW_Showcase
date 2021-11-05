@@ -162,6 +162,17 @@
                 </complexContent>
             </complexType>
             <element name="ActivityTimedOutException" type="tns:ActivityTimedOutExceptionType"/>
+            <complexType name="DuplicateKeyExceptionType">
+                <complexContent>
+                    <extension base="tns:ActivityExceptionType">
+                        <sequence>
+                            <element name="duplicateKey" type="string"/>
+                            <element minOccurs="0" name="previousJobID" type="string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <element name="DuplicateKeyException" type="tns:DuplicateKeyExceptionType"/>
         </schema>
         <xs:schema attributeFormDefault="unqualified"
             elementFormDefault="qualified"
@@ -259,7 +270,7 @@
         createdOn="Sun Aug 06 16:57:14 CDT 2017" description=""
         extraErrorVars="false" modifiers="public"
         productVersion="6.4.0 V29 2017-05-09" scalable="true"
-        singleton="true" stateless="false" type="IT"/>
+        singleton="true" stateless="true" type="IT"/>
     <tibex:ProcessInterface context="" input="" output=""/>
     <tibex:ProcessTemplateConfigurations/>
     <notation:Diagram measurementUnit="Pixel" type="BWProcess"
@@ -809,11 +820,8 @@
                 </tibex:receiveEvent>
             </bpws:extensionActivity>
             <bpws:extensionActivity>
-                <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Product&quot; version=&quot;2.0&quot;>&lt;xsl:template name=&quot;RenderXml-input&quot; match=&quot;/&quot;>&lt;tns:Product>&lt;tns:productId>&lt;xsl:value-of select=&quot;&amp;quot;1&amp;quot;&quot;/>&lt;/tns:productId>&lt;tns:name>&lt;xsl:value-of select=&quot;&amp;quot;Test Product&amp;quot;&quot;/>&lt;/tns:name>&lt;tns:description>&lt;xsl:value-of select=&quot;&amp;quot;Description&amp;quot;&quot;/>&lt;/tns:description>&lt;tns:brand>&lt;xsl:value-of select=&quot;&amp;quot;Brand&amp;quot;&quot;/>&lt;/tns:brand>&lt;tns:manufacturer>&lt;xsl:value-of select=&quot;&amp;quot;Manufacturer&amp;quot;&quot;/>&lt;/tns:manufacturer>&lt;/tns:Product>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                    inputVariable="RenderXml-input" name="RenderXml"
-                    outputVariable="RenderXml"
+                <tibex:activityExtension inputVariable="RenderXml-input"
+                    name="RenderXml" outputVariable="RenderXml"
                     tibex:xpdlId="8312af57-b47a-4379-b291-021fced18e37" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="TimerToRenderXml"/>
@@ -846,11 +854,8 @@
                 </tibex:activityExtension>
             </bpws:extensionActivity>
             <bpws:extensionActivity>
-                <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/ProductAlt&quot; xmlns:tns1=&quot;http://www.example.org/Product&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;ParseXml&quot;/>&lt;xsl:template name=&quot;Mapper-input&quot; match=&quot;/&quot;>&lt;tns:ProductAlt>&lt;tns:id>&lt;xsl:value-of select=&quot;xsd:int($ParseXml/tns1:productId)&quot;/>&lt;/tns:id>&lt;tns:name>&lt;xsl:value-of select=&quot;$ParseXml/tns1:name&quot;/>&lt;/tns:name>&lt;tns:metaData>&lt;tns:description>&lt;xsl:value-of select=&quot;$ParseXml/tns1:description&quot;/>&lt;/tns:description>&lt;tns:brand>&lt;xsl:value-of select=&quot;$ParseXml/tns1:brand&quot;/>&lt;/tns:brand>&lt;tns:manufacturer>&lt;xsl:value-of select=&quot;$ParseXml/tns1:manufacturer&quot;/>&lt;/tns:manufacturer>&lt;/tns:metaData>&lt;/tns:ProductAlt>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                    inputVariable="Mapper-input" name="Mapper"
-                    outputVariable="Mapper"
+                <tibex:activityExtension inputVariable="Mapper-input"
+                    name="Mapper" outputVariable="Mapper"
                     tibex:xpdlId="0590b7bf-700a-4c2a-a085-ba54ac4494bb" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="LogToMapper"/>
@@ -882,11 +887,8 @@
                 </tibex:activityExtension>
             </bpws:extensionActivity>
             <bpws:extensionActivity>
-                <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/parsexml&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;RenderXml&quot;/>&lt;xsl:template name=&quot;ParseXml-input&quot; match=&quot;/&quot;>&lt;tns:xmlString>&lt;xsl:value-of select=&quot;$RenderXml&quot;/>&lt;/tns:xmlString>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                    inputVariable="ParseXml-input" name="ParseXml"
-                    outputVariable="ParseXml"
+                <tibex:activityExtension inputVariable="ParseXml-input"
+                    name="ParseXml" outputVariable="ParseXml"
                     tibex:xpdlId="a38aebc2-bf53-4d16-a81b-98ce6499bcfc" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="RenderXmlToMapper"/>
@@ -919,10 +921,8 @@
                 </tibex:activityExtension>
             </bpws:extensionActivity>
             <bpws:extensionActivity>
-                <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;ParseXml&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Pre-Mapper: &amp;quot;, tib:render-xml($ParseXml, true(),true()))&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                    inputVariable="Log-input" name="Log"
+                <tibex:activityExtension inputVariable="Log-input"
+                    name="Log"
                     tibex:xpdlId="461d132e-7193-49f5-8190-036fd15fcfad" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="ParseXmlToMapper"/>
@@ -953,10 +953,8 @@
                 </tibex:activityExtension>
             </bpws:extensionActivity>
             <bpws:extensionActivity>
-                <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Mapper&quot;/>&lt;xsl:template name=&quot;Log1-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Post-Mapper: &amp;quot;, tib:render-xml($Mapper, true(),true()))&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                    inputVariable="Log1-input" name="Log1"
+                <tibex:activityExtension inputVariable="Log1-input"
+                    name="Log1"
                     tibex:xpdlId="169e5589-a57a-460a-acd6-5d2b5dce89d5" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="MapperToLog1"/>

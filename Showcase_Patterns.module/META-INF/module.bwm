@@ -9,4 +9,5 @@
   <sca:property xmi:id="_SB6FsIHQEeep0oJQMD38Og" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_SB9JAIHQEeep0oJQMD38Og" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_SCAzYIHQEeep0oJQMD38Og" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_wZFD4D4-EeyPsImdj029fA" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
 </sca:composite>

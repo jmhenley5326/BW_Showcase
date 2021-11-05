@@ -9,6 +9,7 @@
   <sca:property xmi:id="_0pgoUIRAEee_VpHxHyWFgQ" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_0ph2cIRAEee_VpHxHyWFgQ" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_0pidgIRAEee_VpHxHyWFgQ" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_s-GKwD4-EeyPsImdj029fA" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
   <sca:property xmi:id="_pF2icIRBEee_VpHxHyWFgQ" name="/SMTP/host" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_rS0JQIRBEee_VpHxHyWFgQ" name="/SMTP/username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_rvBkIIRBEee_VpHxHyWFgQ" name="/SMTP/password" type="property:password" scaext:simpleValue="#!zswqPKWcUZIXTHjB2e41PQ==" publicAccess="true" scalable="true"/>

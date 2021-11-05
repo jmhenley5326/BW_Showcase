@@ -159,6 +159,17 @@
                 </complexContent>
             </complexType>
             <element name="ActivityTimedOutException" type="tns:ActivityTimedOutExceptionType"/>
+            <complexType name="DuplicateKeyExceptionType">
+                <complexContent>
+                    <extension base="tns:ActivityExceptionType">
+                        <sequence>
+                            <element name="duplicateKey" type="string"/>
+                            <element minOccurs="0" name="previousJobID" type="string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <element name="DuplicateKeyException" type="tns:DuplicateKeyExceptionType"/>
         </schema>
         <xs:schema
             targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/twitter+1b225f59-fffe-480c-9335-5f61bba3a457+Output"
@@ -476,7 +487,7 @@
         createdOn="Thu Aug 17 17:02:38 CDT 2017" description=""
         extraErrorVars="false" modifiers="public"
         productVersion="6.3.5 HF2 V28 2017-04-10" scalable="true"
-        singleton="true" stateless="false" type="IT"/>
+        singleton="true" stateless="true" type="IT"/>
     <tibex:ProcessInterface context="" input="" output=""/>
     <tibex:ProcessTemplateConfigurations/>
     <notation:Diagram measurementUnit="Pixel" type="BWProcess"
@@ -873,10 +884,8 @@
                 </tibex:receiveEvent>
             </bpws:extensionActivity>
             <bpws:extensionActivity>
-                <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;TwitterStreamListener&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;$TwitterStreamListener/Status/text&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                    inputVariable="Log-input" name="Log"
+                <tibex:activityExtension inputVariable="Log-input"
+                    name="Log"
                     tibex:xpdlId="eb4cab3f-9691-4d29-9cd4-0d7f9f5491eb" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="TwitterStreamListenerToLog"/>
@@ -904,10 +913,8 @@
                 </tibex:activityExtension>
             </bpws:extensionActivity>
             <bpws:extensionActivity>
-                <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/activity/sendmail/xsd/input+1c5919e5-20b0-4737-a69f-3b39d1c79611+input&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;TwitterStreamListener&quot;/>&lt;xsl:template name=&quot;SendMail-input&quot; match=&quot;/&quot;>&lt;tns:mailActivityInput>&lt;from>&lt;xsl:value-of select=&quot;&amp;quot;jhenley@tibco.com&amp;quot;&quot;/>&lt;/from>&lt;to>&lt;xsl:value-of select=&quot;normalize-space(substring-before($TwitterStreamListener/Status/text, &amp;quot;#bwshowcase&amp;quot;))&quot;/>&lt;/to>&lt;subject>&lt;xsl:value-of select=&quot;&amp;quot;Automated Email from TIBCO BusinessWorks&amp;quot;&quot;/>&lt;/subject>&lt;bodyElement>&lt;bodyText>&lt;xsl:value-of select=&quot;concat(&amp;quot;Twitter User: &amp;quot;, $TwitterStreamListener/Status/user/screenName, &amp;quot; just tweeted this email to #bwshowcase&amp;quot;,&amp;quot;&amp;#xD;&amp;#xA;&amp;quot;,tib:render-xml($TwitterStreamListener/Status, true(),true()))&quot;/>&lt;/bodyText>&lt;/bodyElement>&lt;/tns:mailActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                    inputVariable="SendMail-input" name="SendMail"
+                <tibex:activityExtension inputVariable="SendMail-input"
+                    name="SendMail"
                     tibex:xpdlId="1c5919e5-20b0-4737-a69f-3b39d1c79611" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="TwitterStreamListenerToSendMail"/>

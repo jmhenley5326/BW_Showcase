@@ -160,6 +160,17 @@
                 </complexContent>
             </complexType>
             <element name="ActivityTimedOutException" type="tns:ActivityTimedOutExceptionType"/>
+            <complexType name="DuplicateKeyExceptionType">
+                <complexContent>
+                    <extension base="tns:ActivityExceptionType">
+                        <sequence>
+                            <element name="duplicateKey" type="string"/>
+                            <element minOccurs="0" name="previousJobID" type="string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <element name="DuplicateKeyException" type="tns:DuplicateKeyExceptionType"/>
         </schema>
         <xs:schema attributeFormDefault="unqualified"
             elementFormDefault="qualified"
@@ -561,7 +572,7 @@
         createdOn="Mon Aug 07 08:39:06 CDT 2017" description=""
         extraErrorVars="false" modifiers="public"
         productVersion="6.4.0 V29 2017-05-09" scalable="true"
-        singleton="true" stateless="false" type="IT"/>
+        singleton="true" stateless="true" type="IT"/>
     <tibex:ProcessInterface context="" input="" output=""/>
     <tibex:ProcessTemplateConfigurations/>
     <notation:Diagram measurementUnit="Pixel" type="BWProcess"
@@ -894,11 +905,8 @@
                 </tibex:receiveEvent>
             </bpws:extensionActivity>
             <bpws:extensionActivity>
-                <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.example.org/Product&quot; version=&quot;2.0&quot;>&lt;xsl:template name=&quot;Mapper-input&quot; match=&quot;/&quot;>&lt;tns:Product>&lt;tns:productId>&lt;xsl:value-of select=&quot;&amp;quot;21&amp;quot;&quot;/>&lt;/tns:productId>&lt;tns:name>&lt;xsl:value-of select=&quot;&amp;quot;Topic Message&amp;quot;&quot;/>&lt;/tns:name>&lt;tns:description>&lt;xsl:value-of select=&quot;&amp;quot;Desc&amp;quot;&quot;/>&lt;/tns:description>&lt;tns:brand>&lt;xsl:value-of select=&quot;&amp;quot;BR549&amp;quot;&quot;/>&lt;/tns:brand>&lt;tns:manufacturer>&lt;xsl:value-of select=&quot;&amp;quot;TIBCO&amp;quot;&quot;/>&lt;/tns:manufacturer>&lt;/tns:Product>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                    inputVariable="Mapper-input" name="Mapper"
-                    outputVariable="Mapper"
+                <tibex:activityExtension inputVariable="Mapper-input"
+                    name="Mapper" outputVariable="Mapper"
                     tibex:xpdlId="7705f4e0-6584-40d1-b3fc-06d72cbdab9d" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="TimerToMapper"/>
@@ -930,8 +938,6 @@
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jms+4379c38e-9fda-43ab-b8d0-3c0ea1e228d4+input&quot; xmlns:tns1=&quot;http://www.example.org/Product&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Mapper&quot;/>&lt;xsl:template name=&quot;JMSSendMessage-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;Body>&lt;tns1:Product>&lt;tns1:productId>&lt;xsl:value-of select=&quot;$Mapper/tns1:productId&quot;/>&lt;/tns1:productId>&lt;tns1:name>&lt;xsl:value-of select=&quot;$Mapper/tns1:name&quot;/>&lt;/tns1:name>&lt;tns1:description>&lt;xsl:value-of select=&quot;$Mapper/tns1:description&quot;/>&lt;/tns1:description>&lt;tns1:brand>&lt;xsl:value-of select=&quot;$Mapper/tns1:brand&quot;/>&lt;/tns1:brand>&lt;tns1:manufacturer>&lt;xsl:value-of select=&quot;$Mapper/tns1:manufacturer&quot;/>&lt;/tns1:manufacturer>&lt;/tns1:Product>&lt;/Body>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="JMSSendMessage-input"
                     name="JMSSendMessage"
                     outputVariable="JMSSendMessage"

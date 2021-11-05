@@ -17,6 +17,11 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
+			<name>com.tibco.bw.rest.RestSchemaBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
 			<name>com.tibco.bw.ManifestBuilder</name>
 			<arguments>
 			</arguments>
@@ -43,11 +48,6 @@
 		</buildCommand>
 		<buildCommand>
 			<name>com.tibco.bw.ActivityReportBuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
-			<name>com.tibco.bw.rest.RestSchemaBuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>

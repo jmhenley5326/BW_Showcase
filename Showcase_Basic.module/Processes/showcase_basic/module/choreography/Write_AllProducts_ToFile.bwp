@@ -162,6 +162,17 @@
                 </complexContent>
             </complexType>
             <element name="ActivityTimedOutException" type="tns:ActivityTimedOutExceptionType"/>
+            <complexType name="DuplicateKeyExceptionType">
+                <complexContent>
+                    <extension base="tns:ActivityExceptionType">
+                        <sequence>
+                            <element name="duplicateKey" type="string"/>
+                            <element minOccurs="0" name="previousJobID" type="string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <element name="DuplicateKeyException" type="tns:DuplicateKeyExceptionType"/>
         </schema>
         <schema
             targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/jdbc+2e4723dc-67f9-44b0-9a88-64ef9935e55a+input"
@@ -522,7 +533,7 @@
         createdOn="Mon Aug 07 11:21:08 CDT 2017" description=""
         extraErrorVars="false" modifiers="public"
         productVersion="6.4.0 V29 2017-05-09" scalable="true"
-        singleton="true" stateless="false" type="IT"/>
+        singleton="true" stateless="true" type="IT"/>
     <tibex:ProcessInterface context="" input="" output=""/>
     <tibex:ProcessTemplateConfigurations/>
     <notation:Diagram measurementUnit="Pixel" type="BWProcess"
@@ -1030,11 +1041,8 @@
                 </tibex:activityExtension>
             </bpws:extensionActivity>
             <bpws:extensionActivity>
-                <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?> &lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+2e4723dc-67f9-44b0-9a88-64ef9935e55a+input&quot; version=&quot;2.0&quot;> &lt;xsl:template name=&quot;JDBCQuery-input&quot; match=&quot;/&quot;> &lt;tns:jdbcQueryActivityInput/> &lt;/xsl:template> &lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                    inputVariable="JDBCQuery-input" name="JDBCQuery"
-                    outputVariable="JDBCQuery"
+                <tibex:activityExtension inputVariable="JDBCQuery-input"
+                    name="JDBCQuery" outputVariable="JDBCQuery"
                     tibex:xpdlId="2e4723dc-67f9-44b0-9a88-64ef9935e55a" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="StartToJDBCQuery"/>
@@ -1088,8 +1096,6 @@
             </bpws:extensionActivity>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/activity/render/xsd/+55966e85-1b45-4aa1-86bf-58e5b313a8be+input&quot; xmlns:tns1=&quot;http://www.example.org/ProductFlatFile&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;JDBCQuery&quot;/>&lt;xsl:template name=&quot;Renderdata-input&quot; match=&quot;/&quot;>&lt;tns:Rows>&lt;xsl:for-each select=&quot;$JDBCQuery/Record&quot;>&lt;tns1:Product>&lt;tns1:productId>&lt;xsl:value-of select=&quot;PRODUCTID&quot;/>&lt;/tns1:productId>&lt;tns1:name>&lt;xsl:value-of select=&quot;NAME&quot;/>&lt;/tns1:name>&lt;tns1:description>&lt;xsl:value-of select=&quot;DESCRIPTION&quot;/>&lt;/tns1:description>&lt;tns1:brand>&lt;xsl:value-of select=&quot;BRAND&quot;/>&lt;/tns1:brand>&lt;tns1:manufacturer>&lt;xsl:value-of select=&quot;MANUFACTURER&quot;/>&lt;/tns1:manufacturer>&lt;/tns1:Product>&lt;/xsl:for-each>&lt;/tns:Rows>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                     inputVariable="Renderdata-input" name="Renderdata"
                     outputVariable="Renderdata"
                     tibex:xpdlId="55966e85-1b45-4aa1-86bf-58e5b313a8be" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
@@ -1122,11 +1128,8 @@
                 </tibex:activityExtension>
             </bpws:extensionActivity>
             <bpws:extensionActivity>
-                <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/file&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Renderdata&quot;/>&lt;xsl:template name=&quot;WriteFile-input&quot; match=&quot;/&quot;>&lt;tns:WriteActivityInputTextClass>&lt;textContent>&lt;xsl:value-of select=&quot;$Renderdata&quot;/>&lt;/textContent>&lt;/tns:WriteActivityInputTextClass>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                    inputVariable="WriteFile-input" name="WriteFile"
-                    outputVariable="WriteFile"
+                <tibex:activityExtension inputVariable="WriteFile-input"
+                    name="WriteFile" outputVariable="WriteFile"
                     tibex:xpdlId="88db7ca4-59ca-4b88-a5f3-a4eb2c6558e9" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="RenderdataToWriteFile"/>
@@ -1158,10 +1161,8 @@
                 </tibex:activityExtension>
             </bpws:extensionActivity>
             <bpws:extensionActivity>
-                <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Renderdata&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;CSV File: &amp;quot;, &amp;quot;&amp;#xD;&amp;#xA;&amp;quot;,$Renderdata)&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                    inputVariable="Log-input" name="Log"
+                <tibex:activityExtension inputVariable="Log-input"
+                    name="Log"
                     tibex:xpdlId="a50db097-a2ef-461b-944c-c734a431831a" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="RenderdataToLog"/>

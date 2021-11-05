@@ -162,6 +162,17 @@
                 </complexContent>
             </complexType>
             <element name="ActivityTimedOutException" type="tns:ActivityTimedOutExceptionType"/>
+            <complexType name="DuplicateKeyExceptionType">
+                <complexContent>
+                    <extension base="tns:ActivityExceptionType">
+                        <sequence>
+                            <element name="duplicateKey" type="string"/>
+                            <element minOccurs="0" name="previousJobID" type="string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <element name="DuplicateKeyException" type="tns:DuplicateKeyExceptionType"/>
         </schema>
         <xs:schema attributeFormDefault="unqualified"
             elementFormDefault="qualified"
@@ -346,7 +357,7 @@
         createdOn="Mon Aug 07 14:17:17 CDT 2017" description=""
         extraErrorVars="false" modifiers="public"
         productVersion="6.4.0 V29 2017-05-09" scalable="true"
-        singleton="true" stateless="false" type="IT"/>
+        singleton="true" stateless="true" type="IT"/>
     <tibex:ProcessInterface context="" input="" output=""/>
     <tibex:ProcessTemplateConfigurations/>
     <notation:Diagram measurementUnit="Pixel" type="BWProcess"
@@ -1038,8 +1049,6 @@
                         <bpws:links/>
                         <bpws:extensionActivity>
                             <tibex:activityExtension
-                                expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FaultDetails1&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;tib:render-xml($FaultDetails1, true(),true())&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                                expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                 inputVariable="Log-input" name="Log"
                                 tibex:xpdlId="26c021ce-adec-474b-8a8a-1162bb878eb1" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                                 <tibex:inputBindings>
@@ -1141,8 +1150,6 @@
                     </bpws:empty>
                     <bpws:extensionActivity>
                         <tibex:activityExtension
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?> &lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/restinvoke+c236edd7-53a6-4eee-adf0-b000b4dece11+RestInvokeInput&quot; version=&quot;2.0&quot;> &lt;xsl:template name=&quot;InvokeRESTAPI-input&quot; match=&quot;/&quot;> &lt;tns:RestActivityInput/> &lt;/xsl:template> &lt;/xsl:stylesheet>"
-                            expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                             governedObjectTypes="BWHttpReference"
                             inputVariable="InvokeRESTAPI-input"
                             name="InvokeRESTAPI"

@@ -15,6 +15,7 @@
       <parameters xmi:id="_ZxrWgHq5EeeTwNfnrC3G1g">
         <parameterMapping xmi:id="_ZxrWgXq5EeeTwNfnrC3G1g" parameterName="productId" parameterType="Path" dataType="string" required="true"/>
       </parameters>
+      <advancedConfig xmi:id="_miZIED49EeyPsImdj029fA" blockingQueueSize="2147483647"/>
     </scaext:binding>
     <scact:bindingAdjunct xmi:id="_raxowXmIEeekMKxtneY8vg" bindingName="RestService"/>
   </sca:service>
@@ -54,6 +55,7 @@
         <clientRequestFormat>json</clientRequestFormat>
       </operation>
       <parameters xmi:id="_LknwInukEeemkLhH-nd-iQ"/>
+      <advancedConfig xmi:id="_miZvID49EeyPsImdj029fA" blockingQueueSize="2147483647"/>
     </scaext:binding>
     <scact:bindingAdjunct xmi:id="_IW0BEXuIEeeh-IyihRbMKA" bindingName="RestService1"/>
   </sca:service>
@@ -78,7 +80,7 @@
           <faultMappings xmi:id="_nrqqvXrxEeebHIpTqP10Ig" direction="FAULT" faultName="Fault"/>
         </context>
       </operationConfiguration>
-      <outboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_nrqqvnrxEeebHIpTqP10Ig"/>
+      <outboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_nrqqvnrxEeebHIpTqP10Ig" httpClient="showcase_basic.module.HttpClientResource"/>
     </scaext:binding>
     <scact:bindingAdjunct xmi:id="_nrrRwHrxEeebHIpTqP10Ig" bindingName="SOAPReferenceBinding"/>
   </sca:reference>
@@ -91,6 +93,7 @@
   <sca:property xmi:id="_esn38HmEEeeQ5oGtG-Q9SA" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_esqUMHmEEeeQ5oGtG-Q9SA" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_estXgHmEEeeQ5oGtG-Q9SA" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_tAEgsD4-EeyPsImdj029fA" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
   <sca:property xmi:id="_lmv7QH3TEee9opCbUPgGzQ" name="/JDBC/username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_oq9TIH3TEee9opCbUPgGzQ" name="/JDBC/password" type="property:password" scaext:simpleValue="#!et4RVc6Dfbr2IUGb27GYzQ==" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_pre8AH3TEee9opCbUPgGzQ" name="/JDBC/url" type="XMLSchema:string" publicAccess="true" scalable="true"/>

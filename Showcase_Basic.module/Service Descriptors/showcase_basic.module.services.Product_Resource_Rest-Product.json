@@ -2,7 +2,7 @@
   "swagger" : "2.0",
   "info" : {
     "version" : "1.0",
-    "title" : "Product Service",
+    "title" : "Product",
     "description" : "Product Service"
   },
   "host" : "localhost:8080",
@@ -11,6 +11,7 @@
   "paths" : {
     "/product/{productId}" : {
       "get" : {
+        "summary" : "",
         "description" : "",
         "operationId" : "get-product",
         "consumes" : [ "application/json" ],

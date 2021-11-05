@@ -167,6 +167,17 @@
                 </complexContent>
             </complexType>
             <element name="ActivityTimedOutException" type="tns:ActivityTimedOutExceptionType"/>
+            <complexType name="DuplicateKeyExceptionType">
+                <complexContent>
+                    <extension base="tns:ActivityExceptionType">
+                        <sequence>
+                            <element name="duplicateKey" type="string"/>
+                            <element minOccurs="0" name="previousJobID" type="string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <element name="DuplicateKeyException" type="tns:DuplicateKeyExceptionType"/>
         </schema>
         <schema
             targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/jdbc+c120b632-3bce-4371-8634-63cc35aa8d49+input"
@@ -418,7 +429,7 @@
         createdOn="Sun Aug 06 13:40:49 CDT 2017" description=""
         extraErrorVars="false" modifiers="public"
         productVersion="6.4.0 V29 2017-05-09" scalable="true"
-        singleton="true" stateless="false" type="IT"/>
+        singleton="true" stateless="true" type="IT"/>
     <tibex:ProcessInterface context="" input="" output=""/>
     <tibex:ProcessTemplateConfigurations/>
     <notation:Diagram measurementUnit="Pixel" type="BWProcess"
@@ -1361,21 +1372,21 @@
                             <tibex:expression
                                 expression="$getProductIn/parameters/tns:getProductRequest/type=&quot;sp&quot;" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
                         </tibex:DesignExpression>
-                        <bpws:transitionCondition><![CDATA[$getProductIn.parameters/type="sp"]]></bpws:transitionCondition>
+                        <bpws:transitionCondition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[$getProductIn.parameters/type="sp"]]></bpws:transitionCondition>
                     </bpws:source>
                     <bpws:source linkName="IToJDBCQuery_typequery">
                         <tibex:DesignExpression>
                             <tibex:expression
                                 expression="$getProductIn/parameters/tns:getProductRequest/type=&quot;query&quot;" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
                         </tibex:DesignExpression>
-                        <bpws:transitionCondition><![CDATA[$getProductIn.parameters/type="query"]]></bpws:transitionCondition>
+                        <bpws:transitionCondition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[$getProductIn.parameters/type="query"]]></bpws:transitionCondition>
                     </bpws:source>
                     <bpws:source linkName="IToSQLDirect_typedirect">
                         <tibex:DesignExpression>
                             <tibex:expression
                                 expression="$getProductIn/parameters/tns:getProductRequest/type=&quot;direct&quot;" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
                         </tibex:DesignExpression>
-                        <bpws:transitionCondition><![CDATA[$getProductIn.parameters/type="direct"]]></bpws:transitionCondition>
+                        <bpws:transitionCondition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[$getProductIn.parameters/type="direct"]]></bpws:transitionCondition>
                     </bpws:source>
                     <bpws:source linkName="IToReply1">
                         <tibex:DesignExpression>
@@ -1557,11 +1568,8 @@
                 </tibex:activityExtension>
             </bpws:extensionActivity>
             <bpws:extensionActivity>
-                <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns2=&quot;http://www.example.org/Product&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;JDBCCallProcedure&quot;/>&#xa;    &lt;xsl:template name=&quot;V_Product&quot; match=&quot;/&quot;>&#xa;        &lt;tns2:Product>&#xa;            &lt;tns2:productId>&#xa;                &lt;xsl:value-of select=&quot;$JDBCCallProcedure/Resultsets/ResultSet1[1]/Record1[1]/productId&quot;/>&#xa;            &lt;/tns2:productId>&#xa;            &lt;tns2:name>&#xa;                &lt;xsl:value-of select=&quot;$JDBCCallProcedure/Resultsets/ResultSet1[1]/Record1[1]/name&quot;/>&#xa;            &lt;/tns2:name>&#xa;            &lt;tns2:description>&#xa;                &lt;xsl:value-of select=&quot;$JDBCCallProcedure/Resultsets/ResultSet1[1]/Record1[1]/description&quot;/>&#xa;            &lt;/tns2:description>&#xa;            &lt;tns2:brand>&#xa;                &lt;xsl:value-of select=&quot;$JDBCCallProcedure/Resultsets/ResultSet1[1]/Record1[1]/brand&quot;/>&#xa;            &lt;/tns2:brand>&#xa;            &lt;tns2:manufacturer>&#xa;                &lt;xsl:value-of select=&quot;$JDBCCallProcedure/Resultsets/ResultSet1[1]/Record1[1]/manufacturer&quot;/>&#xa;            &lt;/tns2:manufacturer>&#xa;        &lt;/tns2:Product>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                    inputVariable="V_Product" name="Assign"
-                    outputVariable="V_Product"
+                <tibex:activityExtension inputVariable="V_Product"
+                    name="Assign" outputVariable="V_Product"
                     tibex:xpdlId="25d56dc8-d917-41ba-b077-d993d5e06a1e" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="JDBCCallProcedureTogetProductOut"/>
@@ -1590,11 +1598,8 @@
                 </tibex:activityExtension>
             </bpws:extensionActivity>
             <bpws:extensionActivity>
-                <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns2=&quot;http://www.example.org/Product&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;JDBCQuery&quot;/>&#xa;    &lt;xsl:template name=&quot;V_Product&quot; match=&quot;/&quot;>&#xa;        &lt;tns2:Product>&#xa;            &lt;tns2:productId>&#xa;                &lt;xsl:value-of select=&quot;$JDBCQuery/Record[1]/productId&quot;/>&#xa;            &lt;/tns2:productId>&#xa;            &lt;tns2:name>&#xa;                &lt;xsl:value-of select=&quot;$JDBCQuery/Record[1]/name&quot;/>&#xa;            &lt;/tns2:name>&#xa;            &lt;tns2:description>&#xa;                &lt;xsl:value-of select=&quot;$JDBCQuery/Record[1]/description&quot;/>&#xa;            &lt;/tns2:description>&#xa;            &lt;tns2:brand>&#xa;                &lt;xsl:value-of select=&quot;$JDBCQuery/Record[1]/brand&quot;/>&#xa;            &lt;/tns2:brand>&#xa;            &lt;tns2:manufacturer>&#xa;                &lt;xsl:value-of select=&quot;$JDBCQuery/Record[1]/manufacturer&quot;/>&#xa;            &lt;/tns2:manufacturer>&#xa;        &lt;/tns2:Product>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                    inputVariable="V_Product" name="Assign1"
-                    outputVariable="V_Product"
+                <tibex:activityExtension inputVariable="V_Product"
+                    name="Assign1" outputVariable="V_Product"
                     tibex:xpdlId="22836ee2-c0db-4676-b597-63a62be3e10a" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="JDBCQueryToReply"/>
@@ -1623,11 +1628,8 @@
                 </tibex:activityExtension>
             </bpws:extensionActivity>
             <bpws:extensionActivity>
-                <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns2=&quot;http://www.example.org/Product&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;SQLDirect&quot;/>&#xa;    &lt;xsl:template name=&quot;V_Product&quot; match=&quot;/&quot;>&#xa;        &lt;tns2:Product>&#xa;            &lt;tns2:productId>&#xa;                &lt;xsl:value-of select=&quot;$SQLDirect/unknownResultset[1]/row[1]/column[name='productId']/value&quot;/>&#xa;            &lt;/tns2:productId>&#xa;            &lt;tns2:name>&#xa;                &lt;xsl:value-of select=&quot;$SQLDirect/unknownResultset[1]/row[1]/column[name='name']/value&quot;/>&#xa;            &lt;/tns2:name>&#xa;            &lt;tns2:description>&#xa;                &lt;xsl:value-of select=&quot;$SQLDirect/unknownResultset[1]/row[1]/column[name='description']/value&quot;/>&#xa;            &lt;/tns2:description>&#xa;            &lt;tns2:brand>&#xa;                &lt;xsl:value-of select=&quot;$SQLDirect/unknownResultset[1]/row[1]/column[name='brand']/value&quot;/>&#xa;            &lt;/tns2:brand>&#xa;            &lt;tns2:manufacturer>&#xa;                &lt;xsl:value-of select=&quot;$SQLDirect/unknownResultset[1]/row[1]/column[name='manufacturer']/value&quot;/>&#xa;            &lt;/tns2:manufacturer>&#xa;        &lt;/tns2:Product>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                    inputVariable="V_Product" name="Assign2"
-                    outputVariable="V_Product"
+                <tibex:activityExtension inputVariable="V_Product"
+                    name="Assign2" outputVariable="V_Product"
                     tibex:xpdlId="6e54a27f-80ba-4a10-a47b-89ee57e06659" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
                         <bpws:target linkName="SQLDirectToReply1"/>

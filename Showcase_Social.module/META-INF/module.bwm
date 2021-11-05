@@ -9,6 +9,7 @@
   <sca:property xmi:id="_WrX-sIOSEeekF_tefc3xFw" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_WrbCAIOSEeekF_tefc3xFw" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_WrdeQIOSEeekF_tefc3xFw" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_urYzAD4-EeyPsImdj029fA" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
   <sca:property xmi:id="_3ZTkgIRCEee_VpHxHyWFgQ" name="/TwitterOauth/consumerKey" type="property:password" scaext:simpleValue="#!g2wnEKGS+13qEZBlmkl/IQ==" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_5A2KEIRCEee_VpHxHyWFgQ" name="/TwitterOauth/consumerSecret" type="property:password" scaext:simpleValue="#!MlCpj/bT00Ro27sdEsdEHg==" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_5HZeAIRCEee_VpHxHyWFgQ" name="/TwitterOauth/accessToken" type="property:password" scaext:simpleValue="#!IqbzWDV538ZX6rAlVQ6xAQ==" publicAccess="true" scalable="true"/>
