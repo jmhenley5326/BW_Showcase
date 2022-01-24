@@ -13,6 +13,8 @@ This project contains basic functionality that comes out of the box with Busines
 
 ### showcase_basic.module.services
 A simple Rest and SOAP implementation
+
+Rest Example
 ![svc_produce](https://github.com/jmhenley5326/BW_Showcase/blob/master/screenshots/Rest_Service.png?raw=true)
 ### showcase_basic.module.consumers
 Consumers of the Rest and SOAP services
