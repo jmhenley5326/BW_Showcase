@@ -17,6 +17,43 @@
     xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
     xmlns:tibprop="http://ns.tibco.com/bw/property"
     xmlns:tns="http://www.example.org/ProductFlatFile" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <tibex:VariableDescriptor type="MemorySaving">
+        <task name="ParseData">
+            <endingVariables>
+                <variable>ParseData-input</variable>
+            </endingVariables>
+        </task>
+        <task name="Iterate">
+            <endingVariables>
+                <variable>ParseData</variable>
+                <variable>currentElement</variable>
+            </endingVariables>
+        </task>
+        <task name="JMSSendMessage">
+            <endingVariables>
+                <variable>JMSSendMessage-input</variable>
+                <variable>JMSSendMessage</variable>
+            </endingVariables>
+        </task>
+        <task name="Log_SentMessage">
+            <endingVariables>
+                <variable>Log_SentMessage-input</variable>
+            </endingVariables>
+        </task>
+        <task name="RemoveFile">
+            <endingVariables>
+                <variable>RemoveFile-input</variable>
+                <variable>RemoveFile</variable>
+                <variable>FilePoller</variable>
+            </endingVariables>
+        </task>
+        <task name="Log">
+            <endingVariables>
+                <variable>Log-input</variable>
+                <variable>FaultDetails</variable>
+            </endingVariables>
+        </task>
+    </tibex:VariableDescriptor>
     <tibex:Types>
         <xs:schema attributeFormDefault="unqualified"
             elementFormDefault="qualified"
@@ -1046,6 +1083,62 @@
                                     x="48"
                                     xsi:type="notation:Bounds" y="60"/>
                                     </children>
+
+                                    <children type="4002 bw.generalactivities.log">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName=".AppleSystemUIFont"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName=".AppleSystemUIFont"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName=".AppleSystemUIFont"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName=".AppleSystemUIFont"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    fontName=".AppleSystemUIFont"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.2/@activity/@activities.1/@activity/@activity/@activities.3"/>
+
+                                    <layoutConstraint
+                                    height="40"
+                                    width="40"
+                                    x="133"
+                                    xsi:type="notation:Bounds" y="60"/>
+                                    </children>
                                     <styles xsi:type="notation:DrawerStyle"/>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
@@ -1583,7 +1676,7 @@
         </edges>
         <edges
             source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.2" type="4006">
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
             <children type="6002">
                 <layoutConstraint xsi:type="notation:Location" y="40"/>
             </children>
@@ -1642,7 +1735,24 @@
             <element xsi:nil="true"/>
             <bendpoints points="[0, 0, -625, -160]$[601, 154, -24, -6]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.2" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName=".AppleSystemUIFont" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.2/@activity/@activities.1/@activity/@activity/@links/@children.2"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
     </notation:Diagram>
+    <tibex:NamespaceRegistry enabled="true">
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/pe/WriteToLogActivitySchema" prefix="tns"/>
+        <tibex:namespaceItem
+            namespace="http://www.example.org/ProductFlatFile" prefix="tns1"/>
+    </tibex:NamespaceRegistry>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://www.example.org/ProductFlatFile"/>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema"
         location="../../../../Schemas/Product.xsd" namespace="http://www.example.org/Product"/>
@@ -1682,6 +1792,8 @@
         <bpws:variable name="productFile" sca-bpel:hotUpdate="false"
             sca-bpel:privateProperty="true" sca-bpel:property="yes"
             tibex:propertySource="/File/productFile" type="xsd:string"/>
+        <bpws:variable element="ns5:ActivityInput"
+            name="Log_SentMessage-input" sca-bpel:internal="true"/>
     </bpws:variables>
     <bpws:extensions>
         <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
@@ -1779,7 +1891,7 @@
                     </bpws:sources>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/activity/parse/xsd/+65a5aed6-834c-46b6-b116-10a90af9c104+input&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FilePoller&quot;/>&lt;xsl:template name=&quot;ParseData-input&quot; match=&quot;/&quot;>&lt;tns:Input>&lt;text>&lt;xsl:value-of select=&quot;$FilePoller/fileContent/textContent&quot;/>&lt;/text>&lt;noOfRecords>&lt;xsl:value-of select=&quot;-1&quot;/>&lt;/noOfRecords>&lt;/tns:Input>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns2=&quot;http://tns.tibco.com/bw/activity/parse/xsd/+65a5aed6-834c-46b6-b116-10a90af9c104+input&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;FilePoller&quot;/>&#xa;    &lt;xsl:template name=&quot;ParseData-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns2:Input>&#xa;            &lt;text>&#xa;                &lt;xsl:value-of select=&quot;$FilePoller/fileContent/textContent&quot;/>&#xa;            &lt;/text>&#xa;            &lt;noOfRecords>&#xa;                &lt;xsl:value-of select=&quot;-1&quot;/>&#xa;            &lt;/noOfRecords>&#xa;        &lt;/tns2:Input>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity
@@ -1800,7 +1912,8 @@
                     </tibex:config>
                 </tibex:activityExtension>
             </bpws:extensionActivity>
-            <bpws:scope name="Iterate" tibex:group="iterate" tibex:xpdlId="4a2c19df-4bdd-4703-bbfd-0ecb8779476a">
+            <bpws:scope name="Iterate" tibex:group="iterate"
+                tibex:indexToGlobal="false" tibex:xpdlId="4a2c19df-4bdd-4703-bbfd-0ecb8779476a">
                 <bpws:targets>
                     <bpws:target linkName="ParseDataToIterate"/>
                 </bpws:targets>
@@ -1844,6 +1957,7 @@
                                     name="GroupStartToJMSSendMessage" tibex:linkType="SUCCESS"/>
                                     <bpws:link
                                     name="JMSSendMessageToGroupEnd" tibex:linkType="SUCCESS"/>
+                                    <bpws:link name="Log1ToGroupEnd" tibex:linkType="SUCCESS"/>
                                 </bpws:links>
                                 <bpws:assign name="GroupStart"
                                     tibex:group="groupStart"
@@ -1859,7 +1973,7 @@
                                 <bpws:empty name="GroupEnd"
                                     tibex:group="groupEnd" tibex:xpdlId="03405e12-5e17-4c25-88d1-2e2d6f4324c6">
                                     <bpws:targets>
-                                    <bpws:target linkName="JMSSendMessageToGroupEnd"/>
+                                    <bpws:target linkName="Log1ToGroupEnd"/>
                                     </bpws:targets>
                                 </bpws:empty>
                                 <bpws:extensionActivity>
@@ -1876,7 +1990,7 @@
                                     </bpws:sources>
                                     <tibex:inputBindings>
                                     <tibex:inputBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/jms+75ebfa60-782f-402a-90eb-6aa057f274f7+input&quot; xmlns:tns1=&quot;http://www.example.org/ProductFlatFile&quot; xmlns:tns2=&quot;http://www.example.org/Product&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;currentElement&quot;/>&lt;xsl:template name=&quot;JMSSendMessage-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;Body>&lt;tns2:Product>&lt;tns2:productId>&lt;xsl:value-of select=&quot;$currentElement/tns1:productId&quot;/>&lt;/tns2:productId>&lt;tns2:name>&lt;xsl:value-of select=&quot;$currentElement/tns1:name&quot;/>&lt;/tns2:name>&lt;tns2:description>&lt;xsl:value-of select=&quot;$currentElement/tns1:description&quot;/>&lt;/tns2:description>&lt;tns2:brand>&lt;xsl:value-of select=&quot;$currentElement/tns1:brand&quot;/>&lt;/tns2:brand>&lt;tns2:manufacturer>&lt;xsl:value-of select=&quot;$currentElement/tns1:manufacturer&quot;/>&lt;/tns2:manufacturer>&lt;/tns2:Product>&lt;/Body>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns3=&quot;http://www.tibco.com/namespaces/tnt/plugins/jms+75ebfa60-782f-402a-90eb-6aa057f274f7+input&quot; xmlns:tns1=&quot;http://www.example.org/ProductFlatFile&quot; xmlns:tns2=&quot;http://www.example.org/Product&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;currentElement&quot;/>&#xa;    &lt;xsl:template name=&quot;JMSSendMessage-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns3:ActivityInput>&#xa;            &lt;Body>&#xa;                &lt;tns2:Product>&#xa;                    &lt;tns2:productId>&#xa;                        &lt;xsl:value-of select=&quot;$currentElement/tns1:productId&quot;/>&#xa;                    &lt;/tns2:productId>&#xa;                    &lt;tns2:name>&#xa;                        &lt;xsl:value-of select=&quot;$currentElement/tns1:name&quot;/>&#xa;                    &lt;/tns2:name>&#xa;                    &lt;tns2:description>&#xa;                        &lt;xsl:value-of select=&quot;$currentElement/tns1:description&quot;/>&#xa;                    &lt;/tns2:description>&#xa;                    &lt;tns2:brand>&#xa;                        &lt;xsl:value-of select=&quot;$currentElement/tns1:brand&quot;/>&#xa;                    &lt;/tns2:brand>&#xa;                    &lt;tns2:manufacturer>&#xa;                        &lt;xsl:value-of select=&quot;$currentElement/tns1:manufacturer&quot;/>&#xa;                    &lt;/tns2:manufacturer>&#xa;                &lt;/tns2:Product>&#xa;            &lt;/Body>&#xa;        &lt;/tns3:ActivityInput>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                     </tibex:inputBindings>
                                     <tibex:config>
                                     <bwext:BWActivity
@@ -1903,6 +2017,41 @@
                                     </tibex:config>
                                     </tibex:activityExtension>
                                 </bpws:extensionActivity>
+                                <bpws:extensionActivity>
+                                    <tibex:activityExtension
+                                    inputVariable="Log_SentMessage-input"
+                                    name="Log_SentMessage"
+                                    tibex:xpdlId="19e08130-74a7-47fa-9de6-1c6b01008cd9" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                                    <bpws:targets>
+                                    <bpws:target linkName="JMSSendMessageToGroupEnd"/>
+                                    </bpws:targets>
+                                    <bpws:sources>
+                                    <bpws:source linkName="Log1ToGroupEnd"/>
+                                    </bpws:sources>
+                                    <tibex:inputBindings>
+                                    <tibex:inputBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tns1=&quot;http://www.example.org/ProductFlatFile&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;currentElement&quot;/>&lt;xsl:template name=&quot;Log_SentMessage-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Sent Msg for Product Id: &amp;quot;, $currentElement/tns1:productId)&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    </tibex:inputBindings>
+                                    <tibex:config>
+                                    <bwext:BWActivity
+                                    activityTypeID="bw.generalactivities.log"
+                                    version="6.0.0.001"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <activityConfig>
+                                    <properties
+                                    name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//Log"/>
+                                    <value
+                                    role="Info"
+                                    suppressJobInfo="true" xsi:type="generalactivities:Log"/>
+                                    </properties>
+                                    </activityConfig>
+                                    </bwext:BWActivity>
+                                    </tibex:config>
+                                    </tibex:activityExtension>
+                                </bpws:extensionActivity>
                             </bpws:flow>
                         </bpws:scope>
                     </bpws:forEach>
@@ -1918,7 +2067,7 @@
                     </bpws:targets>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/file&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FilePoller&quot;/>&lt;xsl:template name=&quot;RemoveFile-input&quot; match=&quot;/&quot;>&lt;tns:RemoveActivityInputClass>&lt;fileName>&lt;xsl:value-of select=&quot;$FilePoller/fileInfo/fullName&quot;/>&lt;/fileName>&lt;/tns:RemoveActivityInputClass>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns2=&quot;http://www.tibco.com/namespaces/tnt/plugins/file&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;FilePoller&quot;/>&#xa;    &lt;xsl:template name=&quot;RemoveFile-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns2:RemoveActivityInputClass>&#xa;            &lt;fileName>&#xa;                &lt;xsl:value-of select=&quot;$FilePoller/fileInfo/fullName&quot;/>&#xa;            &lt;/fileName>&#xa;        &lt;/tns2:RemoveActivityInputClass>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity

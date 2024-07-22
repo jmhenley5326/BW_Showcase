@@ -120,7 +120,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>/File/productFile</name>
-			<value>/Users/jasonhenley/tmp/products.csv</value>
+			<value>/Users/jmhenley/tmp/products.txt</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>

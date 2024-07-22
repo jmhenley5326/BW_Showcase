@@ -17,6 +17,20 @@
     xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
     xmlns:tibprop="http://ns.tibco.com/bw/property"
     xmlns:tns="http://xmlns.example.com/Choreography_Showcase/parameters" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <tibex:VariableDescriptor type="MemorySaving">
+        <task name="getOut">
+            <endingVariables>
+                <variable>getOut-input</variable>
+            </endingVariables>
+        </task>
+        <task name="SetSharedVariable">
+            <endingVariables>
+                <variable>SetSharedVariable-input</variable>
+                <variable>SetSharedVariable</variable>
+                <variable>get</variable>
+            </endingVariables>
+        </task>
+    </tibex:VariableDescriptor>
     <tibex:Types>
         <xs:schema attributeFormDefault="unqualified"
             elementFormDefault="qualified"
@@ -163,6 +177,17 @@
                 </complexContent>
             </complexType>
             <element name="ActivityTimedOutException" type="tns:ActivityTimedOutExceptionType"/>
+            <complexType name="DuplicateKeyExceptionType">
+                <complexContent>
+                    <extension base="tns:ActivityExceptionType">
+                        <sequence>
+                            <element name="duplicateKey" type="string"/>
+                            <element minOccurs="0" name="previousJobID" type="string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <element name="DuplicateKeyException" type="tns:DuplicateKeyExceptionType"/>
         </schema>
         <wsdl:definitions
             targetNamespace="http://xmlns.example.com/20170807105026PLT"
@@ -196,7 +221,7 @@
                 <wsdl:part element="extns:server5XXError" name="serverError"/>
             </wsdl:message>
             <wsdl:portType name="choreography_showcase"
-                tibex:bw.rest.apipath="/choreography_showcase"
+                tibex:bw.rest.apipath="/choreography_showcase?email={email}"
                 tibex:bw.rest.basepath="Choreography_Showcase"
                 tibex:bw.rest.resource="Service Descriptors/showcase_basic.module.choreography.Choreography_Showcase-Choreography_Showcase.json"
                 tibex:bw.rest.resource.source="generated" tibex:source="bw.rest.service">
@@ -848,7 +873,7 @@
                                     <bpws:source linkName="SetSharedVariableToWrite_AllProducts_ToFile"/>
                                     </bpws:sources>
                                     <tibex:inputBindings>
-                                    <tibex:inputBinding
+                                    <tibex:inputBinding coercion=""
                                     expression="$get.parameters/tns:email" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
                                     </tibex:inputBindings>
                                     <tibex:SetSharedVariable

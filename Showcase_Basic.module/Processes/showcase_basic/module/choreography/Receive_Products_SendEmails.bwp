@@ -13,6 +13,30 @@
     xmlns:sca-bpel="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"
     xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
     xmlns:tibprop="http://ns.tibco.com/bw/property" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <tibex:VariableDescriptor type="MemorySaving">
+        <task name="Scope">
+            <endingVariables>
+                <variable>JMSReceiveMessage</variable>
+            </endingVariables>
+        </task>
+        <task name="SendMail">
+            <endingVariables>
+                <variable>SendMail-input</variable>
+                <variable>GetEmailAddresses</variable>
+            </endingVariables>
+        </task>
+        <task name="Log_SendEmail">
+            <endingVariables>
+                <variable>Log_SendEmail-input</variable>
+            </endingVariables>
+        </task>
+        <task name="Log">
+            <endingVariables>
+                <variable>Log-input</variable>
+                <variable>FaultDetails</variable>
+            </endingVariables>
+        </task>
+    </tibex:VariableDescriptor>
     <tibex:Types>
         <xs:schema attributeFormDefault="unqualified"
             elementFormDefault="qualified"
@@ -633,8 +657,64 @@
                                     <layoutConstraint
                                     height="40"
                                     width="40"
-                                    x="19"
-                                    xsi:type="notation:Bounds" y="31"/>
+                                    x="93"
+                                    xsi:type="notation:Bounds" y="38"/>
+                                    </children>
+
+                                    <children type="4002 bw.generalactivities.log">
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName=".AppleSystemUIFont"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName=".AppleSystemUIFont"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName=".AppleSystemUIFont"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <children type="4017">
+
+                                    <styles
+                                    fontName=".AppleSystemUIFont"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+
+                                    <styles
+                                    fontName=".AppleSystemUIFont"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+
+                                    <element href="//0/@process/@activity/@activity/@activities.2/@activity/@activities.3"/>
+
+                                    <layoutConstraint
+                                    height="40"
+                                    width="40"
+                                    x="-8"
+                                    xsi:type="notation:Bounds" y="43"/>
                                     </children>
                                     <styles xsi:type="notation:DrawerStyle"/>
                                     <styles xsi:type="notation:SortingStyle"/>
@@ -651,10 +731,8 @@
                                     <element href="//0/@process/@activity/@activity/@activities.2/@activity"/>
 
                                     <layoutConstraint
-                                    height="108"
-                                    width="400"
-                                    x="2"
-                                    xsi:type="notation:Bounds" y="2"/>
+                                    height="144"
+                                    width="242" xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
@@ -666,8 +744,8 @@
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.2"/>
                                     <layoutConstraint
-                                    height="109"
-                                    width="173"
+                                    height="144"
+                                    width="245"
                                     x="15"
                                     xsi:type="notation:Bounds" y="20"/>
                                     </children>
@@ -891,7 +969,7 @@
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.2"/>
                                     <layoutConstraint
-                                    height="365" width="213"
+                                    height="365" width="285"
                                     x="252"
                                     xsi:type="notation:Bounds" y="95"/>
                                     </children>
@@ -935,7 +1013,7 @@
                                     <element xsi:nil="true"/>
                                     <layoutConstraint
                                     width="183" x="496"
-                                    xsi:type="notation:Bounds" y="51"/>
+                                    xsi:type="notation:Bounds" y="34"/>
                                     </children>
                                     <styles xsi:type="notation:DrawerStyle"/>
                                     <styles xsi:type="notation:SortingStyle"/>
@@ -1006,7 +1084,7 @@
         </edges>
         <edges
             source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.1"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0" type="4006">
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
             <children type="6002">
                 <layoutConstraint xsi:type="notation:Location" y="40"/>
             </children>
@@ -1044,7 +1122,27 @@
             <element xsi:nil="true"/>
             <bendpoints points="[0, 0, -352, -282]$[263, 210, -89, -72]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
+        <edges
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0" type="4006">
+            <children type="6002">
+                <layoutConstraint xsi:type="notation:Location" y="40"/>
+            </children>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName=".AppleSystemUIFont" xsi:type="notation:FontStyle"/>
+            <element href="//0/@process/@activity/@activity/@activities.2/@activity/@links/@children.2"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
+        </edges>
     </notation:Diagram>
+    <tibex:NamespaceRegistry enabled="true">
+        <tibex:namespaceItem namespace="http://www.example.org/Product" prefix="tns1"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/pe/WriteToLogActivitySchema" prefix="tns"/>
+        <tibex:namespaceItem
+            namespace="http://tns.tibco.com/bw/activity/sendmail/xsd/input+7f30e715-8875-41c0-80d6-70ccdd17e955+input" prefix="tns2"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/bw/xslt/custom-functions" prefix="tib"/>
+    </tibex:NamespaceRegistry>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema"
         location="../../../../Schemas/Product.xsd" namespace="http://www.example.org/Product"/>
     <bpws:variables>
@@ -1070,6 +1168,8 @@
         </bpws:variable>
         <bpws:variable name="GetEmailAddresses" sca-bpel:internal="true" type="xsd:string"/>
         <bpws:variable element="ns2:ActivityInput" name="Log-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns2:ActivityInput"
+            name="Log_SendEmail-input" sca-bpel:internal="true"/>
     </bpws:variables>
     <bpws:extensions>
         <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
@@ -1186,6 +1286,7 @@
                     <bpws:links>
                         <bpws:link name="GroupStartToSendMail" tibex:linkType="SUCCESS"/>
                         <bpws:link name="SendMailToGroupEnd" tibex:linkType="SUCCESS"/>
+                        <bpws:link name="Log1ToSendMail" tibex:linkType="SUCCESS"/>
                     </bpws:links>
                     <bpws:empty name="GroupStart"
                         tibex:group="groupStart" tibex:xpdlId="6fb40f4e-822f-4cef-8b1f-f61232f4d1d5">
@@ -1204,14 +1305,14 @@
                             name="SendMail"
                             tibex:xpdlId="7f30e715-8875-41c0-80d6-70ccdd17e955" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                             <bpws:targets>
-                                <bpws:target linkName="GroupStartToSendMail"/>
+                                <bpws:target linkName="Log1ToSendMail"/>
                             </bpws:targets>
                             <bpws:sources>
                                 <bpws:source linkName="SendMailToGroupEnd"/>
                             </bpws:sources>
                             <tibex:inputBindings>
                                 <tibex:inputBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/activity/sendmail/xsd/input+7f30e715-8875-41c0-80d6-70ccdd17e955+input&quot; xmlns:tns1=&quot;http://www.example.org/Product&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;JMSReceiveMessage&quot;/>&lt;xsl:param name=&quot;GetEmailAddresses&quot;/>&lt;xsl:template name=&quot;SendMail-input&quot; match=&quot;/&quot;>&lt;tns:mailActivityInput>&lt;from>&lt;xsl:value-of select=&quot;&amp;quot;jhenley@tibco.com&amp;quot;&quot;/>&lt;/from>&lt;to>&lt;xsl:value-of select=&quot;$GetEmailAddresses&quot;/>&lt;/to>&lt;subject>&lt;xsl:value-of select=&quot;&amp;quot;TIBCO BusinessWorks Demo - Auto-generated Email&amp;quot;&quot;/>&lt;/subject>&lt;bodyElement>&lt;bodyText>&lt;xsl:value-of select=&quot;tib:render-xml($JMSReceiveMessage/Body/tns1:Product, true(), true())&quot;/>&lt;/bodyText>&lt;/bodyElement>&lt;/tns:mailActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns2=&quot;http://tns.tibco.com/bw/activity/sendmail/xsd/input+7f30e715-8875-41c0-80d6-70ccdd17e955+input&quot; xmlns:tns1=&quot;http://www.example.org/Product&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;JMSReceiveMessage&quot;/>&lt;xsl:param name=&quot;GetEmailAddresses&quot;/>&lt;xsl:template name=&quot;SendMail-input&quot; match=&quot;/&quot;>&lt;tns2:mailActivityInput>&lt;from>&lt;xsl:value-of select=&quot;&amp;quot;jhenley@tibco.com&amp;quot;&quot;/>&lt;/from>&lt;to>&lt;xsl:value-of select=&quot;$GetEmailAddresses&quot;/>&lt;/to>&lt;subject>&lt;xsl:value-of select=&quot;concat(&amp;quot;TIBCO BusinessWorks Demo - Auto-generated Email for Product Id: &amp;quot;, $JMSReceiveMessage/Body/tns1:Product/tns1:productId)&quot;/>&lt;/subject>&lt;bodyElement>&lt;bodyText>&lt;xsl:value-of select=&quot;tib:render-xml($JMSReceiveMessage/Body/tns1:Product, true(), true())&quot;/>&lt;/bodyText>&lt;/bodyElement>&lt;/tns2:mailActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                             </tibex:inputBindings>
                             <tibex:config>
                                 <bwext:BWActivity
@@ -1227,6 +1328,39 @@
                                     inputHeadersQName="input:headersType"
                                     newActivity="true"
                                     smtpProperty="smtpProperty" xsi:type="mail:SendMail"/>
+                                    </properties>
+                                    </activityConfig>
+                                </bwext:BWActivity>
+                            </tibex:config>
+                        </tibex:activityExtension>
+                    </bpws:extensionActivity>
+                    <bpws:extensionActivity>
+                        <tibex:activityExtension
+                            inputVariable="Log_SendEmail-input"
+                            name="Log_SendEmail"
+                            tibex:xpdlId="39404349-9d90-4120-82de-30aa8ea662a9" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                            <bpws:targets>
+                                <bpws:target linkName="GroupStartToSendMail"/>
+                            </bpws:targets>
+                            <bpws:sources>
+                                <bpws:source linkName="Log1ToSendMail"/>
+                            </bpws:sources>
+                            <tibex:inputBindings>
+                                <tibex:inputBinding
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tns1=&quot;http://www.example.org/Product&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;JMSReceiveMessage&quot;/>&lt;xsl:template name=&quot;Log_SendEmail-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Sending Email for Product Id: &amp;quot;, $JMSReceiveMessage/Body/tns1:Product/tns1:productId)&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            </tibex:inputBindings>
+                            <tibex:config>
+                                <bwext:BWActivity
+                                    activityTypeID="bw.generalactivities.log"
+                                    version="6.0.0.001"
+                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                                    xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                                    <activityConfig>
+                                    <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//Log"/>
+                                    <value role="Info"
+                                    suppressJobInfo="true" xsi:type="generalactivities:Log"/>
                                     </properties>
                                     </activityConfig>
                                 </bwext:BWActivity>

@@ -16,6 +16,25 @@
     xmlns:sca-bpel="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"
     xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
     xmlns:tibprop="http://ns.tibco.com/bw/property" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <tibex:VariableDescriptor type="MemorySaving">
+        <task name="Timer">
+            <endingVariables>
+                <variable>Timer</variable>
+            </endingVariables>
+        </task>
+        <task name="InvokeRESTAPI">
+            <endingVariables>
+                <variable>InvokeRESTAPI-input</variable>
+                <variable>InvokeRESTAPI</variable>
+            </endingVariables>
+        </task>
+        <task name="Log">
+            <endingVariables>
+                <variable>Log-input</variable>
+                <variable>FaultDetails1</variable>
+            </endingVariables>
+        </task>
+    </tibex:VariableDescriptor>
     <tibex:Types>
         <xs:schema attributeFormDefault="unqualified"
             elementFormDefault="qualified"
@@ -199,6 +218,8 @@
             xmlns:tns="http://www.tibco.com/namespaces/tnt/plugins/restinvoke+c236edd7-53a6-4eee-adf0-b000b4dece11+RestInvokeInput" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <xsd:complexType name="RestInvokeInputType">
                 <xsd:sequence>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="ResourcePath" type="xsd:string"/>
                     <xsd:element maxOccurs="1" minOccurs="0"
                         name="MessageBody" type="tns:MessageBodyType"/>
                     <xsd:element maxOccurs="1" minOccurs="0"
@@ -1010,6 +1031,12 @@
             <bendpoints points="[0, 0, -60, -78]$[41, 54, -19, -24]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
     </notation:Diagram>
+    <tibex:NamespaceRegistry enabled="true">
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/pe/WriteToLogActivitySchema" prefix="tns"/>
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/bw/xslt/custom-functions" prefix="tib"/>
+    </tibex:NamespaceRegistry>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema"
         location="../../../../Schemas/Product.xsd" namespace="http://www.example.org/Product"/>
     <bpws:variables>
@@ -1053,7 +1080,7 @@
                                 tibex:xpdlId="26c021ce-adec-474b-8a8a-1162bb878eb1" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                                 <tibex:inputBindings>
                                     <tibex:inputBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FaultDetails1&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;tib:render-xml($FaultDetails1, true(),true())&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FaultDetails1&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;msgCode>&lt;xsl:value-of select=&quot;&amp;quot;Exception_Handling&amp;quot;&quot;/>&lt;/msgCode>&lt;message>&lt;xsl:value-of select=&quot;tib:render-xml($FaultDetails1, true(),true())&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                 </tibex:inputBindings>
                                 <tibex:config>
                                     <bwext:BWActivity
@@ -1163,7 +1190,7 @@
                             </bpws:sources>
                             <tibex:inputBindings>
                                 <tibex:inputBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?> &lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/restinvoke+c236edd7-53a6-4eee-adf0-b000b4dece11+RestInvokeInput&quot; version=&quot;2.0&quot;> &lt;xsl:template name=&quot;InvokeRESTAPI-input&quot; match=&quot;/&quot;> &lt;tns:RestActivityInput/> &lt;/xsl:template> &lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://www.tibco.com/namespaces/tnt/plugins/restinvoke+c236edd7-53a6-4eee-adf0-b000b4dece11+RestInvokeInput&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:template name=&quot;InvokeRESTAPI-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns1:RestActivityInput/>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                             </tibex:inputBindings>
                             <tibex:config>
                                 <bwext:BWActivity

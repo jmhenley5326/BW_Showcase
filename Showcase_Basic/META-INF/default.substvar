@@ -111,7 +111,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Basic.module///File/productFile</name>
-			<value>/Users/jasonhenley/tmp/products.csv</value>
+			<value>/Users/jmhenley/tmp/products.txt</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
@@ -201,21 +201,23 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Shared///SMTP/username</name>
-			<value></value>
+			<value>jason.henley@cloud.com</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>true</isOverride>
 			<useLookupValue>false</useLookupValue>
+			<lookupValue>jason.henley@cloud.com</lookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Shared///SMTP/password</name>
-			<value>#!gVFcSInF63btqQoftzOZHg==</value>
+			<value>#!FcNnTov0r0KTHtrPfgXbs2JX5emaRhum52K4Gk9LCtXNlcFfEiItQIj+vphID0Ig</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>
 			<isOverride>true</isOverride>
 			<useLookupValue>false</useLookupValue>
+			<lookupValue>#!FcNnTov0r0KTHtrPfgXbs2JX5emaRhum52K4Gk9LCtXNlcFfEiItQIj+vphID0Ig</lookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Shared///SMTP/host</name>

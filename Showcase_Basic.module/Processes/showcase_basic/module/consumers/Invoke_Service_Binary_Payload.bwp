@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpws:process exitOnStandardFault="no"
-    name="showcase_basic.module.consumers.Invoke_Product_Resource_SOAP"
+    name="showcase_basic.module.consumers.Invoke_Service_Binary_Payload"
     suppressJoinFailure="yes"
-    targetNamespace="http://xmlns.example.com/20170806163547"
+    targetNamespace="http://xmlns.example.com/20211108160701"
     xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
     xmlns:info="http://www.tibco.com/bw/process/info"
     xmlns:ns="http://www.tibco.com/pe/EngineTypes"
-    xmlns:ns0="http://xmlns.example.com/20170806163547PLT"
-    xmlns:ns1="http://service.tibco.com/product/wsdl/1502044858829"
-    xmlns:ns2="http://tns.tibco.com/bw/activity/timer/xsd/output"
-    xmlns:ns3="http://www.tibco.com/pe/WriteToLogActivitySchema"
+    xmlns:ns0="http://tns.tibco.com/bw/activity/timer/xsd/output"
+    xmlns:ns1="http://www.tibco.com/namespaces/tnt/plugins/restinvoke+38ea8185-046a-4059-b2eb-fbdc4bb60c89+RestInvokeInput"
+    xmlns:ns2="http://www.tibco.com/namespaces/tnt/plugins/restinvoke+38ea8185-046a-4059-b2eb-fbdc4bb60c89+RestInvokeOutput"
+    xmlns:ns3="http://tns.tibco.com/bw/palette/internal/activityerror+bw.restjson.Rest"
     xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
     xmlns:sca-bpel="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"
     xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
@@ -20,15 +20,10 @@
                 <variable>Timer</variable>
             </endingVariables>
         </task>
-        <task name="getProduct">
+        <task name="InvokeRESTAPI">
             <endingVariables>
-                <variable>getProduct-input</variable>
-            </endingVariables>
-        </task>
-        <task name="Log">
-            <endingVariables>
-                <variable>Log-input</variable>
-                <variable>getProduct</variable>
+                <variable>InvokeRESTAPI-input</variable>
+                <variable>InvokeRESTAPI</variable>
             </endingVariables>
         </task>
     </tibex:VariableDescriptor>
@@ -141,7 +136,10 @@
                         form="unqualified" minOccurs="0"
                         name="CustomJobId" type="xs:string"/>
                     <!--xs:element name="RestartedFromCheckpoint" form="unqualified" block="extension restriction substitution" type="xs:boolean"/-->
-                    <!--xs:element minOccurs="0" maxOccurs="unbounded" name="TrackingInfo" form="unqualified" block="extension restriction substitution" type="xs:string"/-->
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" maxOccurs="unbounded"
+                        minOccurs="0" name="TrackingInfo" type="xs:string"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType block="extension restriction"
@@ -210,23 +208,146 @@
             </xs:complexType>
             <xs:element name="TimerOutputSchema" type="tns:TimerOutputSchemaType"/>
         </xs:schema>
-        <xs:schema attributeFormDefault="unqualified"
-            elementFormDefault="qualified"
-            targetNamespace="http://www.tibco.com/pe/WriteToLogActivitySchema"
-            xmlns:tns="http://www.tibco.com/pe/WriteToLogActivitySchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-            <xs:complexType name="LogParametersType">
-                <xs:sequence>
-                    <xs:element form="unqualified" minOccurs="0"
-                        name="msgCode" type="xs:string"/>
-                    <xs:element form="unqualified" minOccurs="0"
-                        name="loggerName" type="xs:string"/>
-                    <xs:element form="unqualified" minOccurs="0"
-                        name="logLevel" type="xs:string"/>
-                    <xs:element form="unqualified" name="message" type="xs:string"/>
-                </xs:sequence>
-            </xs:complexType>
-            <xs:element name="ActivityInput" type="tns:LogParametersType"/>
-        </xs:schema>
+        <xsd:schema
+            targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/restinvoke+38ea8185-046a-4059-b2eb-fbdc4bb60c89+RestInvokeInput"
+            xmlns:tns="http://www.tibco.com/namespaces/tnt/plugins/restinvoke+38ea8185-046a-4059-b2eb-fbdc4bb60c89+RestInvokeInput" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:complexType name="RestInvokeInputType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="ResourcePath" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="MessageBody" type="tns:MessageBodyType"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="HttpHeaders" type="tns:httpTransportHeaders"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="RestActivityInput" type="tns:RestInvokeInputType"/>
+            <xsd:complexType name="RestInvokeOutputType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="statusCode" type="xsd:int"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="reasonPhrase" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="MessageBody" type="tns:MessageBodyType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="RestActivityOutput" type="tns:RestInvokeOutputType"/>
+            <xsd:complexType name="MessageBodyType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="asciiContent" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="httpTransportHeaders">
+                <xsd:sequence>
+                    <xsd:element form="unqualified" minOccurs="0"
+                        name="Accept" type="xsd:string"/>
+                    <xsd:element form="unqualified" minOccurs="0"
+                        name="Accept-Charset" type="xsd:string"/>
+                    <xsd:element form="unqualified" minOccurs="0"
+                        name="Accept-Encoding" type="xsd:string"/>
+                    <xsd:element form="unqualified" minOccurs="0"
+                        name="Content-Type" type="xsd:string"/>
+                    <xsd:element form="unqualified" minOccurs="0"
+                        name="Content-Length" type="xsd:string"/>
+                    <xsd:element form="unqualified" minOccurs="0"
+                        name="Connection" type="xsd:string"/>
+                    <xsd:element form="unqualified" minOccurs="0"
+                        name="Cookie" type="xsd:string"/>
+                    <xsd:element form="unqualified" minOccurs="0"
+                        name="Pragma" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="DynamicHeaders" type="tns:dynamicHeadersType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="HttpHeaders" type="tns:httpTransportHeaders"/>
+            <xsd:complexType name="dynamicHeadersTypeDetails">
+                <xsd:sequence>
+                    <xsd:element form="unqualified" maxOccurs="1"
+                        minOccurs="1" name="Name" type="xsd:string"/>
+                    <xsd:element form="unqualified" maxOccurs="1"
+                        minOccurs="1" name="Value" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="dynamicHeadersType">
+                <xsd:sequence>
+                    <xsd:element form="unqualified"
+                        maxOccurs="unbounded" minOccurs="0"
+                        name="Header" type="tns:dynamicHeadersTypeDetails"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:schema>
+        <xsd:schema
+            targetNamespace="http://www.tibco.com/namespaces/tnt/plugins/restinvoke+38ea8185-046a-4059-b2eb-fbdc4bb60c89+RestInvokeOutput"
+            xmlns:tns="http://www.tibco.com/namespaces/tnt/plugins/restinvoke+38ea8185-046a-4059-b2eb-fbdc4bb60c89+RestInvokeOutput" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:complexType name="RestInvokeInputType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="ResourcePath" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="MessageBody" type="tns:MessageBodyType"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="HttpHeaders" type="tns:httpTransportHeaders"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="RestActivityInput" type="tns:RestInvokeInputType"/>
+            <xsd:complexType name="RestInvokeOutputType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="statusCode" type="xsd:int"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="reasonPhrase" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="MessageBody" type="tns:MessageBodyType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="RestActivityOutput" type="tns:RestInvokeOutputType"/>
+            <xsd:complexType name="MessageBodyType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="1" minOccurs="1"
+                        name="asciiContent" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="httpTransportHeaders">
+                <xsd:sequence>
+                    <xsd:element form="unqualified" minOccurs="0"
+                        name="Accept" type="xsd:string"/>
+                    <xsd:element form="unqualified" minOccurs="0"
+                        name="Accept-Charset" type="xsd:string"/>
+                    <xsd:element form="unqualified" minOccurs="0"
+                        name="Accept-Encoding" type="xsd:string"/>
+                    <xsd:element form="unqualified" minOccurs="0"
+                        name="Content-Type" type="xsd:string"/>
+                    <xsd:element form="unqualified" minOccurs="0"
+                        name="Content-Length" type="xsd:string"/>
+                    <xsd:element form="unqualified" minOccurs="0"
+                        name="Connection" type="xsd:string"/>
+                    <xsd:element form="unqualified" minOccurs="0"
+                        name="Cookie" type="xsd:string"/>
+                    <xsd:element form="unqualified" minOccurs="0"
+                        name="Pragma" type="xsd:string"/>
+                    <xsd:element maxOccurs="1" minOccurs="0"
+                        name="DynamicHeaders" type="tns:dynamicHeadersType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="HttpHeaders" type="tns:httpTransportHeaders"/>
+            <xsd:complexType name="dynamicHeadersTypeDetails">
+                <xsd:sequence>
+                    <xsd:element form="unqualified" maxOccurs="1"
+                        minOccurs="1" name="Name" type="xsd:string"/>
+                    <xsd:element form="unqualified" maxOccurs="1"
+                        minOccurs="1" name="Value" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="dynamicHeadersType">
+                <xsd:sequence>
+                    <xsd:element form="unqualified"
+                        maxOccurs="unbounded" minOccurs="0"
+                        name="Header" type="tns:dynamicHeadersTypeDetails"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:schema>
         <schema attributeFormDefault="unqualified"
             elementFormDefault="unqualified"
             targetNamespace="http://schemas.tibco.com/bw/plugins/http/5.0/httpExceptions"
@@ -291,26 +412,28 @@
             <element name="HttpException" type="tns:HttpExceptionType"/>
             <element name="HttpResponseException" type="tns:HttpResponseExceptionType"/>
             <element name="HttpServerException" type="tns:HttpServerExceptionType"/>
-            <element name="ActivityTimedOutException" type="tns:BaseExceptionType"/>
         </schema>
-        <wsdl:definitions
-            targetNamespace="http://xmlns.example.com/20170806163547PLT"
-            xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
-            xmlns:ptyp="http://service.tibco.com/product/wsdl/1502044858829"
-            xmlns:tns="http://xmlns.example.com/20170806163547PLT"
-            xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop"
-            xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <plnk:partnerLinkType name="partnerLinkType">
-                <plnk:role name="use" portType="ptyp:Product_Resource_SOAP"/>
-            </plnk:partnerLinkType>
-            <wsdl:import
-                location="../../../../Service%20Descriptors/Product_Resource_SOAP_gen1.wsdl" namespace="http://service.tibco.com/product/wsdl/1502044858829"/>
-        </wsdl:definitions>
+        <schema elementFormDefault="unqualified"
+            targetNamespace="http://tns.tibco.com/bw/palette/internal/activityerror+bw.restjson.Rest"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:Q1="http://schemas.tibco.com/bw/plugins/http/5.0/httpExceptions" xmlns:tns="http://tns.tibco.com/bw/palette/internal/activityerror+bw.restjson.Rest">
+            <import namespace="http://schemas.tibco.com/bw/plugins/http/5.0/httpExceptions"/>
+            <import namespace="http://schemas.tibco.com/bw/plugins/http/5.0/httpExceptions"/>
+            <import namespace="http://schemas.tibco.com/bw/plugins/http/5.0/httpExceptions"/>
+            <element name="ActivityErrorData" type="tns:ActivityErrorDataType"/>
+            <complexType name="ActivityErrorDataType">
+                <choice>
+                    <element maxOccurs="1" minOccurs="0" ref="Q1:HttpCommunicationException"/>
+                    <element maxOccurs="1" minOccurs="0" ref="Q1:HttpClientException"/>
+                    <element maxOccurs="1" minOccurs="0" ref="Q1:HttpServerException"/>
+                </choice>
+            </complexType>
+        </schema>
     </tibex:Types>
-    <tibex:ProcessInfo callable="false" createdBy="jasonhenley"
-        createdOn="Sun Aug 06 16:35:47 CDT 2017" description=""
-        extraErrorVars="false" modifiers="public"
-        productVersion="6.4.0 V29 2017-05-09" scalable="true"
+    <tibex:ProcessInfo callable="false" createdBy="jmhenley"
+        createdOn="Mon Nov 08 16:07:01 CST 2021" description=""
+        extraErrorVars="true" modifiers="public"
+        productVersion="6.7.0 V34 2020-11-06" scalable="true"
         singleton="true" stateless="true" type="IT"/>
     <tibex:ProcessInterface context="" input="" output=""/>
     <tibex:ProcessTemplateConfigurations/>
@@ -325,63 +448,6 @@
                 <element href="//0/@process"/>
             </children>
             <children type="3002">
-                <children type="4008">
-                    <children type="40012"/>
-                    <children type="3008">
-                        <children type="4004">
-                            <children type="40041"/>
-                            <children type="4017">
-                                <styles fontName=".SF NS Text"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                <layoutConstraint xsi:type="notation:Bounds"/>
-                            </children>
-                            <children type="4017">
-                                <styles fontName=".SF NS Text"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                <layoutConstraint xsi:type="notation:Bounds"/>
-                            </children>
-                            <children type="4017">
-                                <styles fontName=".SF NS Text"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                <layoutConstraint xsi:type="notation:Bounds"/>
-                            </children>
-                            <children type="4017">
-                                <styles fontName=".SF NS Text"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                <layoutConstraint xsi:type="notation:Bounds"/>
-                            </children>
-                            <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
-                            <element href="platform:/resource/Showcase_Basic.module/Service%20Descriptors/Product_Resource_SOAP_gen1.wsdl#//@ePortTypes.0/@eOperations.0"/>
-                            <layoutConstraint xsi:type="notation:Bounds"/>
-                        </children>
-                        <styles xsi:type="notation:DrawerStyle"/>
-                        <styles xsi:type="notation:SortingStyle"/>
-                        <styles xsi:type="notation:FilteringStyle"/>
-                        <styles xsi:type="bwnotation:BackgroundStyle"/>
-                        <styles xsi:type="bwnotation:ResizingStyle"/>
-                    </children>
-                    <children type="4017">
-                        <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
-                        <layoutConstraint xsi:type="notation:Bounds"/>
-                    </children>
-                    <children type="4017">
-                        <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
-                        <layoutConstraint xsi:type="notation:Bounds"/>
-                    </children>
-                    <children type="4017">
-                        <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
-                        <layoutConstraint xsi:type="notation:Bounds"/>
-                    </children>
-                    <children type="4017">
-                        <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
-                        <layoutConstraint xsi:type="notation:Bounds"/>
-                    </children>
-                    <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
-                    <styles xsi:type="bwnotation:BackgroundStyle"/>
-                    <styles xsi:type="bwnotation:ResizingStyle"/>
-                    <element href="//0/@process/@partnerLinks/@children.0"/>
-                    <layoutConstraint xsi:type="notation:Bounds"/>
-                </children>
                 <styles xsi:type="notation:SortingStyle"/>
                 <styles xsi:type="notation:FilteringStyle"/>
             </children>
@@ -399,30 +465,30 @@
                                     <children type="4002 bw.generalactivities.timer">
                                     <children type="4017">
                                     <styles
-                                    fontName=".SF NS Text"
+                                    fontName=".AppleSystemUIFont"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".SF NS Text"
+                                    fontName=".AppleSystemUIFont"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".SF NS Text"
+                                    fontName=".AppleSystemUIFont"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".SF NS Text"
+                                    fontName=".AppleSystemUIFont"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles
-                                    fontName=".SF NS Text"
+                                    fontName=".AppleSystemUIFont"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <styles
                                     backgroundColor="16777215"
@@ -431,86 +497,49 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0"/>
                                     <layoutConstraint
                                     height="40" width="40"
-                                    x="27"
-                                    xsi:type="notation:Bounds" y="148"/>
+                                    x="17"
+                                    xsi:type="notation:Bounds" y="134"/>
                                     </children>
                                     <children type="4002">
                                     <children type="4017">
                                     <styles
-                                    fontName=".SF NS Text"
+                                    fontName=".AppleSystemUIFont"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".SF NS Text"
+                                    fontName=".AppleSystemUIFont"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".SF NS Text"
+                                    fontName=".AppleSystemUIFont"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <children type="4017">
                                     <styles
-                                    fontName=".SF NS Text"
+                                    fontName=".AppleSystemUIFont"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <layoutConstraint xsi:type="notation:Bounds"/>
                                     </children>
                                     <styles
-                                    fontName=".SF NS Text"
+                                    fontName=".AppleSystemUIFont"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <styles
                                     backgroundColor="16777215"
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
                                     <element href="//0/@process/@activity/@activity/@activities.1"/>
-                                    <layoutConstraint x="189"
-                                    xsi:type="notation:Bounds" y="148"/>
-                                    </children>
-                                    <children type="4002">
-                                    <children type="4017">
-                                    <styles
-                                    fontName=".SF NS Text"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-                                    <children type="4017">
-                                    <styles
-                                    fontName=".SF NS Text"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-                                    <children type="4017">
-                                    <styles
-                                    fontName=".SF NS Text"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-                                    <children type="4017">
-                                    <styles
-                                    fontName=".SF NS Text"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-                                    <styles
-                                    fontName=".SF NS Text"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <styles
-                                    backgroundColor="16777215"
-                                    gradientEndColor="50431"
-                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
-                                    <element href="//0/@process/@activity/@activity/@activities.2"/>
-                                    <layoutConstraint x="387"
-                                    xsi:type="notation:Bounds" y="148"/>
+                                    <layoutConstraint x="159"
+                                    xsi:type="notation:Bounds" y="134"/>
                                     </children>
                                     <children
-                                    description="SOAP/WSDL based calls are made by importing the WSDL and creating a reference in the Process. The operations are then called using the Invoke activity. The operation can be drug from the Reference (the purple chevron) to the canvas."
+                                    description="This Process is under construction"
                                     fillColor="13369343"
-                                    fontHeight="12"
-                                    fontName=".SF NS Text"
+                                    fontName=".AppleSystemUIFont"
                                     lineColor="6737151"
                                     lineWidth="1"
                                     transparency="0" type="Note" xsi:type="notation:Shape">
@@ -523,52 +552,53 @@
                                     <styles xsi:type="notation:TextStyle"/>
                                     <styles xsi:type="notation:LineTypeStyle"/>
                                     <element xsi:nil="true"/>
-                                    <layoutConstraint
-                                    width="393" x="64"
-                                    xsi:type="notation:Bounds" y="49"/>
+                                    <layoutConstraint x="167"
+                                    xsi:type="notation:Bounds" y="43"/>
                                     </children>
                                     <styles xsi:type="notation:DrawerStyle"/>
                                     <styles xsi:type="notation:SortingStyle"/>
                                     <styles xsi:type="notation:FilteringStyle"/>
                                     <element href="//0/@process/@activity/@activity"/>
                                     </children>
-                                    <styles fontName=".SF NS Text"
+                                    <styles
+                                    fontName=".AppleSystemUIFont"
                                     lineColor="0" xsi:type="notation:ShapeStyle"/>
                                     <styles backgroundColor="16777215"
                                     gradientEndColor="50431"
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity"/>
-                                    <layoutConstraint height="385"
-                                    width="653" xsi:type="notation:Bounds"/>
+                                    <layoutConstraint height="384"
+                                    width="515" xsi:type="notation:Bounds"/>
                                 </children>
                                 <styles xsi:type="notation:SortingStyle"/>
                                 <styles xsi:type="notation:FilteringStyle"/>
                             </children>
-                            <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                            <styles fontName=".AppleSystemUIFont"
+                                lineColor="0" xsi:type="notation:ShapeStyle"/>
                             <styles xsi:type="bwnotation:BackgroundStyle"/>
                             <styles xsi:type="bwnotation:ResizingStyle"/>
                             <element href="//0/@process/@activity"/>
-                            <layoutConstraint height="385" width="1284" xsi:type="notation:Bounds"/>
+                            <layoutConstraint height="365" width="444"
+                                x="30" xsi:type="notation:Bounds" y="20"/>
                         </children>
                         <styles xsi:type="notation:SortingStyle"/>
                         <styles xsi:type="notation:FilteringStyle"/>
                         <element href="//0/@process/@activity"/>
                     </children>
-                    <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                    <styles fontName=".AppleSystemUIFont" lineColor="0" xsi:type="notation:ShapeStyle"/>
                     <styles xsi:type="bwnotation:BackgroundStyle"/>
                     <styles xsi:type="bwnotation:ResizingStyle"/>
                     <element href="//0/@process/@activity"/>
-                    <layoutConstraint height="409" width="1284" x="1"
-                        xsi:type="notation:Bounds" y="1"/>
+                    <layoutConstraint height="409" width="519" xsi:type="notation:Bounds"/>
                 </children>
                 <styles xsi:type="notation:SortingStyle"/>
                 <styles xsi:type="notation:FilteringStyle"/>
                 <element href="//0/@process"/>
             </children>
-            <styles fontName=".SF NS Text" lineColor="0" xsi:type="notation:ShapeStyle"/>
+            <styles fontName=".AppleSystemUIFont" lineColor="0" xsi:type="notation:ShapeStyle"/>
             <element href="//0/@process"/>
-            <layoutConstraint height="461" width="998" xsi:type="notation:Bounds"/>
+            <layoutConstraint height="460" width="860" xsi:type="notation:Bounds"/>
         </children>
         <styles xsi:type="notation:DiagramStyle"/>
         <element href="//0"/>
@@ -579,64 +609,36 @@
                 <layoutConstraint xsi:type="notation:Location" y="40"/>
             </children>
             <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
-            <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
+            <styles fontName=".AppleSystemUIFont" xsi:type="notation:FontStyle"/>
             <element href="//0/@process/@activity/@activity/@links/@children.0"/>
-            <bendpoints points="[25, -25, -124, 24]$[138, -25, -11, 24]" xsi:type="notation:RelativeBendpoints"/>
-            <sourceAnchor id="(0.4959349593495935,1.0)" xsi:type="notation:IdentityAnchor"/>
-            <targetAnchor id="(0.24390243902439024,0.0)" xsi:type="notation:IdentityAnchor"/>
-        </edges>
-        <edges
-            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.2" type="4006">
-            <children type="6002">
-                <layoutConstraint xsi:type="notation:Location" y="40"/>
-            </children>
-            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
-            <styles fontName=".SF NS Text" xsi:type="notation:FontStyle"/>
-            <element href="//0/@process/@activity/@activity/@links/@children.1"/>
-            <bendpoints points="[25, -25, -173, 24]$[174, -25, -24, 24]" xsi:type="notation:RelativeBendpoints"/>
-            <sourceAnchor id="(0.4959349593495935,1.0)" xsi:type="notation:IdentityAnchor"/>
-            <targetAnchor id="(0.4959349593495935,0.0)" xsi:type="notation:IdentityAnchor"/>
-        </edges>
-        <edges lineColor="0" lineWidth="1"
-            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
-            type="NoteAttachment" xsi:type="notation:Connector">
-            <styles xsi:type="notation:ArrowStyle"/>
-            <styles xsi:type="notation:LineTypeStyle"/>
-            <element xsi:nil="true"/>
-            <bendpoints points="[0, 0, 0, -79]$[0, 79, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
-            <sourceAnchor id="(0.455470737913486,0.9642857142857143)" xsi:type="notation:IdentityAnchor"/>
-            <targetAnchor id="(0.4959349593495935,0.0)" xsi:type="notation:IdentityAnchor"/>
-        </edges>
-        <edges lineColor="0" lineWidth="1"
-            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.3"
-            target="//@children.0/@children.2/@children.0/@children.1/@children.0"
-            type="NoteAttachment" xsi:type="notation:Connector">
-            <styles xsi:type="notation:ArrowStyle"/>
-            <styles xsi:type="notation:LineTypeStyle"/>
-            <element xsi:nil="true"/>
-            <bendpoints points="[41, -9, -218, 43]$[247, -53, -12, -1]" xsi:type="notation:RelativeBendpoints"/>
-            <sourceAnchor id="(0.9949109414758269,0.44642857142857145)" xsi:type="notation:IdentityAnchor"/>
-            <targetAnchor id="(0.08,0.4)" xsi:type="notation:IdentityAnchor"/>
+            <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
     </notation:Diagram>
-    <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" namespace="http://service.tibco.com/product/wsdl/1502044858829"/>
-    <bpws:partnerLinks>
-        <bpws:partnerLink name="Product_Resource_SOAP"
-            partnerLinkType="ns0:partnerLinkType" partnerRole="use"
-            sca-bpel:ignore="false"
-            sca-bpel:reference="Product_Resource_SOAP" sca-bpel:wiredByImpl="false"/>
-    </bpws:partnerLinks>
+    <tibex:NamespaceRegistry enabled="true">
+        <tibex:namespaceItem
+            namespace="http://www.tibco.com/namespaces/tnt/plugins/restinvoke+38ea8185-046a-4059-b2eb-fbdc4bb60c89+RestInvokeInput" prefix="tns"/>
+        <tibex:namespaceItem
+            namespace="http://tns.tibco.com/bw/activity/sendhttprequest/input+bad5f317-fb89-4730-acaf-e5b3b17de49a+RequestActivityInput" prefix="tns1"/>
+    </tibex:NamespaceRegistry>
     <bpws:variables>
         <bpws:variable element="ns:ProcessContext"
             name="_processContext" sca-bpel:internal="true"/>
-        <bpws:variable element="ns2:TimerOutputSchema" name="Timer" sca-bpel:internal="true"/>
-        <bpws:variable messageType="ns1:getProductRequest"
-            name="getProduct-input" sca-bpel:internal="true"/>
-        <bpws:variable messageType="ns1:getProductResponse"
-            name="getProduct" sca-bpel:internal="true"/>
-        <bpws:variable element="ns3:ActivityInput" name="Log-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns0:TimerOutputSchema" name="Timer" sca-bpel:internal="true"/>
+        <bpws:variable name="httpClientResource"
+            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
+            sca-bpel:property="yes"
+            sca-bpel:sharedResourceType="{http://xsd.tns.tibco.com/bw/models/sharedresource/httpclient}HttpClientConfiguration" type="xsd:string">
+            <bpws:from>
+                <bpws:literal>showcase_basic.module.HttpClientResource_Binary</bpws:literal>
+            </bpws:from>
+        </bpws:variable>
+        <bpws:variable element="ns1:RestActivityInput"
+            name="InvokeRESTAPI-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns2:RestActivityOutput"
+            name="InvokeRESTAPI" sca-bpel:internal="true"/>
+        <bpws:variable element="ns3:ActivityErrorData"
+            name="_error_InvokeRESTAPI" sca-bpel:internal="true"/>
+        <bpws:variable element="ns:ErrorReport" name="_error" sca-bpel:internal="true"/>
     </bpws:variables>
     <bpws:extensions>
         <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
@@ -649,16 +651,15 @@
     <bpws:scope name="scope">
         <bpws:flow name="flow">
             <bpws:links>
-                <bpws:link name="TimerTogetProduct" tibex:linkType="SUCCESS"/>
-                <bpws:link name="getProductToLog" tibex:linkType="SUCCESS"/>
+                <bpws:link name="TimerToInvokeRESTAPI" tibex:linkType="SUCCESS"/>
             </bpws:links>
             <bpws:extensionActivity>
                 <tibex:receiveEvent createInstance="yes"
                     eventTimeout="60" name="Timer"
-                    tibex:xpdlId="dae16478-76ff-44d5-bae4-0a6649402a9d"
+                    tibex:xpdlId="f3fc377f-5ba0-47c8-9830-34d72459d2fa"
                     variable="Timer" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:sources>
-                        <bpws:source linkName="TimerTogetProduct"/>
+                        <bpws:source linkName="TimerToInvokeRESTAPI"/>
                     </bpws:sources>
                     <tibex:eventSource>
                         <bwext:BWActivity
@@ -671,10 +672,10 @@
                                 <properties name="config" xsi:type="activityconfig:EMFProperty">
                                     <type href="http://ns.tibco.com/bw/palette/generalactivities#//Timer"/>
                                     <value
-                                    endTime="2017-08-06T16:35:54.244-0500"
+                                    endTime="2021-11-08T16:07:20.675-0600"
                                     intervalUnit="Second"
                                     runOnce="true"
-                                    startTime="2017-08-06T16:35:54.244-0500"
+                                    startTime="2021-11-08T16:07:20.675-0600"
                                     timeInterval="1" xsi:type="generalactivities:Timer"/>
                                 </properties>
                             </activityConfig>
@@ -682,49 +683,34 @@
                     </tibex:eventSource>
                 </tibex:receiveEvent>
             </bpws:extensionActivity>
-            <bpws:invoke inputVariable="getProduct-input"
-                name="getProduct" operation="getProduct"
-                outputVariable="getProduct"
-                partnerLink="Product_Resource_SOAP"
-                portType="ns1:Product_Resource_SOAP" tibex:xpdlId="762efc2a-9af9-4242-9527-d0a9630a5a62">
-                <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns="http://service.tibco.com/product/wsdl/1502044858829" xmlns:ns01="http://schema.tibco.com/schema/product" version="2.0"&gt;&lt;xsl:template name="getProduct-input" match="/"&gt;&lt;tns:getProductRequest&gt;&lt;parameters&gt;&lt;ns01:getProductRequest&gt;&lt;pId&gt;&lt;xsl:value-of select="1"/&gt;&lt;/pId&gt;&lt;type&gt;&lt;xsl:value-of select="&amp;quot;direct&amp;quot;"/&gt;&lt;/type&gt;&lt;/ns01:getProductRequest&gt;&lt;/parameters&gt;&lt;/tns:getProductRequest&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
-                <tibex:inputBindings>
-                    <tibex:partBinding
-                        expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://service.tibco.com/product/wsdl/1502044858829&quot; xmlns:ns01=&quot;http://schema.tibco.com/schema/product&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:template name=&quot;getProduct-input&quot; match=&quot;/&quot;>&#xa;        &lt;ns01:getProductRequest>&#xa;            &lt;pId>&#xa;                &lt;xsl:value-of select=&quot;1&quot;/>&#xa;            &lt;/pId>&#xa;            &lt;type>&#xa;                &lt;xsl:value-of select=&quot;&amp;quot;direct&amp;quot;&quot;/>&#xa;            &lt;/type>&#xa;        &lt;/ns01:getProductRequest>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
-                </tibex:inputBindings>
-                <bpws:targets>
-                    <bpws:target linkName="TimerTogetProduct"/>
-                </bpws:targets>
-                <bpws:sources>
-                    <bpws:source linkName="getProductToLog"/>
-                </bpws:sources>
-            </bpws:invoke>
             <bpws:extensionActivity>
                 <tibex:activityExtension
-                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:ns01=&quot;http://schema.tibco.com/schema/product&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;getProduct&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;SOAP Invoke Response: &amp;quot;, tib:render-xml($getProduct/parameters/ns01:getProductResponse, true(),true()))&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>"
-                    expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
-                    inputVariable="Log-input" name="Log"
-                    tibex:xpdlId="27ea0ce3-7998-4d93-a23a-81c674d19823" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    governedObjectTypes="BWHttpReference"
+                    inputVariable="InvokeRESTAPI-input"
+                    name="InvokeRESTAPI" outputVariable="InvokeRESTAPI"
+                    tibex:xpdlId="38ea8185-046a-4059-b2eb-fbdc4bb60c89" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
                     <bpws:targets>
-                        <bpws:target linkName="getProductToLog"/>
+                        <bpws:target linkName="TimerToInvokeRESTAPI"/>
                     </bpws:targets>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; xmlns:ns01=&quot;http://schema.tibco.com/schema/product&quot; xmlns:tib=&quot;http://www.tibco.com/bw/xslt/custom-functions&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;getProduct.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:ActivityInput>&#xa;            &lt;message>&#xa;                &lt;xsl:value-of select=&quot;concat(&amp;quot;SOAP Invoke Response: &amp;quot;, tib:render-xml($getProduct.parameters, true(),true()))&quot;/>&#xa;            &lt;/message>&#xa;        &lt;/tns:ActivityInput>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/restinvoke+38ea8185-046a-4059-b2eb-fbdc4bb60c89+RestInvokeInput&quot; version=&quot;2.0&quot;>&lt;xsl:template name=&quot;InvokeRESTAPI-input&quot; match=&quot;/&quot;>&lt;tns:RestActivityInput>&lt;MessageBody>&lt;asciiContent>&lt;xsl:value-of select=&quot;&amp;quot;foo&amp;quot;&quot;/>&lt;/asciiContent>&lt;/MessageBody>&lt;HttpHeaders>&lt;Content-Type>&lt;xsl:value-of select=&quot;'multipart/form-data'&quot;/>&lt;/Content-Type>&lt;/HttpHeaders>&lt;/tns:RestActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity
-                            activityTypeID="bw.generalactivities.log"
-                            version="6.0.0.001"
+                            activityTypeID="bw.restjson.Rest"
                             xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
                             xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
-                            xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            xmlns:restjson="http://ns.tibco.com/bw/palette/restjson" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                             <activityConfig>
                                 <properties name="config" xsi:type="activityconfig:EMFProperty">
-                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//Log"/>
-                                    <value role="Info"
-                                    suppressJobInfo="true" xsi:type="generalactivities:Log"/>
+                                    <type href="http://ns.tibco.com/bw/palette/restjson#//RestInvokeActivity"/>
+                                    <value
+                                    httpClientSR="httpClientResource"
+                                    httpMethod="POST"
+                                    requestContentType="Custom"
+                                    resourcePath="/foo/bar"
+                                    responseAcceptType="JSON" xsi:type="restjson:RestInvokeActivity"/>
                                 </properties>
                             </activityConfig>
                         </bwext:BWActivity>

@@ -17,6 +17,41 @@
     xmlns:sca-bpel="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"
     xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
     xmlns:tibprop="http://ns.tibco.com/bw/property" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <tibex:VariableDescriptor type="MemorySaving">
+        <task name="Timer">
+            <endingVariables>
+                <variable>Timer</variable>
+            </endingVariables>
+        </task>
+        <task name="RenderXml">
+            <endingVariables>
+                <variable>RenderXml-input</variable>
+            </endingVariables>
+        </task>
+        <task name="ParseXml">
+            <endingVariables>
+                <variable>ParseXml-input</variable>
+                <variable>RenderXml</variable>
+            </endingVariables>
+        </task>
+        <task name="Renderdata">
+            <endingVariables>
+                <variable>Renderdata-input</variable>
+                <variable>ParseXml</variable>
+            </endingVariables>
+        </task>
+        <task name="Log">
+            <endingVariables>
+                <variable>Log-input</variable>
+                <variable>Renderdata</variable>
+            </endingVariables>
+        </task>
+        <task name="Log1">
+            <endingVariables>
+                <variable>Log1-input</variable>
+            </endingVariables>
+        </task>
+    </tibex:VariableDescriptor>
     <tibex:Types>
         <xs:schema attributeFormDefault="unqualified"
             elementFormDefault="qualified"

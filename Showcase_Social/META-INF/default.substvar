@@ -210,7 +210,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>//Showcase_Shared///SMTP/password</name>
-			<value>#!Om74LONzMvyskLj4OHHpnA==</value>
+			<value>#!ouoSBiGJ3NQG19hGDmnk0xY8ieMjh6SqQKj6w+rYqUPfxAQndxrAG8JCVUmXlnO9</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Password</type>

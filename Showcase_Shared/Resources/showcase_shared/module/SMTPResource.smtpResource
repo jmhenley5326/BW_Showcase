@@ -3,7 +3,7 @@
   <identitySet xmi:id="_oETlEH0eEee7FMdtJepSFg" appliesTo="namedResource" name="HttpClientIdentitySet" provides="confidentiality">
     <sca_ext:intentMap xmi:id="_oETlEX0eEee7FMdtJepSFg" provides="sca_ext:confidentiality">
       <sca_ext:qualifier xmi:id="_oETlEn0eEee7FMdtJepSFg" name="transport">
-        <id:IdentityReference xmi:id="_oEUzMH0eEee7FMdtJepSFg" URI="showcase_basic.module.SSLClientResource" type="sslclient:SSLClientConfiguration"/>
+        <id:IdentityReference xmi:id="_oEUzMH0eEee7FMdtJepSFg" URI="showcase_shared.module.SSLClientResource" type="sslclient:SSLClientConfiguration"/>
       </sca_ext:qualifier>
     </sca_ext:intentMap>
   </identitySet>

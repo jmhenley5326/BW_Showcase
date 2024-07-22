@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <msv:DocumentRoot xmlns:msv="http://tns.tibco.com/bw/model/core/moduleSV">
   <moduleSharedVariables>
-    <moduleSharedVariable name="emailAddresses" type="{http://www.w3.org/2001/XMLSchema}string" initialValueMode="none"/>
+    <moduleSharedVariable name="emailAddresses" type="{http://www.w3.org/2001/XMLSchema}string" initialValueMode="none" initialValue=""/>
   </moduleSharedVariables>
 </msv:DocumentRoot>

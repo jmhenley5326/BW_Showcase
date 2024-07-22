@@ -80,7 +80,7 @@
           <faultMappings xmi:id="_nrqqvXrxEeebHIpTqP10Ig" direction="FAULT" faultName="Fault"/>
         </context>
       </operationConfiguration>
-      <outboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_nrqqvnrxEeebHIpTqP10Ig" httpClient="showcase_basic.module.HttpClientResource"/>
+      <outboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_nrqqvnrxEeebHIpTqP10Ig" httpClient="showcase_basic.module.HttpClientResource8675"/>
     </scaext:binding>
     <scact:bindingAdjunct xmi:id="_nrrRwHrxEeebHIpTqP10Ig" bindingName="SOAPReferenceBinding"/>
   </sca:reference>
@@ -157,5 +157,8 @@
   </sca:component>
   <sca:component xmi:id="_BxcJYHulEeemkLhH-nd-iQ" name="ComponentException_Handling" compositeext:version="1.0.0.qualifier">
     <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_BxcJYXulEeemkLhH-nd-iQ" processName="showcase_basic.module.exception.Exception_Handling"/>
+  </sca:component>
+  <sca:component xmi:id="_MxqpQEDgEeynQuStOUgMUQ" name="ComponentInvoke_Service_Binary_Payload" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_MxqpQUDgEeynQuStOUgMUQ" processName="showcase_basic.module.consumers.Invoke_Service_Binary_Payload"/>
   </sca:component>
 </sca:composite>
