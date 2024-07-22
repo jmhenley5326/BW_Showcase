@@ -21,6 +21,53 @@
     xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
     xmlns:tibprop="http://ns.tibco.com/bw/property"
     xmlns:tns="http://schema.tibco.com/schema/product" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <tibex:VariableDescriptor type="MemorySaving">
+        <task name="flow">
+            <endingVariables>
+                <variable>getProductIn</variable>
+            </endingVariables>
+        </task>
+        <task name="JDBCCallProcedure">
+            <endingVariables>
+                <variable>JDBCCallProcedure-input</variable>
+            </endingVariables>
+        </task>
+        <task name="JDBCQuery">
+            <endingVariables>
+                <variable>JDBCQuery-input</variable>
+            </endingVariables>
+        </task>
+        <task name="Reply">
+            <endingVariables>
+                <variable>Reply-input</variable>
+            </endingVariables>
+        </task>
+        <task name="SQLDirect">
+            <endingVariables>
+                <variable>SQLDirect-input</variable>
+            </endingVariables>
+        </task>
+        <task name="Assign">
+            <endingVariables>
+                <variable>JDBCCallProcedure</variable>
+            </endingVariables>
+        </task>
+        <task name="Assign1">
+            <endingVariables>
+                <variable>JDBCQuery</variable>
+            </endingVariables>
+        </task>
+        <task name="Assign2">
+            <endingVariables>
+                <variable>SQLDirect</variable>
+            </endingVariables>
+        </task>
+        <task name="Reply1">
+            <endingVariables>
+                <variable>Reply1-input</variable>
+            </endingVariables>
+        </task>
+    </tibex:VariableDescriptor>
     <tibex:Types>
         <xs:schema attributeFormDefault="unqualified"
             elementFormDefault="qualified"
@@ -1487,30 +1534,30 @@
                                     <type href="http://ns.tibco.com/bw/palette/jdbc#//JDBCQueryActivity"/>
                                     <value maxRows="100"
                                     sharedResourceProperty="jdbcProperty"
-                                    sqlStatement="SELECT *&#xa;  FROM `bwce_schema`.`product`&#xa;  WHERE `productId` = ?&#xa;"
+                                    sqlStatement="SELECT *&#xa;  FROM `bw_showcase`.`product`&#xa;  WHERE `productId` = ?&#xa;"
                                     timeout="10" xsi:type="jdbcPalette:JDBCQueryActivity">
                                     <PreparedParameters DataType="4"
                                     DataTypeDisplayValue="INTEGER" ParameterName="pId"/>
-                                    <columnMetadata
+                                    <columnMetadata columnIndex="1"
                                     columnName="productId"
                                     dataType="4"
                                     status="OptionalElement" typeName="INT"/>
-                                    <columnMetadata
+                                    <columnMetadata columnIndex="2"
                                     columnName="name"
                                     dataType="-1"
-                                    status="OptionalElement" typeName="VARCHAR"/>
-                                    <columnMetadata
+                                    status="OptionalElement" typeName="TEXT"/>
+                                    <columnMetadata columnIndex="3"
                                     columnName="description"
                                     dataType="-1"
-                                    status="OptionalElement" typeName="VARCHAR"/>
-                                    <columnMetadata
+                                    status="OptionalElement" typeName="TEXT"/>
+                                    <columnMetadata columnIndex="4"
                                     columnName="brand"
                                     dataType="-1"
-                                    status="OptionalElement" typeName="VARCHAR"/>
-                                    <columnMetadata
+                                    status="OptionalElement" typeName="TEXT"/>
+                                    <columnMetadata columnIndex="5"
                                     columnName="manufacturer"
                                     dataType="-1"
-                                    status="OptionalElement" typeName="VARCHAR"/>
+                                    status="OptionalElement" typeName="TEXT"/>
                                     </value>
                                 </properties>
                             </activityConfig>
