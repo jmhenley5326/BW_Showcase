@@ -246,5 +246,23 @@
 			<isOverride>false</isOverride>
 			<useLookupValue>false</useLookupValue>
 		</globalVariable>
+		<globalVariable>
+			<name>//Showcase_Shared///CERTS/keyStore</name>
+			<value>/Users/jmhenley/tibco/bw610/tibcojre64/11/Contents/Home/lib/security/cacerts</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
+		</globalVariable>
+		<globalVariable>
+			<name>//Showcase_Shared///CERTS/keyStorePW</name>
+			<value>#!gWtpej+rRQfOWIOsUIzZpQBxM/k1cDYO560AoNbMxYI=</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>Password</type>
+			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
+		</globalVariable>
 	</globalVariables>
 </repository>

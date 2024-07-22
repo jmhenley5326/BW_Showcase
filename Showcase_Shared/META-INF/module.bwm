@@ -13,4 +13,6 @@
   <sca:property xmi:id="_pF2icIRBEee_VpHxHyWFgQ" name="/SMTP/host" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_rS0JQIRBEee_VpHxHyWFgQ" name="/SMTP/username" type="XMLSchema:string" publicAccess="true" scalable="true"/>
   <sca:property xmi:id="_rvBkIIRBEee_VpHxHyWFgQ" name="/SMTP/password" type="property:password" scaext:simpleValue="#!zswqPKWcUZIXTHjB2e41PQ==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_97ybAEhJEe-BY6MuwSq__w" name="/CERTS/keyStore" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_HqZOUEhKEe-BY6MuwSq__w" name="/CERTS/keyStorePW" type="property:password" scaext:simpleValue="#!fgrda/O2rnoy+xhvQCxLVQ==" publicAccess="true" scalable="true"/>
 </sca:composite>
