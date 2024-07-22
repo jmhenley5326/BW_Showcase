@@ -13,20 +13,45 @@ This project contains basic functionality that comes out of the box with Busines
 
 ### showcase_basic.module.services
 A simple Rest and SOAP implementation
+
+Rest Example
+![svc_produce](https://github.com/jmhenley5326/BW_Showcase/blob/master/screenshots/Rest_Service.png?raw=true)
 ### showcase_basic.module.consumers
 Consumers of the Rest and SOAP services
+
+Rest Example<BR>
+![svc_consumer](https://github.com/jmhenley5326/BW_Showcase/blob/master/screenshots/Svc_Consumer.png?raw=true)
 ### showcase_basic.module.msg.producers
 Basic JMS Queue and Topic message publishers
+
+Queue Example<BR>
+![msg_pub](https://github.com/jmhenley5326/BW_Showcase/blob/master/screenshots/Msg_Producer.png?raw=true)
 ### showcase_basic.module.msg.consumers
 Queue and Topic listeners
+
+Queue Example<BR>
+![msg_sub](https://github.com/jmhenley5326/BW_Showcase/blob/master/screenshots/Msg_Consumer.png?raw=true)
 ### showcase_basic.module.mapping
 Shows a simple mapping from one XSD to another as well as from an XSD to a Flat File format
+
+Mapper Example<BR>
+![map](https://github.com/jmhenley5326/BW_Showcase/blob/master/screenshots/Mapper.png?raw=true)
 ### showcase_basic.module.files
 Examples of writing files and listening for file events such as create, modify and delete
+
+Files Example<BR>
+![files](https://github.com/jmhenley5326/BW_Showcase/blob/master/screenshots/File.png?raw=true)
 ### showcase_basic.module.exception
 Very basic illustration of catching and handling exceptions within a process
+
+Exception Example<BR>
+![exception](https://github.com/jmhenley5326/BW_Showcase/blob/master/screenshots/Exception.png?raw=true)
 ### showcase_basic.module.choreography
 A series of processes that combine many of the basic examples and combines them into a business choreography. This also shows how to encapsulate a set of activities into a subprocess for reuse.
+
+Choreography Example<BR>
+![orch1](https://github.com/jmhenley5326/BW_Showcase/blob/master/screenshots/Orch1.png?raw=true)
+![orch2](https://github.com/jmhenley5326/BW_Showcase/blob/master/screenshots/Orch2.png?raw=true)
 ### showcase_basic.module.sandbox
 Use this module to create Processes live and show how they are built
 
