@@ -1,12 +1,12 @@
 # BusinessWorks Showcase
-These projects contain various BusinessWorks examples showcasing functionality within the BusinessWorks 6 environment. There are many more examples available in the BusinessWorks 6 installation. These are intended to be more verbose and demo oriented.
+These projects contain various examples of BusinessWorks that showcase functionality within the BusinessWorks 6 environment. The BusinessWorks 6 installation contains many more examples, which are intended to be more verbose and demo-oriented.
 
 # Projects
 ## Showcase_Basic
-This project contains basic functionality that comes out of the box with BusinessWorks. Each example contains Notes and comments on what is happening. These are intended to show very simple reference implementations of various pieces of functionality that can then be used to create more complex business processes. For more information please look at the samples provided with the BW6 installation.
+This project contains basic functionality that comes out of the box with BusinessWorks. Each example contains Notes and comments on what is happening. These are intended to show very simple reference implementations of various pieces of functionality that can then be used to create more complex business processes. For more information, please look at the samples provided for the BW6 installation.
 
 ### Project Pre-Reqs
-* BusinessWorks 6.4
+* BusinessWorks 6.10
 * MySQL configured as described below (Other databases can be used. It is left to the user to adjust the JDBC Shared Resource and ensure all the required objects are available)
 * SMTP Account- The SMTP Shared Resource must be configured for an account the user has access to
 * EMS Instance- Currently configured for local instance but can be changed as needed
@@ -37,12 +37,12 @@ Shows a simple mapping from one XSD to another as well as from an XSD to a Flat 
 Mapper Example<BR>
 ![map](https://github.com/jmhenley5326/BW_Showcase/blob/master/screenshots/Mapper.png?raw=true)
 ### showcase_basic.module.files
-Examples of writing files and listening for file events such as create, modify and delete
+Examples of writing files and listening for file events such as create, modify, and delete
 
 Files Example<BR>
 ![files](https://github.com/jmhenley5326/BW_Showcase/blob/master/screenshots/File.png?raw=true)
 ### showcase_basic.module.exception
-Very basic illustration of catching and handling exceptions within a process
+This is a very basic illustration of catching and handling exceptions within a process.
 
 Exception Example<BR>
 ![exception](https://github.com/jmhenley5326/BW_Showcase/blob/master/screenshots/Exception.png?raw=true)
