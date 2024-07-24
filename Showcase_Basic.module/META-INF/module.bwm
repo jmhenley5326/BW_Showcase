@@ -161,4 +161,7 @@
   <sca:component xmi:id="_MxqpQEDgEeynQuStOUgMUQ" name="ComponentInvoke_Service_Binary_Payload" compositeext:version="1.0.0.qualifier">
     <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_MxqpQUDgEeynQuStOUgMUQ" processName="showcase_basic.module.consumers.Invoke_Service_Binary_Payload"/>
   </sca:component>
+  <sca:component xmi:id="_WSH08EnEEe-ovYwmlMcj1A" name="ComponentSandbox" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_WSH08UnEEe-ovYwmlMcj1A" processName="showcase_basic.module.sandbox.Sandbox"/>
+  </sca:component>
 </sca:composite>
